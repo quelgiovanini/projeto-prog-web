@@ -12,6 +12,7 @@
         <title>Teste</title>
     </head>
     <body>
-        <h1>Hello World! diff Funciona</h1>
+        <h1>Sistema de Gerenciamento de Horas Complementares</h1>
+        <a href="cadastraPessoas.html">Cadastrar Pessoas</a>
     </body>
 </html>
