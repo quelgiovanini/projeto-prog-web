@@ -4,10 +4,29 @@
         <title>Sistema de Gerenciamento de Horas Complementares</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
-    <body>
-        <div>Cadastro de Pessoas</div>
-        
-        <form action="formCadastroPessoas" method="POST">
+    <body>       
+        <form id="form1" action="formCadastroPessoas" method="POST">
+            <fieldset><legend>Contact form</legend>
+                <p class="first">
+                        <label for="nome">Name</label>
+                        <input type="text" name="nome" id="name" size="30" />
+                </p>
+                <p>
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" size="30" />
+                </p>
+                <p>
+                        <label for="web">Senha</label>
+                        <input type="password" name="web" id="pass" size="30" />
+                </p>			
+            </fieldset>
+            <fieldset>																			
+                    <p>
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    </p>								
+            </fieldset>	
+            <!--
             <table>
                 <tr>
                     <td>Nome: </td>
@@ -22,7 +41,7 @@
                     <td><input type="password" size="20" id="senha" name="senha"/></td>
                 </tr> 
             </table>
-            <input type="Submit" value="Cadastrar" />
+            <input type="Submit" value="Cadastrar" />-->
         </form>
     </body>
 </html>

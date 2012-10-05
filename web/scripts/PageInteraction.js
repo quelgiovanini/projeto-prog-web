@@ -2,8 +2,9 @@ $(function(){
     $("#linkCadastrarPessoa").button({icons: { primary: "ui-icon-gear"},text:false});
     $("#dialog").dialog({
         autoOpen:false,
-        width: 400,
-        height: 400,
+        width: 700,
+        height: 350,
+        resizable: false,
         title: "Cadastrar Pessoa",
         modal: true
     });
