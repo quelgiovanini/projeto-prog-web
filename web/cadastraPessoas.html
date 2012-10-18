@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sistema de Gerenciamento de Horas Complementares</title>
+        <title>SIATCO - Sistema de Gerenciamento de Horas Complementares</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>       
         <form id="form1" action="formCadastroPessoas" method="POST">
-            <fieldset><legend>Contact form</legend>
-                <p class="first">
-                        <label for="nome">Name</label>
-                        <input type="text" name="nome" id="name" size="30" />
-                </p>
-                <p>
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email" size="30" />
-                </p>
-                <p>
-                        <label for="web">Senha</label>
-                        <input type="password" name="web" id="pass" size="30" />
-                </p>			
+            <fieldset><legend>Cadastrar pessoa</legend>
+                <table>
+                    <tr>
+                    <p class="first">
+                        <td><label for="nome">Nome</label></td>
+                        <td><input type="text" name="nome" id="nome" size="30" /></td>
+                    </p>
+                    </tr>
+                    <tr>
+                    <p>
+                        <td><label for="email">E-mail</label></td>
+                        <td><input type="text" name="email" id="email" size="30" /></td>
+                    </p>
+                    </tr>
+                    <tr>
+                    <p>
+                        <td><label for="senha">Senha</label></td>
+                        <td><input type="password" name="senha" id="senha" size="30" /></td>
+                    </p>
+                    </tr>
+                    <tr>
+                    <p>
+                        <td><label for="rg">RG</label></td>
+                        <td><input type="text" name="rg" id="rg" size="30" /></td>
+                    </p>
+                    </tr>
+                    <tr>
+                    <p>
+                        <td><label for="datanasc">Data de Nascimento</label></td>
+                        <td><input type="text" name="datanasc" id="datanasc" size="30" /></td>
+                    </p>
+                    </tr>
+                </table>
+                <br/>
+                <input type="submit" value="Cadastrar">
+                <input type="reset" value="Limpar">
             </fieldset>
-            <fieldset>																			
+            <!-- <fieldset>																			
                     <p>
                             <label for="message">Message</label>
                             <textarea name="message" id="message" cols="30" rows="10"></textarea>
                     </p>								
-            </fieldset>	
+            </fieldset>	-->
             <!--
             <table>
                 <tr>
@@ -42,6 +65,7 @@
                 </tr> 
             </table>
             <input type="Submit" value="Cadastrar" />-->
-        </form>
+            
+        </form>        
     </body>
 </html>
