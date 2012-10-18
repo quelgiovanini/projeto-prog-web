@@ -7,13 +7,14 @@ public class Pessoa {
     private int codPessoa;
     private String nomePessoa;
     private String rg;
-    private Date dataNascimento;
+    private String dataNascimento;
+    private String email;
 
     public Pessoa() {
         
     }
     
-    public Pessoa(int codPessoa, String nomePessoa, String rg, Date dataNascimento) {
+    public Pessoa(int codPessoa, String nomePessoa, String rg, String dataNascimento) {
         this.codPessoa = codPessoa;
         this.nomePessoa = nomePessoa;
         this.rg = rg;
@@ -23,13 +24,17 @@ public class Pessoa {
     public int getCodPessoa() {
         return codPessoa;
     }
-
+    
     public void setCodPessoa(int codPessoa) {
         this.codPessoa = codPessoa;
     }
 
     public String getNomePessoa() {
         return nomePessoa;
+    }
+    
+    public String getEmail(){
+        return email;
     }
 
     public void setNomePessoa(String nomePessoa) {
@@ -44,11 +49,11 @@ public class Pessoa {
         this.rg = rg;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 

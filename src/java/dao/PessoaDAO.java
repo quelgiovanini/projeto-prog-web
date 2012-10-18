@@ -1,9 +1,13 @@
 package dao;
 
+import database.DBConnection;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import model.Pessoa;
 import util.PropertiesManager;
 
 /**
@@ -20,7 +24,19 @@ public class PessoaDAO implements InterfaceDAO {
 
   @Override
   public void inserir(Object obj) throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
+    Pessoa pessoa = (Pessoa) obj;
+    
+    Connection conexao = DBConnection.getInstance();
+    
+    String sql = (String) dados.get("Pessoa.Inserir");
+        
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        stmt.setString(1, pessoa.getNomePessoa());
+        stmt.setString(2, pessoa.getRg());        
+        stmt.setString(3, pessoa.getDataNascimento());
+        stmt.execute();
+        conexao.close();
+            
   }
 
   @Override
