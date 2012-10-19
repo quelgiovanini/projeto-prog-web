@@ -4,8 +4,8 @@
  */
 package DAO;
 
-import Model.Atividade;
 import Database.DBConnection;
+import Model.*;
 import Util.PropertiesManager;
 import java.io.IOException;
 import java.sql.Connection;
