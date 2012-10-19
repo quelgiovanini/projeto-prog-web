@@ -2,9 +2,7 @@ package dao;
 
 import database.DBConnection;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import model.Pessoa;
@@ -30,12 +28,12 @@ public class PessoaDAO implements InterfaceDAO {
     
     String sql = (String) dados.get("Pessoa.Inserir");
         
-        PreparedStatement stmt = conexao.prepareStatement(sql);
-        stmt.setString(1, pessoa.getNomePessoa());
-        stmt.setString(2, pessoa.getRg());        
-        stmt.setString(3, pessoa.getDataNascimento());
-        stmt.execute();
-        conexao.close();
+    PreparedStatement stmt = conexao.prepareStatement(sql);    
+    stmt.setString(1, pessoa.getNomePessoa());
+    stmt.setString(2, pessoa.getRg());
+    //stmt.setString(3, pessoa.getDataNascimento()); // a data está hard coded por enquanto até usarmos alguma maneira de validar antes se a data foi digitada corretamente
+    stmt.execute();
+    conexao.close();
             
   }
 
