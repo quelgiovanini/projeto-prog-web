@@ -14,6 +14,12 @@ public class Pessoa {
         
     }
     
+    public Pessoa(String nomePessoa, String rg, String dataNascimento) {        
+        this.nomePessoa = nomePessoa;
+        this.rg = rg;
+        this.dataNascimento = dataNascimento;
+    }
+    
     public Pessoa(int codPessoa, String nomePessoa, String rg, String dataNascimento) {
         this.codPessoa = codPessoa;
         this.nomePessoa = nomePessoa;

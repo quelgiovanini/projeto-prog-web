@@ -4,9 +4,13 @@
  */
 package control;
 
+import dao.PessoaDAO;
 import database.DBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -51,7 +55,7 @@ public class trataCadastroPessoa extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
@@ -59,10 +63,10 @@ public class trataCadastroPessoa extends HttpServlet {
             String rg     = request.getParameter("rg");
             String dtNasc = request.getParameter("datanasc");           
 
-            Pessoa value = new Pessoa();
-            value.setDataNascimento(dtNasc);
-            value.setRg(rg);
-            value.setNomePessoa(nome);
+            Pessoa pessoa = new Pessoa(nome, rg, dtNasc);
+            pessoa.setNomePessoa(nome);
+            
+            new PessoaDAO().inserir(pessoa);
             
             /* TODO output your page here. You may use following sample code. */
             out.println("<html>");
@@ -70,11 +74,12 @@ public class trataCadastroPessoa extends HttpServlet {
             out.println("<title>Cadastro realizado</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet trataCadastroPessoa at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Pessoa cadastrada com sucesso</h1>");
             out.println("</body>");
             out.println("</html>");
-        } finally {            
-            out.close();
+            
+        } catch (SQLException ex) {            
+            throw new ServletException(ex);
         }
     }
 
@@ -91,7 +96,11 @@ public class trataCadastroPessoa extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(trataCadastroPessoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -106,7 +115,11 @@ public class trataCadastroPessoa extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(trataCadastroPessoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
