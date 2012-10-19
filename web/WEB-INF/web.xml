@@ -19,7 +19,7 @@
     </context-param>
     <servlet>
         <servlet-name>trataCadastroPessoa</servlet-name>
-        <servlet-class>control.trataCadastroPessoa</servlet-class>
+        <servlet-class>Control.trataCadastroPessoa</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>trataCadastroPessoa</servlet-name>
