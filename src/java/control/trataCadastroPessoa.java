@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Aluno;
 import model.Pessoa;
 
 /**
@@ -59,14 +60,21 @@ public class trataCadastroPessoa extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String nome   = request.getParameter("nome");
-            String rg     = request.getParameter("rg");
-            String dtNasc = request.getParameter("datanasc");           
+            String nome    = request.getParameter("nome");
+            String rg      = request.getParameter("rg");
+            String dtNasc  = request.getParameter("datanasc");
+            int tipoPessoa = Integer.parseInt(request.getParameter("tipopessoa"));
+            
 
             Pessoa pessoa = new Pessoa(nome, rg, dtNasc);
             pessoa.setNomePessoa(nome);
             
             new PessoaDAO().inserir(pessoa);
+            
+            switch (tipoPessoa){
+              case 1: 
+                Aluno aluno = new Aluno(nome, dtNasc, dtNasc, nome);
+            }
             
             /* TODO output your page here. You may use following sample code. */
             out.println("<html>");

@@ -1,5 +1,8 @@
 package model;
 
+import database.DBConnection;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class Pessoa {
@@ -27,15 +30,18 @@ public class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getCodPessoa() {
-        return codPessoa;
+    public int getCodPessoa() throws SQLException {
+      if(this.codPessoa == 0){
+        Connection conexao = DBConnection.getInstance();
+      }
+      return codPessoa;
     }
     
     public void setCodPessoa(int codPessoa) {
         this.codPessoa = codPessoa;
     }
 
-    public String getNomePessoa() {
+    public String getNomePessoa() {      
         return nomePessoa;
     }
     
@@ -61,6 +67,10 @@ public class Pessoa {
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+    
+    public void setPessoa(Object pessoa){
+      
     }
 
     @Override

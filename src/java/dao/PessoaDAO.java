@@ -41,7 +41,18 @@ public class PessoaDAO implements InterfaceDAO {
   public void excluir(Object obj) throws SQLException {
     throw new UnsupportedOperationException("Not supported yet.");
   }
-
+  
+  public Object getCodPessoaPorObjeto(Pessoa pessoa) throws SQLException{
+    Connection conexao = DBConnection.getInstance();
+    String sql = (String) dados.get("Pessoa.PesquisarPorNomeRG");
+    PreparedStatement stmt = conexao.prepareStatement(sql);
+    stmt.setString(1, pessoa.getNomePessoa());
+    stmt.setString(2, pessoa.getRg());
+    stmt.execute();
+    
+    
+    return pessoa;
+  }
   @Override
   public ArrayList pesquisarTudo() throws SQLException {
     throw new UnsupportedOperationException("Not supported yet.");

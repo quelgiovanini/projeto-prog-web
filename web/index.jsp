@@ -13,6 +13,8 @@
     </head>
     <body>
         <h1> Analisar atividades </h1>
-          <!--<a href="cadastroAtividade.html"> Analisar Horas </a><br/> -->
+          <a href="cadastroAtividade.html"> Analisar Horas </a><br/>
+        <h1> Cadastros </h1>
+          <a href="cadastraPessoas.html"> Cadastrar Pessoas </a><br/>
     </body>
 </html>
