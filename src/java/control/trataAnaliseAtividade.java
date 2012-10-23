@@ -4,6 +4,8 @@
  */
 package control;
 
+import model.Professor;
+import model.Usuario;
 import dao.AtividadeDAO;
 import dao.UsuarioDAO;
 import database.DBConnection;
