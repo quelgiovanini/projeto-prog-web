@@ -14,7 +14,7 @@ public class Funcionario extends Pessoa {
     private int codTipoFuncionario;
 
     public Funcionario(int codPessoa, String nome, String email, String matricula, int tipoFuncionario, int cargo, int setor){
-        super(nome, email, matricula);
+        super(codPessoa, nome, email, matricula);
         this.setCargo(cargo);
         this.setSetor(setor);
         this.setTipoFuncionario(tipoFuncionario);
