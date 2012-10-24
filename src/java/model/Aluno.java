@@ -14,9 +14,10 @@ import java.util.ArrayList;
 public class Aluno extends Pessoa {
     
      private String ingresso;
-     private Curriculo curriculo;
+     private String numeroMatricula;
    //  private ArrayList atividades = new ArrayList();
      private int horasAcumuladas;
+     private Curriculo curriculo;
     
     public Aluno(String nome, String email, String matricula, String ingresso, Curriculo curriculo){
         super(nome, email, matricula);
@@ -24,11 +25,18 @@ public class Aluno extends Pessoa {
         this.setCurriculo(curriculo);
     }
     
+    public Aluno(int codPessoa, String nome, String email, String matricula, String ingresso){
+        super(codPessoa, nome, email, matricula);
+        this.setIngresso(ingresso);
+        
+    }
+    
     public Aluno(String nome, String email, String matricula, String ingresso){
         super(nome, email, matricula);
         this.setIngresso(ingresso);
      //   this.setCurriculo(curriculo);
-    }    
+    }
+    
 
     public Aluno getAluno() {
         return this;

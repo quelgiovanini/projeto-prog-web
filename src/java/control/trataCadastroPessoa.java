@@ -4,7 +4,9 @@
  */
 package control;
 
+import dao.AlunoDAO;
 import dao.PessoaDAO;
+import dao.FuncionarioDAO;
 import database.DBConnection;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,6 +22,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Aluno;
 import model.Pessoa;
+import model.Curriculo;
+import model.Funcionario;
 
 /**
  *
@@ -59,36 +63,56 @@ public class trataCadastroPessoa extends HttpServlet {
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            String nome    = request.getParameter("nome");
-            String rg      = request.getParameter("rg");
-            String dtNasc  = request.getParameter("datanasc");
-            int tipoPessoa = Integer.parseInt(request.getParameter("tipopessoa"));
-            
-
-            Pessoa pessoa = new Pessoa(nome, rg, dtNasc);
-            pessoa.setNomePessoa(nome);
-            
-            new PessoaDAO().inserir(pessoa);
-            
-            switch (tipoPessoa){
-              case 1: 
-                Aluno aluno = new Aluno(nome, dtNasc, dtNasc, nome);
-            }
-            
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Cadastro realizado</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Pessoa cadastrada com sucesso</h1>");
-            out.println("</body>");
-            out.println("</html>");
-            
+        String nome    = request.getParameter("nome");
+        String rg      = request.getParameter("rg");
+        String dtNasc  = request.getParameter("datanasc");
+        String email   = request.getParameter("email");
+        String matricula = request.getParameter("matricula");
+        String ingresso  = request.getParameter("ingresso");
+        int tipoPessoa = Integer.parseInt(request.getParameter("tipopessoa")); 
+        Pessoa pessoa = new Pessoa(nome, rg, dtNasc);
+        pessoa.setNomePessoa(nome);       
+        
+        try {          
+          new PessoaDAO().inserir(pessoa);
         } catch (SQLException ex) {            
-            throw new ServletException(ex);
+            throw new ServletException("Erro ao tentar inserir pessoa: "+ex);
         }
+        
+        int codPessoa = new PessoaDAO().getCodPessoaPorObjeto(pessoa);
+        
+        if (tipoPessoa == 1){
+          Aluno aluno = new Aluno(codPessoa,nome, email, matricula, ingresso);          
+          try{
+            new AlunoDAO().inserir(aluno);
+          } catch (SQLException ex) {            
+              throw new ServletException("Erro ao tentar inserir aluno "+": "+ex);
+          }
+        }else{
+          int tipoFunc = 0;
+          if (tipoPessoa == 2){
+            tipoFunc = 1;
+          }else if(tipoPessoa == 3){
+            tipoFunc = 2;
+          }
+          Funcionario func = new Funcionario(codPessoa, nome, email, matricula, tipoFunc, 1, 1);
+          try{
+            new FuncionarioDAO().inserir(func);
+          } catch (SQLException ex) {            
+              throw new ServletException("Erro ao tentar inserir funcionario "+codPessoa+": "+ex);
+          }
+        }
+        
+        /* TODO output your page here. You may use following sample code. */
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Cadastro realizado</title>");            
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1>Pessoa cadastrada com sucesso</h1>");
+        out.println("</body>");
+        out.println("</html>");            
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

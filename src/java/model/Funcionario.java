@@ -9,13 +9,15 @@ package model;
  * @author Quele
  */
 public class Funcionario extends Pessoa {
-    private String cargo;
-    private String setor;
+    private int codCargo;
+    private int codSetor;
+    private int codTipoFuncionario;
 
-    public Funcionario(String nome, String email, String matricula, String cargo, String setor){
+    public Funcionario(int codPessoa, String nome, String email, String matricula, int tipoFuncionario, int cargo, int setor){
         super(nome, email, matricula);
         this.setCargo(cargo);
         this.setSetor(setor);
+        this.setTipoFuncionario(tipoFuncionario);
     }
   
    public Funcionario getFuncionario() {
@@ -28,20 +30,28 @@ public class Funcionario extends Pessoa {
         this.setSetor(funcionarios.getSetor());
     }    
     
-    public java.lang.String getCargo() {
-        return cargo;
+    public int getCargo() {
+        return codCargo;
+    }
+    
+    public void setTipoFuncionario(int tipoFuncionario){
+      this.codTipoFuncionario = tipoFuncionario;
+    }
+    
+    public int getCodTipoFuncionario(){
+      return codTipoFuncionario;
     }
 
-    public void setCargo(java.lang.String cargo) {
-        this.cargo = cargo;
+    public void setCargo(int cargo) {
+        this.codCargo = cargo;
     }
 
-    public java.lang.String getSetor() {
-        return setor;
+    public int getSetor() {
+        return codSetor;
     }
 
-    public void setSetor(java.lang.String setor) {
-        this.setor = setor;
+    public void setSetor(int setor) {
+        this.codSetor = setor;
     }
 
     public boolean testeSenha(String senha){

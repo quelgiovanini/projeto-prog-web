@@ -9,7 +9,7 @@ package model;
  * @author Quele
  */
 
-class Curriculo {
+public class Curriculo {
 
     private String nomeCurriculo;
     private Curso curso;
@@ -20,6 +20,10 @@ class Curriculo {
         this.setCurso(curso);
         this.setTotalHoras(totalHoras);
     }    
+    
+    public Curriculo(){
+      
+    }
     
     public Curriculo getCurriculo() {
         return this;
