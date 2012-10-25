@@ -29,6 +29,10 @@
         <servlet-name>trataListaAtividade</servlet-name>
         <servlet-class>control.trataListaAtividade</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>trataCadastroAtividade</servlet-name>
+        <servlet-class>control.trataCadastroAtividade</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>trataCadastroPessoa</servlet-name>
         <url-pattern>/trataCadastroPessoa</url-pattern>
@@ -40,6 +44,10 @@
     <servlet-mapping>
         <servlet-name>trataListaAtividade</servlet-name>
         <url-pattern>/trataListaAtividade</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>trataCadastroAtividade</servlet-name>
+        <url-pattern>/trataCadastroAtividade</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
