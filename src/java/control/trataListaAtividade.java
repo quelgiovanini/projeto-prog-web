@@ -4,76 +4,48 @@
  */
 package control;
 
-import dao.UsuarioDAO;
-import database.DBConnection;
-import model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Quele
  */
+public class trataListaAtividade extends HttpServlet {
 
-@WebServlet(name = "trataLogin", urlPatterns = {"/trataLogin"})
-public class trataLogin extends HttpServlet {
-
-
-    private Connection conexao;
-    
-    @Override
-    public void init(ServletConfig config) throws ServletException{
-        super.init(config);
-        
-        //Recupera o contexto da aplicação para inicializar o banco de dados
-        try {
-        ServletContext context = getServletContext();
-        String user = (String) context.getInitParameter("user");
-        String senha = (String) context.getInitParameter("senha");
-        String driver = (String) context.getInitParameter("driver");
-        String url = (String) context.getInitParameter("url");
-        
-        new DBConnection(user, senha, driver, url);
-        
-//        conexao = DriverManager.getConnection(url, user, senha);
-        } catch (Exception ex) {
-            throw new ServletException(ex);
-        }
-    }
-    
+    /**
+     * Processes requests for both HTTP
+     * <code>GET</code> and
+     * <code>POST</code> methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println();
-        String login = request.getParameter("Login");
-        String senha = request.getParameter("Senha");
         try {
-            Usuario user = new UsuarioDAO().pesquisarLogin(login);
-            if (user != null && user.getSenha().equals(senha)){
-                //cria objeto de sessão que identifica o usuario
-                HttpSession session = request.getSession(true);
-                session.setAttribute("usuario",user);
-                //Redireciona para outra página
-                response.sendRedirect("index.jsp");
-            } else {
-                out.println("<h1> Falha durante a execução </h1>");
-                response.sendRedirect("login.tml");
-            }
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet trataListaAtividade</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet trataListaAtividade at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {            
             out.close();
-        } catch (Exception ex) {
-            throw new ServletException (ex);
-        }           
+        }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP

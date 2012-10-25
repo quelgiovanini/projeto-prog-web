@@ -60,16 +60,17 @@ public class trataAnaliseAtividade extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-        String aluno = request.getParameter("aluno");
-        String tp = request.getParameter("tipo");
-        String prof = request.getParameter("prof");
-        String status = request.getParameter("sta");
+            String cod    = request.getParameter("cod");            
+            String aluno  = request.getParameter("aluno");
+            String tp     = request.getParameter("tipo");
+            String prof   = request.getParameter("prof");
+            String status = request.getParameter("sta");
         
         HttpSession session = request.getSession(false);
         
         Usuario value = (Usuario) session.getAttribute("usuario");
         
-        Atividade ativ = new Atividade(new Aluno(aluno,"teste","0120","2012"), new TipoAtividade(tp), new Professor(prof,"teste","0012",Area.INFORMATICA), status);
+        Atividade ativ = new Atividade(cod, new Aluno(aluno,"teste","0120","2012"), new TipoAtividade(tp), new Professor(prof,"teste","0012",Area.INFORMATICA), status);
         new AtividadeDAO().inserir(ativ);
             
             out.println();

@@ -21,9 +21,25 @@
         <servlet-name>trataCadastroPessoa</servlet-name>
         <servlet-class>control.trataCadastroPessoa</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>trataIndex</servlet-name>
+        <servlet-class>control.trataIndex</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>trataListaAtividade</servlet-name>
+        <servlet-class>control.trataListaAtividade</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>trataCadastroPessoa</servlet-name>
         <url-pattern>/trataCadastroPessoa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>trataIndex</servlet-name>
+        <url-pattern>/trataIndex</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>trataListaAtividade</servlet-name>
+        <url-pattern>/trataListaAtividade</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -31,6 +47,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>login.html</welcome-file>
     </welcome-file-list>
 </web-app>

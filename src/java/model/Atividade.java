@@ -23,6 +23,8 @@ public class Atividade {
     private Professor professorResponsavel = null;
     private String status = " ";
     private String observacao = null;
+
+    public Atividade () { }
     
     public Atividade(Aluno aluno, String idAtividade, Date dataRequisicao, TipoAtividade tipoAtividade, int horasRequisitadas, Funcionario funcionario, String obs){
         this.setAluno(aluno);
@@ -36,7 +38,8 @@ public class Atividade {
       //this.professorResponsavel = tipoAtividade.getCurso().getProfessor();
     }
     
-    public Atividade(Aluno aluno, TipoAtividade tipoAtividade, Professor professorResponsavel, String status){
+    public Atividade(String idAtividade, Aluno aluno, TipoAtividade tipoAtividade, Professor professorResponsavel, String status){
+        this.setIdAtividade(idAtividade);
         this.setAluno(aluno);
     //    this.setIdAtividade(idAtividade);
      //   this.setDataRequisicao(dataRequisicao);
@@ -48,11 +51,11 @@ public class Atividade {
       //this.professorResponsavel = tipoAtividade.getCurso().getProfessor();
     }    
     
-    public Atividade getNoticia() {
+    public Atividade getAtividade() {
         return this;
     }
 
-    public void setNoticia(Atividade atividades){
+    public void setAtividade(Atividade atividades){
         this.setAluno(atividades.getAluno());
         this.setIdAtividade(atividades.getIdAtividade());
         this.setDataRequisicao(atividades.getDataRequisicao());
