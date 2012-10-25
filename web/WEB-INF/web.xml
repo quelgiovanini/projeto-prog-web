@@ -26,6 +26,10 @@
         <servlet-class>control.trataIndex</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>trataLogin</servlet-name>
+        <servlet-class>control.trataLogin</servlet-class>
+    </servlet>    
+    <servlet>
         <servlet-name>trataListaAtividade</servlet-name>
         <servlet-class>control.trataListaAtividade</servlet-class>
     </servlet>
@@ -41,6 +45,10 @@
         <servlet-name>trataIndex</servlet-name>
         <url-pattern>/trataIndex</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>trataLogin</servlet-name>
+        <url-pattern>/trataLogin</url-pattern>
+    </servlet-mapping>    
     <servlet-mapping>
         <servlet-name>trataListaAtividade</servlet-name>
         <url-pattern>/trataListaAtividade</url-pattern>
