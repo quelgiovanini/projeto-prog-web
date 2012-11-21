@@ -101,8 +101,7 @@ public class AtividadeDAO implements InterfaceDAO {
     public void editar(Object newObj) throws SQLException {
         Atividade newAtiv = (Atividade) newObj;   
         Atividade oldAtiv = null;
-  //      oldAtiv = pesquisarCod(newAtiv.getAtividade().getIdAtividade());
-  
+  //      oldAtiv = pesquisarCod(newAtiv.getAtividade().getIdAtividade()); 
                      
         Connection conexao = DBConnection.getInstance();
         String sql = (String) dados.get("Update.Atividade");
