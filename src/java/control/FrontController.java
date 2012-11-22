@@ -25,7 +25,7 @@ public class FrontController extends HttpServlet {
         super.init(config);
 
         comandos = new Hashtable();
-        comandos.put("trataLogin", "control.TrataLogin");
+        comandos.put("trataLogin", "control.trataLogin");
         comandos.put("trataCadastroPessoa", "control.TrataCadastroPessoa");
         comandos.put("trataCadastroAtividade", "control.TrataCadastroAtividade");
         comandos.put("trataAnaliseAtividade", "control.TrataAnaliseAtividade");

@@ -48,7 +48,9 @@ public class AtividadeDAO implements InterfaceDAO {
 
     @Override
     public void excluir(Object obj) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //throw new UnsupportedOperationException("Not supported yet.");
+        
+        
     }
 
     @Override

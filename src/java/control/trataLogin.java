@@ -67,7 +67,7 @@ public class trataLogin extends HttpServlet {
                 response.sendRedirect("index.jsp");
             } else {
                 out.println("<h1> Falha durante a execução </h1>");
-                response.sendRedirect("login.tml");
+                response.sendRedirect("erroLogin.html");
             }
             out.close();
         } catch (Exception ex) {

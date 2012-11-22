@@ -43,11 +43,11 @@ public class TrataCadastroPessoa extends Comando {
         
         if (tipoPessoa == 1){
           Aluno aluno = new Aluno(codPessoa,nome, email, matricula, ingresso);          
-          /*try{
+          try{
             new AlunoDAO().inserir(aluno);
           } catch (SQLException ex) {            
               throw new ServletException("Erro ao tentar inserir aluno "+": "+ex);
-          }*/
+          }
         }else{
           int tipoFunc = 0;
           if (tipoPessoa == 2){
