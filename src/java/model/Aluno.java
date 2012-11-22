@@ -68,6 +68,14 @@ public class Aluno extends Pessoa {
         return horasAcumuladas;
     }
     
+    public void setNumMatricula(String matricula){
+        this.numeroMatricula = matricula;
+    }
+    
+    public String getNumMatricula(){
+        return this.numeroMatricula;
+    }
+    
     public int addHoras(int valor){
         if (curriculo.getTotalHoras() > valor)
             horasAcumuladas+=valor;

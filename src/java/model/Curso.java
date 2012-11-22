@@ -8,10 +8,11 @@ package model;
  *
  * @author Quele
  */
-class Curso {
+public class Curso {
     private Area area;
     private String nome;
     private Professor orientador;
+    private int codCurso;
     
     public Curso() { }
     
@@ -54,6 +55,14 @@ class Curso {
 
     public void setOrientador(Professor orientador) {
         this.orientador = orientador;
+    }
+    
+    public void setCodCurso(int codCurso){
+        this.codCurso = codCurso;
+    }
+    
+    public int getCodCurso(){
+        return this.codCurso;
     }
     
     @Override

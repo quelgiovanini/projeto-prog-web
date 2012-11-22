@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import model.Aluno;
+import model.Atividade;
 import model.Pessoa;
 import util.PropertiesManager;
 
@@ -54,12 +55,34 @@ public class AlunoDAO implements InterfaceDAO {
 
   @Override
   public Object pesquisarChave(int chave) throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
+      Aluno aluno = null;
+      
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("Aluno.BuscaPorCod");
+      PreparedStatement pstmt = conexao.prepareStatement(sql);
+      pstmt.setInt(1, chave);
+      ResultSet rs = pstmt.executeQuery();
+      if(rs.next()){
+          aluno.setCodPessoa(rs.getInt(1));
+          aluno.setIngresso(rs.getString(2));
+          aluno.setNumMatricula(rs.getString(3));
+      }
+      return aluno;
   }
 
   @Override
   public void editar(Object obj) throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
+        Aluno newAluno = (Aluno) obj;   
+        Aluno oldAluno = (Aluno) pesquisarChave(newAluno.getCodPessoa()); 
+                     
+        Connection conexao = DBConnection.getInstance();
+        String sql = (String) dados.get("Aluno.Editar");
+        PreparedStatement pstmt = conexao.prepareStatement(sql);
+        pstmt.setString(1, newAluno.getIngresso());
+        pstmt.setString(2, newAluno.getNumMatricula());
+        pstmt.setInt(3, oldAluno.getCodPessoa());        
+        pstmt.execute();
+        pstmt.close();
   }
   
 }

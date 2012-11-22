@@ -34,7 +34,7 @@ public class Pessoa {
       if(this.codPessoa == 0){
         Connection conexao = DBConnection.getInstance();
       }
-      return codPessoa;
+      return this.codPessoa;
     }
     
     public void setCodPessoa(int codPessoa) {

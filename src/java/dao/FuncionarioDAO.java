@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import model.Aluno;
 import model.Funcionario;
 import util.PropertiesManager;
 
@@ -53,12 +54,36 @@ public class FuncionarioDAO implements InterfaceDAO {
 
   @Override
   public Object pesquisarChave(int chave) throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
+    Funcionario funcionario = null;
+      
+    Connection conexao = DBConnection.getInstance();
+    String sql = (String) dados.get("Funcionario.BuscaPorCod");
+    PreparedStatement pstmt = conexao.prepareStatement(sql);
+    pstmt.setInt(1, chave);
+    ResultSet rs = pstmt.executeQuery();
+    if(rs.next()){
+        funcionario.setCodPessoa(rs.getInt(1));
+        funcionario.setSetor(rs.getInt(2));
+        funcionario.setTipoFuncionario(rs.getInt(3));
+    }
+    return funcionario;
   }
 
   @Override
   public void editar(Object obj) throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
+    Funcionario newFunc = (Funcionario) obj;   
+    Funcionario oldFunc = (Funcionario) pesquisarChave(newFunc.getCodPessoa()); 
+
+    Connection conexao = DBConnection.getInstance();
+    String sql = (String) dados.get("Aluno.Update");
+    PreparedStatement pstmt = conexao.prepareStatement(sql);
+    pstmt.setInt(1, newFunc.getSetor());
+    pstmt.setInt(2, newFunc.getCodTipoFuncionario());
+    pstmt.setInt(3, newFunc.getCurso().getCodCurso());
+    pstmt.setInt(4, oldFunc.getCodPessoa());
+    
+    pstmt.execute();
+    pstmt.close();
   }
   
 }

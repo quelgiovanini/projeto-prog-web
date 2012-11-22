@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import model.Aluno;
 import model.Pessoa;
 import util.PropertiesManager;
 
@@ -66,12 +67,36 @@ public class PessoaDAO implements InterfaceDAO {
 
   @Override
   public Object pesquisarChave(int chave) throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
+    Pessoa pessoa= null;
+      
+    Connection conexao = DBConnection.getInstance();
+    String sql = (String) dados.get("Aluno.BuscaPorCod");
+    PreparedStatement pstmt = conexao.prepareStatement(sql);
+    pstmt.setInt(1, chave);
+    ResultSet rs = pstmt.executeQuery();
+    if(rs.next()){
+        pessoa.setCodPessoa(rs.getInt(1));
+        pessoa.setDataNascimento(rs.getString(2));
+        pessoa.setNomePessoa(rs.getString(3));
+        pessoa.setRg(rs.getString(4));
+    }
+    return pessoa;
   }
 
   @Override
   public void editar(Object obj) throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
+    Pessoa newPessoa = (Aluno) obj;   
+    Pessoa oldPessoa = (Aluno) pesquisarChave(newPessoa.getCodPessoa()); 
+
+    Connection conexao = DBConnection.getInstance();
+    String sql = (String) dados.get("Pessoa.Editar");
+    PreparedStatement pstmt = conexao.prepareStatement(sql);
+    pstmt.setString(1, newPessoa.getDataNascimento());
+    pstmt.setString(2, newPessoa.getNomePessoa());
+    pstmt.setString(3, newPessoa.getRg());
+    pstmt.setInt(4, oldPessoa.getCodPessoa());
+    pstmt.execute();
+    pstmt.close();
   }
   
 }

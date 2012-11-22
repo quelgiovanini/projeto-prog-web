@@ -12,6 +12,7 @@ public class Funcionario extends Pessoa {
     private int codCargo;
     private int codSetor;
     private int codTipoFuncionario;
+    private Curso curso;
 
     public Funcionario(int codPessoa, String nome, String email, String matricula, int tipoFuncionario, int cargo, int setor){
         super(codPessoa, nome, email, matricula);
@@ -53,7 +54,14 @@ public class Funcionario extends Pessoa {
     public void setSetor(int setor) {
         this.codSetor = setor;
     }
+        
+    public void setCurso(Curso curso){
+        this.curso = curso;
+    }
 
+    public Curso getCurso(){
+        return this.curso;
+    }
     public boolean testeSenha(String senha){
        // if(senha == getSenha()){
       if (senha != ""){
