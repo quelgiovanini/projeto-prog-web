@@ -36,8 +36,7 @@ public class TrataCadastroAtividade extends Comando {
             String prof   = getRequest().getParameter("prof");
             String status = getRequest().getParameter("sta");
         
-            HttpSession session = getRequest().getSession(false);
-        
+            HttpSession session = getRequest().getSession(false);        
             Usuario value = (Usuario) session.getAttribute("usuario");
         
             Atividade ativ = new Atividade(cod,new Aluno(aluno,"teste","0120","2012"), new TipoAtividade(tp), new Professor(prof,"teste","0012",Area.INFORMATICA), status);

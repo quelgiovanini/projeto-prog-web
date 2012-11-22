@@ -13,6 +13,7 @@ public class Curso {
     private String nome;
     private Professor orientador;
     private int codCurso;
+    private String sigla;
     
     public Curso() { }
     
@@ -63,6 +64,14 @@ public class Curso {
     
     public int getCodCurso(){
         return this.codCurso;
+    }
+    
+    public void setSigla(String sigla){
+        this.sigla = sigla;
+    }
+    
+    public String getSigla(){
+        return this.sigla;
     }
     
     @Override

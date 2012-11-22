@@ -62,13 +62,27 @@ public class PessoaDAO implements InterfaceDAO {
   
   @Override
   public ArrayList pesquisarTudo() throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
+      ArrayList newList = new ArrayList();
+      /*Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("Pessoa.Tudo");
+      PreparedStatement pstmt = conexao.prepareStatement(sql);
+      
+      ResultSet rs = pstmt.executeQuery();
+      while(rs.next()){
+          Pessoa pessoa = new Pessoa();
+          pessoa.setCodPessoa(rs.getInt(1));
+          pessoa.setNomePessoa(rs.getString(2));
+          pessoa.setRg(rs.getString(3));
+          newList.add(pessoa);
+      }*/
+      newList = new pessoaDouble().getListDePessoas();
+      return newList;
   }
 
   @Override
   public Object pesquisarChave(int chave) throws SQLException {
     Pessoa pessoa= null;
-      
+    /*  
     Connection conexao = DBConnection.getInstance();
     String sql = (String) dados.get("Aluno.BuscaPorCod");
     PreparedStatement pstmt = conexao.prepareStatement(sql);
@@ -79,14 +93,15 @@ public class PessoaDAO implements InterfaceDAO {
         pessoa.setDataNascimento(rs.getString(2));
         pessoa.setNomePessoa(rs.getString(3));
         pessoa.setRg(rs.getString(4));
-    }
+    }*/
+    pessoa = new pessoaDouble().getUmaPessoa();
     return pessoa;
   }
 
   @Override
   public void editar(Object obj) throws SQLException {
-    Pessoa newPessoa = (Aluno) obj;   
-    Pessoa oldPessoa = (Aluno) pesquisarChave(newPessoa.getCodPessoa()); 
+    Pessoa newPessoa = (Pessoa) obj;   
+    Pessoa oldPessoa = (Pessoa) pesquisarChave(newPessoa.getCodPessoa()); 
 
     Connection conexao = DBConnection.getInstance();
     String sql = (String) dados.get("Pessoa.Editar");
@@ -97,6 +112,25 @@ public class PessoaDAO implements InterfaceDAO {
     pstmt.setInt(4, oldPessoa.getCodPessoa());
     pstmt.execute();
     pstmt.close();
+  }
+  
+  class pessoaDouble{
+      public ArrayList getListDePessoas(){
+          ArrayList list = new ArrayList();
+          Pessoa pessoa;
+          pessoa = new Pessoa(1, "Joao do Pulo", "9999999", "05-12-1989");
+          list.add(pessoa);
+          pessoa = new Pessoa(2, "Vanderley da Silva", "9999999", "05-12-1989");
+          list.add(pessoa);
+          pessoa = new Pessoa(3, "Claunidei Quirino", "9999999", "05-12-1989");
+          list.add(pessoa);
+          return list;
+      }
+      
+      public Pessoa getUmaPessoa(){
+          Pessoa pessoa = new Pessoa(1,"Joao do Pulo", "999999", "05-12-1989");
+          return pessoa;
+      }
   }
   
 }

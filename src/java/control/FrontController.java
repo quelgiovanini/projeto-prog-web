@@ -29,6 +29,9 @@ public class FrontController extends HttpServlet {
         comandos.put("trataCadastroPessoa", "control.TrataCadastroPessoa");
         comandos.put("trataCadastroAtividade", "control.TrataCadastroAtividade");
         comandos.put("trataAnaliseAtividade", "control.TrataAnaliseAtividade");
+        comandos.put("listaPessoas", "control.ListaPessoas");
+        comandos.put("editarPessoa", "control.EditarPessoa");
+        comandos.put("trataEditaPessoa", "control.TrataEditaPessoa");
         //Acrescentar o mapeamento para as outras classes
 
         //Recupera o contexto da aplicação para inicializar o banco de dados
