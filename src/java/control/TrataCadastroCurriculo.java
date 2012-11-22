@@ -29,22 +29,15 @@ public class TrataCadastroCurriculo extends Comando {
             throws ServletException, IOException {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
-        try {
+
             String curso           = getRequest().getParameter("curso");            
             String semestreInicio  = getRequest().getParameter("semestreInicio");
             
         HttpSession session = getRequest().getSession(false);
         
-        Usuario value = (Usuario) session.getAttribute("usuario");
-        
-        
-        
-            
+        Usuario value = (Usuario) session.getAttribute("usuario");     
         //getResponse().sendRedirect("");
-            
-        } catch(SQLException ex){
-            throw new ServletException(ex);
-        }
+
     }
 
     

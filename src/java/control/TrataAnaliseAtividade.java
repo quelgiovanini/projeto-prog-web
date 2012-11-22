@@ -26,29 +26,35 @@ public class TrataAnaliseAtividade extends Comando {
     
     @Override
     public void execute()
-            throws ServletException, IOException {
-        getResponse().setContentType("text/html;charset=UTF-8");
+            throws ServletException, IOException, SQLException {
+     //   getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
-        try {
-            String cod    = getRequest().getParameter("cod");            
-            String aluno  = getRequest().getParameter("aluno");
-            String tp     = getRequest().getParameter("tipo");
-            String prof   = getRequest().getParameter("prof");
-            String status = getRequest().getParameter("sta");
+        String codigo   = getRequest().getParameter("codati");
+        String aluno    = getRequest().getParameter("aluno");
+        String tipo     = getRequest().getParameter("tipo");
+        String prof     = getRequest().getParameter("prof");
+        String status   = getRequest().getParameter("status");
         
-        HttpSession session = getRequest().getSession(false);
+        Atividade atividade = new Atividade();
+        atividade.setIdAtividade(codigo);
+        atividade.getAluno().setNomePessoa(aluno);
+        atividade.getTipoAtividade().setDescricaoTipo(tipo);
+        atividade.getProfessorResponsavel().setNomePessoa(prof);
+        atividade.setStatus(status);
         
-        Usuario value = (Usuario) session.getAttribute("usuario");
-        
-        Atividade ativ = new Atividade(cod, new Aluno(aluno,"teste","0120","2012"), new TipoAtividade(tp), new Professor(prof,"teste","0012",Area.INFORMATICA), status);
-        new AtividadeDAO().inserir(ativ);
-            
-        //getResponse().sendRedirect("");
-            
-        } catch(SQLException ex){
-            throw new ServletException(ex);
+        AtividadeDAO dao = new AtividadeDAO();
+        String retorno = dao.editar(atividade);
+        if (retorno.equals("sucesso")) {
+            getResponse().sendRedirect("index.jsp");
         }
+            out.println();
+            out.println("<html><head><title> .:: SIATICO ::. </head></title>");
+            out.println("<body>");
+            out.println("<h1> Análise não realizada </h1>");
+            out.println("<br>");
+            out.println("<a href='index.jsp'> Voltar </a>");
+            out.println("</body>");
+            out.println("</html>");
+            
     }
-
-    
 }

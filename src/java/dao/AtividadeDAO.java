@@ -48,15 +48,32 @@ public class AtividadeDAO implements InterfaceDAO {
 
     @Override
     public void excluir(Object obj) throws SQLException {
-        //throw new UnsupportedOperationException("Not supported yet.");
-        
-        
+        throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+    public String remover(String codati) throws SQLException {
+        String retorno = "erro";                 
+        
+        Connection conexao = DBConnection.getInstance();
+        try{
+            String sql = (String) dados.get("Delete.Atividade");
+            PreparedStatement pstmt = conexao.prepareStatement(sql);
+            pstmt.executeQuery(codati);
+            retorno = "sucesso";
+            pstmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return retorno;
+        
+    }    
 
     @Override
     public ArrayList pesquisarTudo() throws SQLException {
       ArrayList ativList = new ArrayList();
-      Connection conexao = DBConnection.getInstance();
+      ativList = new AtividadeDAO.atividadeDouble().getListAtividades();
+      return ativList;
+   /*   Connection conexao = DBConnection.getInstance();
       String sql = (String) dados.get("SelectALL.Atividade");
       PreparedStatement pstmt = conexao.prepareStatement(sql);
       ResultSet rs = pstmt.executeQuery();
@@ -72,11 +89,12 @@ public class AtividadeDAO implements InterfaceDAO {
           ativList.add(rs);
       }
        pstmt.close();
-       return ativList;
-    }
+       return ativList;*/
+    } 
     
-    public Object pesquisarCod(String cod) throws SQLException {
-       Connection conexao = DBConnection.getInstance();
+    public Atividade pesquisarCod(String cod) throws SQLException {
+      //ArrayList ativList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
         Atividade ativ = null;
         String sql = (String) dados.get("SelectById.Atividade");
         PreparedStatement pstmt = conexao.prepareStatement(sql);
@@ -100,21 +118,44 @@ public class AtividadeDAO implements InterfaceDAO {
     }
 
     @Override
-    public void editar(Object newObj) throws SQLException {
-        Atividade newAtiv = (Atividade) newObj;   
-        Atividade oldAtiv = null;
-  //      oldAtiv = pesquisarCod(newAtiv.getAtividade().getIdAtividade()); 
-                     
+    public void editar(Object obj) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public String editar(Atividade atividade) throws SQLException {
+        String retorno = "erro";                 
+        
         Connection conexao = DBConnection.getInstance();
-        String sql = (String) dados.get("Update.Atividade");
-        PreparedStatement pstmt = conexao.prepareStatement(sql);
-        pstmt.setString(1, newAtiv.getIdAtividade());
-        pstmt.setString(2, newAtiv.getAluno().getNomePessoa());
-        pstmt.setString(3, newAtiv.getTipoAtividade().getDescricaoTipo());
-        pstmt.setString(4, newAtiv.getProfessorResponsavel().getNomePessoa());
-        pstmt.setString(5, newAtiv.getStatus());
-        pstmt.execute();
-        pstmt.close();  
+        try{
+            String sql = (String) dados.get("Update.Atividade");
+            PreparedStatement pstmt = conexao.prepareStatement(sql);
+            
+            pstmt.setString(1, atividade.getIdAtividade());
+            pstmt.setString(2, atividade.getAluno().getNomePessoa());
+            pstmt.setString(3, atividade.getTipoAtividade().getDescricaoTipo());
+            pstmt.setString(4, atividade.getProfessorResponsavel().getNomePessoa());
+            pstmt.setString(5, atividade.getStatus());
+            pstmt.execute();
+            retorno = "sucesso";
+            pstmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return retorno;
+    }
+    
+    class atividadeDouble {
+        public ArrayList getListAtividades() {
+            ArrayList atividades = new ArrayList();
+            Atividade atividade;
+            atividade = new Atividade("00001", new Aluno("Johnny","teste","0120","2012"), new TipoAtividade("Estagio"), new Professor("Karen","teste","0012",Area.INFORMATICA), "P");
+            atividades.add(atividade);
+            atividade = new Atividade("00002", new Aluno("Sheldon","teste","0120","2012"), new TipoAtividade("Pesquisa"), new Professor("Marcia","teste","0012",Area.INFORMATICA), "P");
+            atividades.add(atividade);
+            atividade = new Atividade("00003", new Aluno("Leonard","teste","0120","2012"), new TipoAtividade("Congresso"), new Professor("Cesar","teste","0012",Area.INFORMATICA), "P");
+            atividades.add(atividade);
+            return atividades;
+        }
     }
     
 }
