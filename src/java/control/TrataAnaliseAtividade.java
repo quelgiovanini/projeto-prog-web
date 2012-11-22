@@ -43,13 +43,7 @@ public class TrataAnaliseAtividade extends Comando {
         Atividade ativ = new Atividade(cod, new Aluno(aluno,"teste","0120","2012"), new TipoAtividade(tp), new Professor(prof,"teste","0012",Area.INFORMATICA), status);
         new AtividadeDAO().inserir(ativ);
             
-            out.println();
-            out.println("<html><head><title> .:: SIATICO ::. </head></title>");
-            out.println("<body>");
-            out.println("<h1> Atividade em analise </h1>");
-            out.println("<a href='index.jsp'> Voltar </a>");
-            out.println("</body>");
-            out.println("</html>");
+        //getResponse().sendRedirect("");
             
         } catch(SQLException ex){
             throw new ServletException(ex);

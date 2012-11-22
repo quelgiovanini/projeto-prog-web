@@ -12,6 +12,7 @@ package model;
 public class Curriculo {
 
     private String nomeCurriculo;
+    private String semestreCurriculo;
     private Curso curso;
     private int totalHoras;
 
@@ -41,6 +42,14 @@ public class Curriculo {
 
     public void setNomeCurriculo(java.lang.String nomeCurriculo) {
         this.nomeCurriculo = nomeCurriculo;
+    }
+    
+    public void setSemestreCurriculo(String semestreCurriculo){
+        this.semestreCurriculo = semestreCurriculo;
+    }
+    
+    public String getSemestreCurriculo(){
+        return this.semestreCurriculo;
     }
 
     public Curso getCurso() {
