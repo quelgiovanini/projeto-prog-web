@@ -63,7 +63,7 @@ public class PessoaDAO implements InterfaceDAO {
   @Override
   public ArrayList pesquisarTudo() throws SQLException {
       ArrayList newList = new ArrayList();
-      /*Connection conexao = DBConnection.getInstance();
+      Connection conexao = DBConnection.getInstance();
       String sql = (String) dados.get("Pessoa.Tudo");
       PreparedStatement pstmt = conexao.prepareStatement(sql);
       
@@ -74,15 +74,15 @@ public class PessoaDAO implements InterfaceDAO {
           pessoa.setNomePessoa(rs.getString(2));
           pessoa.setRg(rs.getString(3));
           newList.add(pessoa);
-      }*/
-      newList = new pessoaDouble().getListDePessoas();
+      }
+      //newList = new pessoaDouble().getListDePessoas();
       return newList;
   }
 
   @Override
   public Object pesquisarChave(int chave) throws SQLException {
     Pessoa pessoa= null;
-    /*  
+    /*
     Connection conexao = DBConnection.getInstance();
     String sql = (String) dados.get("Aluno.BuscaPorCod");
     PreparedStatement pstmt = conexao.prepareStatement(sql);
