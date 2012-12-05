@@ -24,18 +24,6 @@
                         <td><input type="text" name="nome" id="nome" size="30" value="<%=pessoa.getNomePessoa()%>" /></td>
                     </p>
                     </tr>
-                   <!-- <tr>
-                    <p>
-                        <td><label for="email">E-mail</label></td>
-                        <td><input type="text" name="email" id="email" size="30" /></td>
-                    </p>
-                    </tr>
-                    <tr>
-                    <p>
-                        <td><label for="senha">Senha</label></td>
-                        <td><input type="password" name="senha" id="senha" size="30" /></td>
-                    </p>
-                    </tr>-->
                     <tr>
                     <p>
                         <td><label for="rg">RG</label></td>

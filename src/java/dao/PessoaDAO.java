@@ -82,19 +82,23 @@ public class PessoaDAO implements InterfaceDAO {
   @Override
   public Object pesquisarChave(int chave) throws SQLException {
     Pessoa pessoa= null;
-    /*
+    
     Connection conexao = DBConnection.getInstance();
-    String sql = (String) dados.get("Aluno.BuscaPorCod");
+    String sql = (String) dados.get("Pessoa.BuscarPorCod");
     PreparedStatement pstmt = conexao.prepareStatement(sql);
     pstmt.setInt(1, chave);
     ResultSet rs = pstmt.executeQuery();
+    
     if(rs.next()){
-        pessoa.setCodPessoa(rs.getInt(1));
-        pessoa.setDataNascimento(rs.getString(2));
-        pessoa.setNomePessoa(rs.getString(3));
-        pessoa.setRg(rs.getString(4));
-    }*/
-    pessoa = new pessoaDouble().getUmaPessoa();
+        pessoa = new Pessoa();
+        pessoa.setCodPessoa(rs.getInt(1));        
+        //pessoa.setDataNascimento(rs.getString(2));
+        pessoa.setNomePessoa(rs.getString(2));
+        pessoa.setRg(rs.getString(3));
+    }else{
+        throw new SQLException("no data found");
+    }
+    //pessoa = new pessoaDouble().getUmaPessoa();
     return pessoa;
   }
 

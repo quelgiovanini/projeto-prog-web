@@ -29,7 +29,7 @@ public class EditarPessoa extends Comando {
             HttpSession session = getRequest().getSession(false);        
             Usuario value = (Usuario) session.getAttribute("usuario");
             
-            Pessoa pessoa = (Pessoa) new PessoaDAO().pesquisarChave(1);
+            Pessoa pessoa = (Pessoa) new PessoaDAO().pesquisarChave(Integer.parseInt(getRequest().getParameter("codPessoa")));
             
             getRequest().setAttribute("data", pessoa);
             RequestDispatcher dispatcher = getRequest().getRequestDispatcher("editaPessoa.jsp");
