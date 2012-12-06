@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
  * @author Quele
  */
 
-public class Atividade {
+public class Atividade implements Serializable {
     private Aluno aluno = null;
     private String idAtividade = null;
     private TipoAtividade tipoAtividade;

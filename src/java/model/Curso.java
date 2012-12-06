@@ -4,11 +4,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Quele
  */
-public class Curso {
+public class Curso implements Serializable {
     private Area area;
     private String nome;
     private Professor orientador;

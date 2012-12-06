@@ -1,11 +1,12 @@
 package model;
 
 import database.DBConnection;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
 
-public class Pessoa {
+public class Pessoa implements Serializable {
     
     private int codPessoa;
     private String nomePessoa;

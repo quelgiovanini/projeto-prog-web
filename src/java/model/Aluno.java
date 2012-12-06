@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * @author Quele
  */
 
-public class Aluno extends Pessoa {
+public class Aluno extends Pessoa implements Serializable {
     
      private String ingresso;
      private String numeroMatricula;
@@ -37,7 +38,9 @@ public class Aluno extends Pessoa {
      //   this.setCurriculo(curriculo);
     }
     
-
+    public Aluno () {
+        
+    }
     public Aluno getAluno() {
         return this;
     }    

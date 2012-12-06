@@ -4,11 +4,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Quele
  */
-public class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa implements Serializable {
     private int codCargo;
     private int codSetor;
     private int codTipoFuncionario;
@@ -25,6 +27,10 @@ public class Funcionario extends Pessoa {
         return this;
     }
 
+   public Funcionario() {
+       
+   }
+   
     public void setNoticia(Funcionario funcionarios){
         this.setPessoa(this);
         this.setCargo(funcionarios.getCargo());

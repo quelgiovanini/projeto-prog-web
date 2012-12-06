@@ -4,17 +4,23 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Quele
  */
-public class TipoAtividade {
+public class TipoAtividade implements Serializable {
     private int idTipo;
     public String descricaoTipo;
     private double proporcao; //relacao de uma hora normal para quantidade de horas aceitas
     private Curso curso;
     private int maximoPermitido;
 
+    public TipoAtividade() {
+        
+    }
+    
     public int getIdTipo() {
         return idTipo;
     }

@@ -4,12 +4,14 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  * Classe criada conforme o padrão JavaBean
  * 
  * @author Quele
  */
-public class Usuario {
+public class Usuario implements Serializable {
     private int id;
     private String login;
     private String nome;

@@ -4,12 +4,14 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Quele
  */
 
-public class Professor extends Pessoa {
+public class Professor extends Pessoa implements Serializable {
     private Area area;
     
     public Professor(String nome, String email, String matricula, Area area){
@@ -17,6 +19,10 @@ public class Professor extends Pessoa {
         this.setArea(area);
     }
 
+    public Professor() {
+        
+    }
+    
     public Area getArea() {
         return area;
     }
