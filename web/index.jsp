@@ -4,8 +4,18 @@
     Author     : Quele
 --%>
 
+<%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    if (usuario == null) {
+%>        
+    <jsp:forward page="/login.jsp" />
+<% 
+    }
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
