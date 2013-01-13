@@ -5,6 +5,7 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.Date;
 
 /**
@@ -13,15 +14,15 @@ import java.util.Date;
  */
 
 public class Atividade implements Serializable {
-    private Aluno aluno = null;
     private String idAtividade = null;
-    private TipoAtividade tipoAtividade;
+    private Aluno aluno = new Aluno();
+    private TipoAtividade tipoAtividade = new TipoAtividade();
     private int horasRequisitadas = 0; 
     private int horasAceitas = 0;
     private Date dataRequisicao = null;
-    private Funcionario funcionarioResponsavel = null;
+    private Funcionario funcionarioResponsavel = new Funcionario();
     private Date dataAvaliacao = null;
-    private Professor professorResponsavel = null;
+    private Professor professorResponsavel = new Professor();
     private String status = " ";
     private String observacao = null;
 
@@ -39,14 +40,14 @@ public class Atividade implements Serializable {
       //this.professorResponsavel = tipoAtividade.getCurso().getProfessor();
     }
     
-    public Atividade(String idAtividade, Aluno aluno, TipoAtividade tipoAtividade, Professor professorResponsavel, String status){
-        this.setIdAtividade(idAtividade);
-        this.setAluno(aluno);
+    public Atividade(Integer aluno, Integer tipoAtividade, Integer professorResponsavel, String status){
+    //    this.setIdAtividade(idAtividade);
+        this.setCodAluno(aluno);
     //    this.setIdAtividade(idAtividade);
      //   this.setDataRequisicao(dataRequisicao);
-        this.setTipoAtividade(tipoAtividade);
+        this.setCodTipoAtividade(tipoAtividade);
      //   this.setHorasRequisitadas(horasRequisitadas);
-        this.setProfessorResponsavel(professorResponsavel);
+        this.setCodProfessor(professorResponsavel);
      //   this.setObservacao(obs);
         this.setStatus(status);
       //this.professorResponsavel = tipoAtividade.getCurso().getProfessor();
@@ -66,6 +67,22 @@ public class Atividade implements Serializable {
         this.setObservacao(atividades.getObservacao());        
         this.setStatus(atividades.getStatus());        
     }    
+
+    public java.lang.String getIdAtividade() {
+        return idAtividade;
+    }
+
+    public void setIdAtividade(java.lang.String idAtividade) {
+        this.idAtividade = idAtividade;
+    }
+    
+    public Integer getCodAluno() throws SQLException {
+        return aluno.getCodPessoa();
+    }
+    
+    public void setCodAluno(Integer codAluno) {
+        this.aluno.setCodPessoa(codAluno);
+    }
     
     public Aluno getAluno() {
         return aluno;
@@ -75,14 +92,14 @@ public class Atividade implements Serializable {
         this.aluno = aluno;
     }
 
-    public java.lang.String getIdAtividade() {
-        return idAtividade;
+    public Integer getCodTipoAtividade() {
+        return tipoAtividade.getIdTipo();
     }
-
-    public void setIdAtividade(java.lang.String idAtividade) {
-        this.idAtividade = idAtividade;
+    
+    public void setCodTipoAtividade(Integer idTipo) {
+        this.tipoAtividade.setIdTipo(idTipo);
     }
-
+    
     public TipoAtividade getTipoAtividade() {
         return tipoAtividade;
     }
@@ -139,6 +156,15 @@ public class Atividade implements Serializable {
         this.professorResponsavel = professorResponsavel;
     }
 
+   public Integer getCodProfessor() throws SQLException {
+        return professorResponsavel.getCodPessoa();
+    }
+    
+    public void setCodProfessor(Integer codProfessor) {
+        this.professorResponsavel.setCodPessoa(codProfessor);
+    }
+    
+    
     public java.lang.String getStatus() {
         return status;
     }

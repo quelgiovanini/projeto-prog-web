@@ -4,6 +4,7 @@
     Author     : Quele
 --%>
 
+<%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Atividade"%>
 <%@page import="dao.AtividadeDAO"%>
@@ -22,21 +23,27 @@
             List<Atividade> atividades = dao.pesquisarTudo();
         %>
         
-        <table  BORDER="1" bordercolor="#C0C0C0"  width="100%" cellpadding="1" cellspacing="1">
-            <tr>
-                <td bgcolor="#F8F8FF" align="center"><font face="Verdana" size="2" color="#000000"><strong>Aluno</strong></font></td>
-                <td bgcolor="#F8F8FF" align="center"><font face="Verdana" size="2" color="#000000"><strong>Tipo Atividade</strong></font></td>
-                <td bgcolor="#F8F8FF" align="center"><font face="Verdana" size="2" color="#000000"><strong>Professor</strong></font></td>
-                <td bgcolor="#F8F8FF" align="center"><font face="Verdana" size="2" color="#000000"><strong>Status</strong></font></td>
-                <td bgcolor="#F8F8FF" colspan="2" align="center"><font face="Verdana" size="2" color="#000000"><strong>Opções</strong></font></td>
-            </tr>
-        <% for(int i = 0; i < atividades.size(); i++){
-            Atividade atividade = atividades.get(i);
+        <table>
+                        <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>Tipo de Atividade</th>
+                    <th>Professor</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+        <% Iterator it; %>
+        <%List dados = (List) request.getAttribute("dados");
+            for (it = dados.iterator(); it.hasNext();){
+            Atividade atividade = (Atividade) it.next();
         %>     
         <tr>
-            <td align="center"><font face="Verdana" size="2"<%=atividade.getAluno()%></font></td>
-            <td align="center"><font face="Verdana" size="2"<%=atividade.getTipoAtividade()%></font></td>
-            <td align="center"><font face="Verdana" size="2"<%=atividade.getProfessorResponsavel()%></font></td>
+            <td align="center"><font face="Verdana" size="2"<%=atividade.getAluno().getCodPessoa() %></font></td>
+            <td align="center"><font face="Verdana" size="2"<%=atividade.getTipoAtividade().getIdTipo() %></font></td>
+            <td align="center"><font face="Verdana" size="2"<%=atividade.getProfessorResponsavel().getCodPessoa() %></font></td>
             <td align="center"><font face="Verdana" size="2"<%=atividade.getStatus()%></font></td>
             <td align="center"><font face="Verdana" size="2"><a href="analisarAtividade.jsp?codati=<%=atividade.getIdAtividade()%>">Analisar Atividade</font></a></td>
             <td align="center"><font face="Verdana" size="2"><a href="excluirAtividade.jsp?codati=<%=atividade.getIdAtividade()%>">Excluir Atividade</font></a></td>

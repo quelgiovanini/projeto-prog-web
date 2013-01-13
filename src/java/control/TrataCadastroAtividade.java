@@ -30,18 +30,18 @@ public class TrataCadastroAtividade extends Comando {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
         try {
-            String cod    = getRequest().getParameter("cod");            
-            String aluno  = getRequest().getParameter("aluno");
-            String tp     = getRequest().getParameter("tipo");
-            String prof   = getRequest().getParameter("prof");
-            String status = getRequest().getParameter("sta");
+            String codAtiv    = getRequest().getParameter("codAtiv");            
+            int aluno  = Integer.parseInt(getRequest().getParameter("aluno"));
+            int tipoAtividade     = Integer.parseInt(getRequest().getParameter("tipoAtividade"));
+            int professor   = Integer.parseInt(getRequest().getParameter("professor"));
+            String status = getRequest().getParameter("status");
         
             HttpSession session = getRequest().getSession(false);        
             Usuario value = (Usuario) session.getAttribute("usuario");
         
-            Atividade ativ = new Atividade(cod,new Aluno(aluno,"teste","0120","2012"), new TipoAtividade(tp), new Professor(prof,"teste","0012",Area.INFORMATICA), status);
+            Atividade ativ = new Atividade(aluno, tipoAtividade, professor, status);
             new AtividadeDAO().inserir(ativ);
-            getResponse().sendRedirect("atividadeCadastrada.jsp");
+            getResponse().sendRedirect("index.jsp");
         
         } catch(SQLException ex){
             throw new ServletException(ex);

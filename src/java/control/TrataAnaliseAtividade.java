@@ -30,31 +30,20 @@ public class TrataAnaliseAtividade extends Comando {
      //   getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
         String codigo   = getRequest().getParameter("codati");
-        String aluno    = getRequest().getParameter("aluno");
-        String tipo     = getRequest().getParameter("tipo");
-        String prof     = getRequest().getParameter("prof");
+        Integer aluno    = Integer.parseInt(getRequest().getParameter("aluno"));
+        Integer tipo     = Integer.parseInt(getRequest().getParameter("tipo"));
+        Integer professor     = Integer.parseInt(getRequest().getParameter("professor"));
         String status   = getRequest().getParameter("status");
         
         Atividade atividade = new Atividade();
         atividade.setIdAtividade(codigo);
-        atividade.getAluno().setNomePessoa(aluno);
-        atividade.getTipoAtividade().setDescricaoTipo(tipo);
-        atividade.getProfessorResponsavel().setNomePessoa(prof);
+        atividade.getAluno().setCodPessoa(aluno);
+        atividade.getTipoAtividade().setIdTipo(tipo);
+        atividade.getProfessorResponsavel().setCodPessoa(professor);
         atividade.setStatus(status);
         
-        AtividadeDAO dao = new AtividadeDAO();
-        String retorno = dao.editar(atividade);
-        if (retorno.equals("sucesso")) {
-            getResponse().sendRedirect("index.jsp");
-        }
-            out.println();
-            out.println("<html><head><title> .:: SIATICO ::. </head></title>");
-            out.println("<body>");
-            out.println("<h1> Análise não realizada </h1>");
-            out.println("<br>");
-            out.println("<a href='index.jsp'> Voltar </a>");
-            out.println("</body>");
-            out.println("</html>");
-            
+        Atividade atividades = new Atividade(aluno, tipo, professor, status);
+        new AtividadeDAO().editar(atividades);
+        getResponse().sendRedirect("FrontController?cmd=trataListaAtividade");       
     }
 }

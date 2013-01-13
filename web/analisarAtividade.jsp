@@ -14,7 +14,8 @@
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
-        <h1><font face="Verdana" color="#000000"> Analise de Atividades Complementares </font></h1>
+        <form action='TrataAnaliseAtividade' method='POST'>
+        <fieldset><legend><font face="Verdana" color="#000000">  Controle de Atividades Complementares - Analise de Atividades </font></legend>
         
         <%
             // codigo por parametro
@@ -24,27 +25,35 @@
             
         %>
         
-        <form action='TrataAnaliseAtividade' method='POST'>
-               <table  BORDER="0" bordercolor="#C0C0C0"  width="70%" cellpadding="1" cellspacing="1">
+               <table>
                <tr>
-                    <td bgcolor="#F8F8FF" align="center"><font face="Verdana" size="2" color="#000000"> Aluno: </font></td>
-                    <td align="center" ><font face="Verdana" size="2" color="#000000"><input type="text" name="aluno" id="aluno" value="<%=atividade.getAluno().getNomePessoa() %>" size="70" maxlength="60" /></font>
-                        <span class="style1">*</span></td>
+               <p class="first">
+                    <td><label for="aluno">Aluno </label></td>                   
+                    <td ><input type="text" name="aluno" id="aluno" value="<%=atividade.getAluno().getNomePessoa() %>" size="70" maxlength="60" /></td>
+                </p>    
                 </tr>
                 <tr>
-                    <td bgcolor="#F8F8FF" align="center"><font face="Verdana" size="2" color="#000000"> Tipo de Atividade: </font></td>
-                    <td align="center" ><font face="Verdana" size="2" color="#000000"><input type="text" name="tipo" id="tipo" value="<%=atividade.getTipoAtividade().getDescricaoTipo() %>" size="70" maxlength="60" /></font>
-                        <span class="style1"> * </span></td>
+                 <p>
+                    <td><label for="tipoAtividade">Tipo de Atividade </label></td>
+                    <td><input type="text" name="tipo" id="tipo" value="<%=atividade.getTipoAtividade().getDescricaoTipo() %>" size="70" maxlength="60" /></td>
+                </p>
                 </tr>
                 <tr>
-                    <td bgcolor="#F8F8FF" align="center"><font face="Verdana" size="2" color="#000000"> Professor: </font></td>
-                    <td align="center" ><font face="Verdana" size="2" color="#000000"><input type="text" name="prof" id="prof" value="<%=atividade.getProfessorResponsavel().getNomePessoa() %>" size="70" maxlength="60" /></font>
-                        <span class="style1"> * </span></td>
+                <p>
+                    <td><label for="professor">Professor </label></td>                    
+                    <td><input type="text" name="professor" id="professor" value="<%=atividade.getProfessorResponsavel().getNomePessoa() %>" size="70" maxlength="60" /></td>
+                </p>
                 </tr>  
                 <tr>
-                    <td bgcolor="#F8F8FF" align="center"><font face="Verdana" size="2" color="#000000"> Status: </font></td>
-                    <td align="center" ><font face="Verdana" size="2" color="#000000"><input type="text" name="status" id="status" value="<%=atividade.getStatus() %>" size="70" maxlength="60" /></font>
-                        <span class="style1"> * </span></td>
+                    <p>
+                        <td><label for="status">Status </label></td>
+                        <td><font face="Verdana" size="2" color="#000000"><select name="status" id="status" >
+                                    <option>Selecione...</option>
+                                    <option value="E" selected>Espera</option>
+                                    <option value="A">Aprovado</option>
+                                    <option value="R">Reprovado</option>
+                                </select></td>
+                    </p>            
                 </tr> 
                     <input type="hidden" name="codati" id="codati" value="<%=atividade.getIdAtividade() %>" >
                     <input type="submit" value="Salvar">

@@ -37,11 +37,11 @@ public class AtividadeDAO implements InterfaceDAO {
         Connection conexao = DBConnection.getInstance();
         String sql = (String) dados.get("Insert.Atividade");
         PreparedStatement pstmt = conexao.prepareStatement(sql);
-        pstmt.setString(1, atividades.getIdAtividade());
-        pstmt.setString(2, atividades.getAluno().getNomePessoa());
-        pstmt.setString(3, atividades.getTipoAtividade().getDescricaoTipo());
-        pstmt.setString(4, atividades.getProfessorResponsavel().getNomePessoa());
-        pstmt.setString(5, atividades.getStatus());
+   //     pstmt.setString(1, atividades.getIdAtividade());
+        pstmt.setInt(1, atividades.getCodAluno());
+        pstmt.setInt(2, atividades.getCodTipoAtividade());
+        pstmt.setInt(3, atividades.getCodProfessor());
+        pstmt.setString(4, atividades.getStatus());
         pstmt.execute();
         pstmt.close();
     }
@@ -148,12 +148,12 @@ public class AtividadeDAO implements InterfaceDAO {
         public ArrayList getListAtividades() {
             ArrayList atividades = new ArrayList();
             Atividade atividade;
-            atividade = new Atividade("00001", new Aluno("Johnny","teste","0120","2012"), new TipoAtividade("Estagio"), new Professor("Karen","teste","0012",Area.INFORMATICA), "P");
-            atividades.add(atividade);
-            atividade = new Atividade("00002", new Aluno("Sheldon","teste","0120","2012"), new TipoAtividade("Pesquisa"), new Professor("Marcia","teste","0012",Area.INFORMATICA), "P");
-            atividades.add(atividade);
-            atividade = new Atividade("00003", new Aluno("Leonard","teste","0120","2012"), new TipoAtividade("Congresso"), new Professor("Cesar","teste","0012",Area.INFORMATICA), "P");
-            atividades.add(atividade);
+         //   atividade = new Atividade(new Aluno("Johnny","teste","0120","2012"), new TipoAtividade("Estagio"), new Professor("Karen","teste","0012",Area.INFORMATICA), "P");
+       //     atividades.add(atividade);
+         //   atividade = new Atividade(new Aluno("Sheldon","teste","0120","2012"), new TipoAtividade("Pesquisa"), new Professor("Marcia","teste","0012",Area.INFORMATICA), "P");
+       //     atividades.add(atividade);
+           // atividade = new Atividade(new Aluno("Leonard","teste","0120","2012"), new TipoAtividade("Congresso"), new Professor("Cesar","teste","0012",Area.INFORMATICA), "P");
+     //       atividades.add(atividade);
             return atividades;
         }
     }

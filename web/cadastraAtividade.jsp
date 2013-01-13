@@ -1,7 +1,7 @@
 <%-- 
-    Document   : cadastraNoticia
-    Created on : Nov 17, 2012, 12:20:32 AM
-    Author     : paddock
+    Document   : cadastraAtividade
+    Created on : 19/11/2012, 11:52:42
+    Author     : Quele
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,48 +9,63 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SIATCO - Registrar Atividade Complementar</title>
+        <title>  ..:: SIATICO ::.. </title>
     </head>
-    <body>
-        <form action="FrontController" method="POST">
-            <table width="625" border="0">
+   <body>
+       <form action="FrontController" method="POST">       
+        <fieldset><legend><font face="Verdana" color="#000000">  Controle de Atividades Complementares - Cadastro de Atividades </font></legend>
+            <table>
                 <tr>
-                    <td width="120">Código Atividade: </td>
-                    <td width="546"><input name="cod" type="text" id="cod" size="70" maxlength="60" />
-                        <span class="style1">*</span></td>
+
+                    <td><input name="codAtiv" type="hidden" id="codAtiv" size="70" maxlength="60" />
+
                 </tr>                        
                 <tr>
-                    <td width="120">Aluno:</td>
-                    <td width="546"><input name="aluno" type="text" id="aluno" size="70" maxlength="60" />
-                        <span class="style1">*</span></td>
+                <p class="first">
+                    <td><label for="aluno">Aluno </label></td>
+                    <td><input name="aluno" type="text" id="aluno" size="70" maxlength="60" />
+                </p>
                 </tr>
                 <tr>
-                    <td width="120">Tipo de Atividade:</td>
-                    <td><input name="tipo" type="text" id="tipo" size="70" maxlength="60" />
-                        <span class="style1"> * </span></td>
+                <p>
+                        <td><label for="tipoAtividade">Tipo de Atividade </label></td>
+                        <td>
+                          <select name="tipoAtividade">
+                                    <option value="1" selected>Estágio</option>
+                                    <option value="2">Palestra</option>
+                                    <option value="3">Projeto Pesquisa</option>
+                          </select>
+                        </td>
+                </p>    
                 </tr>
                 <tr>
-                    <td width="120">Professor:</td>
-                    <td><input name="prof" type="text" id="prof" size="70" maxlength="60" />
-                        <span class="style1"> * </span></td>
-                </tr>  
+                    <p>
+                        <td><label for="professor">Professor </label></td>
+                        <td><input type="text" name="professor" id="professor" size="30" /></td>
+                    </p>
+                 </tr>   
                 <tr>
-                    <td width="120">Status:</td>
-                    <td><input name="sta" type="text" id="sta" size="70" maxlength="60" />
-                        <span class="style1"> * </span></td>
-                </tr>                        
-                <tr>
-                    <td colspan="2"><input name="ativo" type="checkbox" id="ativo" value="ATIVO" checked="checked" />
-                        Deixar pendente </td>
-                </tr>
+                    <p>
+                        <td><label for="status">Status </label></td>
+                        <td>
+                          <select name="status">
+                                    <option value="E" selected>Espera</option>
+                                    <option value="A">Aprovado</option>
+                                    <option value="R">Reprovado</option>
+                          </select>
+                        </td>
+                    </p>
+                 </tr>                   
                 <tr>
                     <td colspan="2"><p>
-                            <input name="cadastrar" type="submit" id="cadastrar" value="Finalizar analise" />
+                            <input name="cadastrar" type="submit" id="cadastrar" value="Cadastrar"  />
                             <input name="limpar" type="reset" id="limpar" value="Limpar dados" />
-                            <input type="hidden" name="cmd" value='trataCadastroAtividade'>
+                            <input type="hidden" name="cmd" value='TrataCadastroAtividade'>
                     </td>
                 </tr>
             </table>
+            </fieldset>            
         </form>
     </body>
 </html>
+
