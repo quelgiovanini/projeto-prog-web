@@ -22,14 +22,14 @@ import model.Usuario;
  * @author Quele
  */
 
-public class TrataAnaliseAtividade extends Comando {
+public class TrataAnalisarAtividade extends Comando {
     
     @Override
     public void execute()
             throws ServletException, IOException, SQLException {
      //   getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
-        String codigo   = getRequest().getParameter("codati");
+        Integer codigo   = Integer.parseInt(getRequest().getParameter("codati"));
         Integer aluno    = Integer.parseInt(getRequest().getParameter("aluno"));
         Integer tipo     = Integer.parseInt(getRequest().getParameter("tipo"));
         Integer professor     = Integer.parseInt(getRequest().getParameter("professor"));

@@ -16,13 +16,8 @@
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
-        <h1><font face="Verdana" color="#000000"> Atividades Complementares </font></h1>
-        
-        <%
-            AtividadeDAO dao = new AtividadeDAO();
-            List<Atividade> atividades = dao.pesquisarTudo();
-        %>
-        
+        <h1> Atividades Complementares </h1>
+
         <table>
                         <thead>
                 <tr>
@@ -41,12 +36,19 @@
             Atividade atividade = (Atividade) it.next();
         %>     
         <tr>
-            <td align="center"><font face="Verdana" size="2"<%=atividade.getAluno().getCodPessoa() %></font></td>
-            <td align="center"><font face="Verdana" size="2"<%=atividade.getTipoAtividade().getIdTipo() %></font></td>
-            <td align="center"><font face="Verdana" size="2"<%=atividade.getProfessorResponsavel().getCodPessoa() %></font></td>
-            <td align="center"><font face="Verdana" size="2"<%=atividade.getStatus()%></font></td>
-            <td align="center"><font face="Verdana" size="2"><a href="analisarAtividade.jsp?codati=<%=atividade.getIdAtividade()%>">Analisar Atividade</font></a></td>
-            <td align="center"><font face="Verdana" size="2"><a href="excluirAtividade.jsp?codati=<%=atividade.getIdAtividade()%>">Excluir Atividade</font></a></td>
+            <td ><%=atividade.getAluno().getCodPessoa() %></td>
+            <td ><%=atividade.getTipoAtividade().getIdTipo() %></td>
+            <td ><%=atividade.getProfessorResponsavel().getCodPessoa() %></td>
+            <td ><%=atividade.getStatus()%></td>
+            <form action="analisarAtividade.jsp" method="POST">
+                    <td align="center"><input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
+                    <font face="Verdana" size="2"><input type="submit" value="Analisar Atividade"/></font>
+            </form>
+            <form action="FrontController" method="POST">
+                    <input type="hidden" name="cmd" value="trataExcluirAtividade">
+                    <input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
+                    <font face="Verdana" size="2"><input type="submit" value="Excluir Atividade"/></font></td>
+            </form>
         </tr>
         <% } %>
     </table>

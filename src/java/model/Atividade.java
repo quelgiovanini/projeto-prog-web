@@ -14,7 +14,7 @@ import java.util.Date;
  */
 
 public class Atividade implements Serializable {
-    private String idAtividade = null;
+    private int idAtividade;
     private Aluno aluno = new Aluno();
     private TipoAtividade tipoAtividade = new TipoAtividade();
     private int horasRequisitadas = 0; 
@@ -28,7 +28,7 @@ public class Atividade implements Serializable {
 
     public Atividade () { }
     
-    public Atividade(Aluno aluno, String idAtividade, Date dataRequisicao, TipoAtividade tipoAtividade, int horasRequisitadas, Funcionario funcionario, String obs){
+    public Atividade(Aluno aluno, int idAtividade, Date dataRequisicao, TipoAtividade tipoAtividade, int horasRequisitadas, Funcionario funcionario, String obs){
         this.setAluno(aluno);
         this.setIdAtividade(idAtividade);
         this.setDataRequisicao(dataRequisicao);
@@ -68,11 +68,11 @@ public class Atividade implements Serializable {
         this.setStatus(atividades.getStatus());        
     }    
 
-    public java.lang.String getIdAtividade() {
+    public int getIdAtividade() {
         return idAtividade;
     }
 
-    public void setIdAtividade(java.lang.String idAtividade) {
+    public void setIdAtividade(int idAtividade) {
         this.idAtividade = idAtividade;
     }
     

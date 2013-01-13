@@ -4,6 +4,9 @@
     Author     : Quele
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="model.TipoAtividade"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +15,15 @@
         <title>  ..:: SIATICO ::.. </title>
     </head>
    <body>
-       <form action="FrontController" method="POST">       
+       <form action="FrontController" method="POST">    
+
+
+        <% Iterator it; %>
+        <%List dados = (List) request.getAttribute("dados");
+            for (it = dados.iterator(); it.hasNext();){
+            TipoAtividade tipo = (TipoAtividade) it.next();
+        %>               
+           
         <fieldset><legend><font face="Verdana" color="#000000">  Controle de Atividades Complementares - Cadastro de Atividades </font></legend>
             <table>
                 <tr>

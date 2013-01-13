@@ -71,25 +71,24 @@ public class AtividadeDAO implements InterfaceDAO {
     @Override
     public ArrayList pesquisarTudo() throws SQLException {
       ArrayList ativList = new ArrayList();
-      ativList = new AtividadeDAO.atividadeDouble().getListAtividades();
-      return ativList;
-   /*   Connection conexao = DBConnection.getInstance();
-      String sql = (String) dados.get("SelectALL.Atividade");
-      PreparedStatement pstmt = conexao.prepareStatement(sql);
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("SelectAll.Atividade");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
       ResultSet rs = pstmt.executeQuery();
       
       while (rs.next()) {
 
           Atividade atividade = new Atividade(); 
-          atividade.setIdAtividade(rs.getString(1));
-          atividade.getAluno().setNomePessoa(rs.getString(1));
-          atividade.getTipoAtividade().setDescricaoTipo(rs.getString(2));
-          atividade.getProfessorResponsavel().setNomePessoa(rs.getString(3));
+          atividade.getAluno().setCodPessoa(rs.getInt(1));
+          atividade.getTipoAtividade().setIdTipo(rs.getInt(2));
+          atividade.getProfessorResponsavel().setCodPessoa(rs.getInt(3));
           atividade.setStatus(rs.getString(4));
-          ativList.add(rs);
+          atividade.setIdAtividade(rs.getInt(5));
+
+          ativList.add(atividade);
       }
        pstmt.close();
-       return ativList;*/
+       return ativList;
     } 
     
     public Atividade pesquisarCod(String cod) throws SQLException {
@@ -102,7 +101,7 @@ public class AtividadeDAO implements InterfaceDAO {
         ResultSet rs = pstmt.executeQuery();
         if (rs.next()) {
             ativ = new Atividade(); 
-            ativ.setIdAtividade(rs.getString(1));
+            ativ.setIdAtividade(rs.getInt(1));
             ativ.getAluno().setNomePessoa(rs.getString(2));
             ativ.getTipoAtividade().setDescricaoTipo(rs.getString(3));
             ativ.getProfessorResponsavel().setNomePessoa(rs.getString(4));
@@ -130,7 +129,7 @@ public class AtividadeDAO implements InterfaceDAO {
             String sql = (String) dados.get("Update.Atividade");
             PreparedStatement pstmt = conexao.prepareStatement(sql);
             
-            pstmt.setString(1, atividade.getIdAtividade());
+            pstmt.setInt(1, atividade.getIdAtividade());
             pstmt.setString(2, atividade.getAluno().getNomePessoa());
             pstmt.setString(3, atividade.getTipoAtividade().getDescricaoTipo());
             pstmt.setString(4, atividade.getProfessorResponsavel().getNomePessoa());

@@ -3,12 +3,10 @@
     <!-- Conexao -->
     <context-param>
         <param-name>user</param-name>
-        <!-- <param-value>b219</param-value> -->
         <param-value>ativcomp</param-value>
     </context-param>
     <context-param>
         <param-name>senha</param-name>
-        <!--<param-value>b219</param-value>-->
         <param-value>102030</param-value>
     </context-param>
     <context-param>
