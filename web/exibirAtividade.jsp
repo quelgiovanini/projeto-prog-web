@@ -30,7 +30,7 @@
             </thead>
             <tbody>
 
-        <% Iterator it; %>
+        <%Iterator it; %>
         <%List dados = (List) request.getAttribute("dados");
             for (it = dados.iterator(); it.hasNext();){
             Atividade atividade = (Atividade) it.next();
