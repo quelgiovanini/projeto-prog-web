@@ -9,10 +9,13 @@ import dao.TipoAtividadeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 import model.Atividade;
+import model.TipoAtividade;
 import model.Usuario;
 
 /**
@@ -28,11 +31,23 @@ public class TrataCadastroAtividade extends Comando {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
         try {
+            getResponse().setContentType("text/html");
             
-            String codAtiv    = getRequest().getParameter("codAtiv");            
-            int aluno  = Integer.parseInt(getRequest().getParameter("aluno"));
-            List tipoAtividades = new TipoAtividadeDAO().pesquisarTipo();
+            try {
+            ArrayList tipoAtividades = new TipoAtividadeDAO().pesquisarTipo();
+           // TipoAtividade tipoAtiv;
+        //    tipoAtiv = new TipoAtividade(1,"Teste");
             getRequest().setAttribute("tipos", tipoAtividades);
+            RequestDispatcher dispatcher = getRequest().getRequestDispatcher("cadastraAtividade.jsp");
+            if (dispatcher != null){
+                dispatcher.forward(getRequest(), getResponse());
+            }
+            }catch(SQLException ex1){
+            throw new ServletException(ex1);
+            }
+            
+            Integer codAtiv    = Integer.parseInt(getRequest().getParameter("codAtiv"));            
+            int aluno  = Integer.parseInt(getRequest().getParameter("aluno"));
             int tipoAtividade     = Integer.parseInt(getRequest().getParameter("tipoAtividade"));
             int professor   = Integer.parseInt(getRequest().getParameter("professor"));
             String status = getRequest().getParameter("status");

@@ -35,13 +35,14 @@
                         <td><label for="tipoAtividade">Tipo de Atividade </label></td>
                         <td>
                             <select name="tipoAtividade">
-                            <% Iterator it; %>
+        <% Iterator it; %>
         <%
             List dados = (List) request.getAttribute("tipos");
             for (it = dados.iterator(); it.hasNext();){
             TipoAtividade tp = (TipoAtividade) it.next();
-            
+            System.out.println(tp.getDescricaoTipo());
         %>
+            
             <option value="<%=tp.getIdTipo()%>"> <%= tp.getDescricaoTipo()%>
             </option>
          <% } %>

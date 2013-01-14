@@ -23,14 +23,18 @@
     </head>
     <body>
         <h1> Controle de Atividades Complementares </h1>
-        <div>
+        <div id="nav">
         <ul>
             <li><a href="FrontController?cmd=TrataExibirAtividade"> Analisar atividades </a></li>
         </ul>  
         </div>    
-        <h1> Cadastros </h1>
-          <a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/>
-          <a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/>
+
+        <div id="nav1">
+          <ul>
+              <li><a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/></li>
+              <li><a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/></li>
+          </ul>
+        </div>
           <form action="FrontController" method="POST">
               <input type="hidden" name="cmd" value="listaPessoas" />
               <input type="submit" value="Listar pessoas" />
