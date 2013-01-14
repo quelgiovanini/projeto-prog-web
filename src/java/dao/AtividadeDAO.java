@@ -101,11 +101,11 @@ public class AtividadeDAO implements InterfaceDAO {
         ResultSet rs = pstmt.executeQuery();
         if (rs.next()) {
             ativ = new Atividade(); 
-            ativ.setIdAtividade(rs.getInt(1));
-            ativ.getAluno().setNomePessoa(rs.getString(2));
-            ativ.getTipoAtividade().setDescricaoTipo(rs.getString(3));
-            ativ.getProfessorResponsavel().setNomePessoa(rs.getString(4));
-            ativ.setStatus(rs.getString(5));
+            ativ.setIdAtividade(rs.getInt(5));
+            ativ.getAluno().setNomePessoa(rs.getString(1));
+            ativ.getTipoAtividade().setDescricaoTipo(rs.getString(2));
+            ativ.getProfessorResponsavel().setNomePessoa(rs.getString(3));
+            ativ.setStatus(rs.getString(4));
         }
         pstmt.close();
         return ativ;

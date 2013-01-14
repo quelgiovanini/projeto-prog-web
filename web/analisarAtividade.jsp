@@ -14,7 +14,7 @@
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
-        <form action='TrataAnaliseAtividade' method='POST'>
+        <form action='TrataAnalisarAtividade' method='POST'>
         <fieldset><legend><font face="Verdana" color="#000000">  Controle de Atividades Complementares - Analise de Atividades </font></legend>
         
         <%

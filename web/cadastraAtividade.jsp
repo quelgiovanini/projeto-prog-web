@@ -16,14 +16,7 @@
     </head>
    <body>
        <form action="FrontController" method="POST">    
-
-
-        <% Iterator it; %>
-        <%List dados = (List) request.getAttribute("dados");
-            for (it = dados.iterator(); it.hasNext();){
-            TipoAtividade tipo = (TipoAtividade) it.next();
-        %>               
-           
+         
         <fieldset><legend><font face="Verdana" color="#000000">  Controle de Atividades Complementares - Cadastro de Atividades </font></legend>
             <table>
                 <tr>
@@ -41,13 +34,20 @@
                 <p>
                         <td><label for="tipoAtividade">Tipo de Atividade </label></td>
                         <td>
-                          <select name="tipoAtividade">
-                                    <option value="1" selected>Estágio</option>
-                                    <option value="2">Palestra</option>
-                                    <option value="3">Projeto Pesquisa</option>
-                          </select>
-                        </td>
-                </p>    
+                            <select name="tipoAtividade">
+                            <% Iterator it; %>
+        <%
+            List dados = (List) request.getAttribute("tipos");
+            for (it = dados.iterator(); it.hasNext();){
+            TipoAtividade tp = (TipoAtividade) it.next();
+            
+        %>
+            <option value="<%=tp.getIdTipo()%>"> <%= tp.getDescricaoTipo()%>
+            </option>
+         <% } %>
+         </select>
+             </td>
+                </p>                             
                 </tr>
                 <tr>
                     <p>
@@ -74,6 +74,7 @@
                             <input type="hidden" name="cmd" value='TrataCadastroAtividade'>
                     </td>
                 </tr>
+           
             </table>
             </fieldset>            
         </form>

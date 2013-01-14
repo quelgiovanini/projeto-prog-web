@@ -62,7 +62,7 @@ public class TrataCadastroPessoa extends Comando {
               throw new ServletException("Erro ao tentar inserir funcionario "+codPessoa+": "+ex);
           }*/
         }       
-        getResponse().sendRedirect("pessoaCadastrada.jsp");
+        getResponse().sendRedirect("listaPessoa.jsp");
         
     }
 

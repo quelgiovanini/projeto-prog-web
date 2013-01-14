@@ -85,7 +85,7 @@
                 <br/>
                 <input type="submit" value="Cadastrar">
                 <input type="reset" value="Limpar">
-                <input type="hidden" name="cmd" value="trataCadastroPessoa">
+                <input type="hidden" name="cmd" value="TrataCadastroPessoa">
             </fieldset>
         </form>  
     </body>

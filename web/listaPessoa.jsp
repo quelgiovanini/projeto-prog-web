@@ -36,7 +36,7 @@
                     <td><%=pessoa.getNomePessoa()%></td>
                     <td><%=pessoa.getRg()%></td>
                     <td><form action="FrontController" method="POST">
-                            <input type="hidden" name="cmd" value="editarPessoa" />
+                            <input type="hidden" name="cmd" value="EditarPessoa" />
                             <input type="hidden" name="codPessoa" value="<%=pessoa.getCodPessoa()%>" />
                             <input type="submit" value="Editar" />
                         </form>

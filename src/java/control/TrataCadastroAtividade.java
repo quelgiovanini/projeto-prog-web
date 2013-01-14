@@ -5,16 +5,14 @@
 package control;
 
 import dao.AtividadeDAO;
+import dao.TipoAtividadeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
-import model.Aluno;
-import model.Area;
 import model.Atividade;
-import model.Professor;
-import model.TipoAtividade;
 import model.Usuario;
 
 /**
@@ -30,8 +28,11 @@ public class TrataCadastroAtividade extends Comando {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
         try {
+            
             String codAtiv    = getRequest().getParameter("codAtiv");            
             int aluno  = Integer.parseInt(getRequest().getParameter("aluno"));
+            List tipoAtividades = new TipoAtividadeDAO().pesquisarTipo();
+            getRequest().setAttribute("tipos", tipoAtividades);
             int tipoAtividade     = Integer.parseInt(getRequest().getParameter("tipoAtividade"));
             int professor   = Integer.parseInt(getRequest().getParameter("professor"));
             String status = getRequest().getParameter("status");

@@ -25,15 +25,14 @@ public class FrontController extends HttpServlet {
         super.init(config);
 
         comandos = new Hashtable();
-        comandos.put("trataLogin", "control.trataLogin");
-        comandos.put("trataCadastroPessoa", "control.TrataCadastroPessoa");
+        comandos.put("TrataLogin", "control.trataLogin");
+        comandos.put("TrataCadastroPessoa", "control.TrataCadastroPessoa");
         comandos.put("trataCadastroAtividade", "control.TrataCadastroAtividade");
         comandos.put("trataAnalisarAtividade", "control.TrataAnalisarAtividade");
         comandos.put("trataExibirAtividade", "control.TrataExibirAtividade");
         comandos.put("listaPessoas", "control.ListaPessoas");
-        comandos.put("editarPessoa", "control.EditarPessoa");
+        comandos.put("EditarPessoa", "control.EditarPessoa");
         comandos.put("trataEditaPessoa", "control.TrataEditaPessoa");
-        //Acrescentar o mapeamento para as outras classes
 
         //Recupera o contexto da aplicação para inicializar o banco de dados
         try {

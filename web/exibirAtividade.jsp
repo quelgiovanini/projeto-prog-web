@@ -19,7 +19,7 @@
         <h1> Atividades Complementares </h1>
 
         <table>
-                        <thead>
+            <thead>
                 <tr>
                     <th>Aluno</th>
                     <th>Tipo de Atividade</th>
@@ -45,12 +45,15 @@
                     <font face="Verdana" size="2"><input type="submit" value="Analisar Atividade"/></font>
             </form>
             <form action="FrontController" method="POST">
-                    <input type="hidden" name="cmd" value="trataExcluirAtividade">
+                    <input type="hidden" name="cmd" value="TrataExcluirAtividade">
                     <input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
                     <font face="Verdana" size="2"><input type="submit" value="Excluir Atividade"/></font></td>
             </form>
         </tr>
         <% } %>
+        <a href="index.jsp">Voltar</a>
+        </tbody>
+        
     </table>
     </body>
 </html>

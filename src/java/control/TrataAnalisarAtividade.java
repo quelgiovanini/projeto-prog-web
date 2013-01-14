@@ -44,6 +44,6 @@ public class TrataAnalisarAtividade extends Comando {
         
         Atividade atividades = new Atividade(aluno, tipo, professor, status);
         new AtividadeDAO().editar(atividades);
-        getResponse().sendRedirect("FrontController?cmd=trataListaAtividade");       
+        getResponse().sendRedirect("FrontController?cmd=TrataExibirAtividade");       
     }
 }

@@ -13,7 +13,6 @@ import java.util.StringTokenizer;
 
 /**
  *
- * @author Prado
  */
 public class PropertiesManager {
   private String fileName;

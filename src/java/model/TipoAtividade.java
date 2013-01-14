@@ -14,7 +14,6 @@ public class TipoAtividade implements Serializable {
     private int idTipo;
     public String descricaoTipo;
     private double proporcao; //relacao de uma hora normal para quantidade de horas aceitas
-    private Curso curso;
     private int maximoPermitido;
 
     public TipoAtividade() {
@@ -29,18 +28,21 @@ public class TipoAtividade implements Serializable {
         this.idTipo = idTipo;
     }
     
-    public TipoAtividade(String descricao, double proporcao, Curso curso, int maximoPermido){
+    public TipoAtividade(String descricao, double proporcao, int maximoPermido){
         this.setDescricaoTipo(descricaoTipo);
         this.setProporcao(proporcao);
-        this.setCurso(curso);
         this.setMaximoPermitido(maximoPermitido);
     }
     
-    public TipoAtividade(int idTipo, String descricao, double proporcao, Curso curso, int maximoPermido){
+    public TipoAtividade(int idTipo, String descricao){
+        this.setIdTipo(idTipo);
+        this.setDescricaoTipo(descricaoTipo);
+    }    
+    
+    public TipoAtividade(int idTipo, String descricao, double proporcao, int maximoPermido){
         this.setIdTipo(idTipo);
         this.setDescricaoTipo(descricaoTipo);
         this.setProporcao(proporcao);
-        this.setCurso(curso);
         this.setMaximoPermitido(maximoPermitido);
     }    
     
@@ -56,7 +58,6 @@ public class TipoAtividade implements Serializable {
     public void setTipoAtividade(TipoAtividade tipos){
         this.setDescricaoTipo(tipos.getDescricaoTipo());
         this.setProporcao(tipos.getProporcao());
-        this.setCurso(tipos.getCurso());
         this.setMaximoPermitido(tipos.getMaximoPermitido());
     }    
 
@@ -74,14 +75,6 @@ public class TipoAtividade implements Serializable {
 
     public void setProporcao(double proporcao) {
         this.proporcao = proporcao;
-    }
-
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
     }
 
     public int getMaximoPermitido() {
