@@ -128,12 +128,11 @@ public class AtividadeDAO implements InterfaceDAO {
         try{
             String sql = (String) dados.get("Update.Atividade");
             PreparedStatement pstmt = conexao.prepareStatement(sql);
-            
-            pstmt.setInt(1, atividade.getIdAtividade());
-            pstmt.setString(2, atividade.getAluno().getNomePessoa());
-            pstmt.setString(3, atividade.getTipoAtividade().getDescricaoTipo());
-            pstmt.setString(4, atividade.getProfessorResponsavel().getNomePessoa());
-            pstmt.setString(5, atividade.getStatus());
+            pstmt.setString(1, atividade.getAluno().getNomePessoa());
+            pstmt.setString(2, atividade.getTipoAtividade().getDescricaoTipo());
+            pstmt.setString(3, atividade.getProfessorResponsavel().getNomePessoa());
+            pstmt.setString(4, atividade.getStatus());
+            pstmt.setInt(5, atividade.getIdAtividade());
             pstmt.execute();
             retorno = "sucesso";
             pstmt.close();

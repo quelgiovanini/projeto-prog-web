@@ -22,8 +22,12 @@
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
-        <h1> Analisar atividades </h1>
-          <a href="exibirAtividade.jsp"> Atividades </a><br/>
+        <h1> Controle de Atividades Complementares </h1>
+        <div>
+        <ul>
+            <li><a href="FrontController?cmd=TrataExibirAtividade"> Analisar atividades </a></li>
+        </ul>  
+        </div>    
         <h1> Cadastros </h1>
           <a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/>
           <a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/>

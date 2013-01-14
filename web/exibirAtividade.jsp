@@ -47,13 +47,12 @@
             <form action="FrontController" method="POST">
                     <input type="hidden" name="cmd" value="TrataExcluirAtividade">
                     <input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
-                    <font face="Verdana" size="2"><input type="submit" value="Excluir Atividade"/></font></td>
+                    <font face="Verdana" size="2"><input type="submit" value="Excluir  Atividade"/></font></td>
             </form>
         </tr>
         <% } %>
         <a href="index.jsp">Voltar</a>
         </tbody>
-        
     </table>
     </body>
 </html>
