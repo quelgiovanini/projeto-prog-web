@@ -5,8 +5,6 @@
 package dao;
 
 import database.DBConnection;
-import model.*;
-import util.PropertiesManager;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,17 +12,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import model.Atividade;
+import model.TipoAtividade;
+import util.PropertiesManager;
 
 /**
  *
  * @author Quele
  */
-
-public class AtividadeDAO implements InterfaceDAO {
+public class TipoAtividadeDAO implements InterfaceDAO {
+    
 
     private HashMap dados;
     
-    public AtividadeDAO() throws IOException{
+    public TipoAtividadeDAO() throws IOException{
         
         dados = new PropertiesManager("sql.properties").readPropertiesFile();
         
@@ -32,22 +34,17 @@ public class AtividadeDAO implements InterfaceDAO {
     
     @Override
     public void inserir (Object obj) throws SQLException {
-        Atividade atividades = (Atividade) obj;        
+        TipoAtividade tipos = (TipoAtividade) obj;        
                      
         Connection conexao = DBConnection.getInstance();
-        String sql = (String) dados.get("Insert.Atividade");
+        String sql = (String) dados.get("Insert.Tipo");
         PreparedStatement pstmt = conexao.prepareStatement(sql);
-   //     pstmt.setInt(1, atividades.getIdAtividade());
-        pstmt.setInt(1, atividades.getCodAluno());
-        pstmt.setInt(2, atividades.getCodTipoAtividade());
-        pstmt.setInt(3, atividades.getCodProfessor());
-        pstmt.setString(4, atividades.getStatus());
-        
-        try {
-            pstmt.executeQuery();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+   //     pstmt.setString(1, atividades.getIdAtividade());
+        pstmt.setInt(1, tipos.getIdTipo());
+        pstmt.setString(2, tipos.getDescricaoTipo());
+        pstmt.setDouble(3, tipos.getProporcao());
+        pstmt.setInt(4, tipos.getMaximoPermitido());
+        pstmt.execute();
         pstmt.close();
     }
 
@@ -58,13 +55,12 @@ public class AtividadeDAO implements InterfaceDAO {
     
     public String remover(String codati) throws SQLException {
         String retorno = "erro";                 
-
+        
         Connection conexao = DBConnection.getInstance();
         try{
             String sql = (String) dados.get("Delete.Atividade");
             PreparedStatement pstmt = conexao.prepareStatement(sql);
-            pstmt.setString(1, codati);
-            pstmt.execute();
+            pstmt.executeQuery(codati);
             retorno = "sucesso";
             pstmt.close();
         }catch(Exception ex){
@@ -76,25 +72,22 @@ public class AtividadeDAO implements InterfaceDAO {
 
     @Override
     public ArrayList pesquisarTudo() throws SQLException {
-      ArrayList ativList = new ArrayList();
+      ArrayList tipoList = new ArrayList();
       Connection conexao = DBConnection.getInstance();
-      String sql = (String) dados.get("SelectAll.Atividade");
+      String sql = (String) dados.get("SelectAll.Tipo");
       PreparedStatement pstmt = conexao.prepareStatement(sql) ;
       ResultSet rs = pstmt.executeQuery();
-      
-      while (rs.next()) {
+            while (rs.next()) {
 
-          Atividade atividade = new Atividade(); 
-          atividade.getAluno().setCodPessoa(rs.getInt(1));
-          atividade.getTipoAtividade().setIdTipo(rs.getInt(2));
-          atividade.getProfessorResponsavel().setCodPessoa(rs.getInt(3));
-          atividade.setStatus(rs.getString(4));
-          atividade.setIdAtividade(rs.getInt(5));
-
-          ativList.add(atividade);
+          TipoAtividade tipos = new TipoAtividade(); 
+          tipos.setIdTipo(rs.getInt(1));
+          tipos.setDescricaoTipo(rs.getString(2));
+          tipos.setProporcao(rs.getDouble(3));
+          tipos.setMaximoPermitido(rs.getInt(4));
+          tipoList.add(tipos);
       }
        pstmt.close();
-       return ativList;
+       return tipoList;
     } 
     
     public Atividade pesquisarCod(String cod) throws SQLException {
@@ -108,9 +101,9 @@ public class AtividadeDAO implements InterfaceDAO {
         if (rs.next()) {
             ativ = new Atividade(); 
             ativ.setIdAtividade(rs.getInt(1));
-            ativ.getAluno().setCodPessoa(rs.getInt(2));
-            ativ.getTipoAtividade().setIdTipo(rs.getInt(3));
-            ativ.getProfessorResponsavel().setCodPessoa(rs.getInt(4));
+            ativ.getAluno().setNomePessoa(rs.getString(2));
+            ativ.getTipoAtividade().setDescricaoTipo(rs.getString(3));
+            ativ.getProfessorResponsavel().setNomePessoa(rs.getString(4));
             ativ.setStatus(rs.getString(5));
         }
         pstmt.close();
@@ -135,11 +128,11 @@ public class AtividadeDAO implements InterfaceDAO {
             String sql = (String) dados.get("Update.Atividade");
             PreparedStatement pstmt = conexao.prepareStatement(sql);
             
-            pstmt.setInt(1, atividade.getAluno().getCodPessoa());
-            pstmt.setInt(2, atividade.getTipoAtividade().getIdTipo());
-            pstmt.setInt(3, atividade.getProfessorResponsavel().getCodPessoa());
-            pstmt.setString(4, atividade.getStatus());
-            pstmt.setInt(5, atividade.getIdAtividade());
+            pstmt.setInt(1, atividade.getIdAtividade());
+            pstmt.setString(2, atividade.getAluno().getNomePessoa());
+            pstmt.setString(3, atividade.getTipoAtividade().getDescricaoTipo());
+            pstmt.setString(4, atividade.getProfessorResponsavel().getNomePessoa());
+            pstmt.setString(5, atividade.getStatus());
             pstmt.execute();
             retorno = "sucesso";
             pstmt.close();
@@ -148,6 +141,22 @@ public class AtividadeDAO implements InterfaceDAO {
         }
         return retorno;
     }
+    
+    public ArrayList pesquisarTipo() throws SQLException {
+      ArrayList tipoList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("SelectTipo.Tipo");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+            TipoAtividade tipo = new TipoAtividade();
+            tipo.setIdTipo(rs.getInt(1));
+            tipo.setDescricaoTipo(rs.getString(2));
+            tipoList.add(tipo);
+      }
+       pstmt.close();
+       return tipoList;
+    } 
     
     class atividadeDouble {
         public ArrayList getListAtividades() {

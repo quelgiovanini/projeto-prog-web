@@ -27,9 +27,10 @@ public class FrontController extends HttpServlet {
         comandos = new Hashtable();
         comandos.put("TrataLogin", "control.trataLogin");
         comandos.put("TrataCadastroPessoa", "control.TrataCadastroPessoa");
-        comandos.put("TrataCadastroAtividade", "control.TrataCadastroAtividade");
-        comandos.put("trataAnalisarAtividade", "control.TrataAnalisarAtividade");
-        comandos.put("TrataExibirAtividade", "control.TrataExibirAtividade");
+        comandos.put("trataCadastroAtividade", "control.trataCadastroAtividade");
+        comandos.put("trataAnalisarAtividade", "control.trataAnalisarAtividade");
+        comandos.put("trataExibirAtividade", "control.trataExibirAtividade");
+        comandos.put("trataExcluirAtividade", "control.trataExcluirAtividade");
         comandos.put("listaPessoas", "control.ListaPessoas");
         comandos.put("EditarPessoa", "control.EditarPessoa");
         comandos.put("trataEditaPessoa", "control.TrataEditaPessoa");
@@ -106,9 +107,7 @@ public class FrontController extends HttpServlet {
          * @throws IOException if an I/O error occurs
          */
         @Override
-        protected void doPost
-        (HttpServletRequest request, HttpServletResponse response
-        )
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException
         , IOException {
             processRequest(request, response);

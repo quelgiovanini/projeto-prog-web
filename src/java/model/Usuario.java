@@ -18,6 +18,7 @@ public class Usuario implements Serializable {
     private String senha;
     private String dataCriacao;
     
+    
     public Usuario() { }
 
     public Usuario(String login, String nome, String senha, String dataCriacao) {
@@ -25,6 +26,10 @@ public class Usuario implements Serializable {
         this.nome = nome;
         this.senha = senha;
         this.dataCriacao = dataCriacao;
+    }
+    
+    public boolean acesso(){
+        return false;
     }
     
     public int getId() {

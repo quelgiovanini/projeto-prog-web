@@ -4,6 +4,12 @@
     Author     : Quele
 --%>
 
+<%@page import="model.Professor"%>
+<%@page import="dao.ProfessorDAO"%>
+<%@page import="model.Aluno"%>
+<%@page import="dao.AlunoDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.TipoAtividadeDAO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="model.TipoAtividade"%>
@@ -17,62 +23,77 @@
    <body>
        <form action="FrontController" method="POST">    
          
-        <fieldset><legend><font face="Verdana" color="#000000">  Controle de Atividades Complementares - Cadastro de Atividades </font></legend>
+        <fieldset><legend>  Controle de Atividades Complementares - Cadastro de Atividades </legend>
             <table>
-                <tr>
-
-                    <td><input name="codAtiv" type="hidden" id="codAtiv" size="70" maxlength="60" />
-
-                </tr>                        
                 <tr>
                 <p class="first">
                     <td><label for="aluno">Aluno </label></td>
-                    <td><input name="aluno" type="text" id="aluno" size="70" maxlength="60" />
+                    <td>
+                    <%  AlunoDAO a = new AlunoDAO();
+                    ArrayList<Aluno> listaAluno = a.pesquisarTipo();
+                    
+                    String p = "<select name='aluno' id='aluno'>";
+                    for(int i=0; i<listaAluno.size(); i++){
+                        p += "<option value='"+ listaAluno.get(i).getCodPessoa()+"'>"+listaAluno.get(i).getNomePessoa()+"</option>";
+                    }
+                    
+                    p+= "</select>";
+                    out.print(p);
+                    
+                    %>
+                    </td>
                 </p>
                 </tr>
                 <tr>
-                <p>
-                        <td><label for="tipoAtividade">Tipo de Atividade </label></td>
-                        <td>
-                            <select name="tipoAtividade">
-        <% Iterator it; %>
-        <%
-            List dados = (List) request.getAttribute("tipos");
-            for (it = dados.iterator(); it.hasNext();){
-            TipoAtividade tp = (TipoAtividade) it.next();
-            System.out.println(tp.getDescricaoTipo());
-        %>
-            
-            <option value="<%=tp.getIdTipo()%>"> <%= tp.getDescricaoTipo()%>
-            </option>
-         <% } %>
-         </select>
-             </td>
-                </p>                             
+                <p class="first">
+                    <td><label for="tipoAtividade">Tipo de Atividade </label></td>
+                   <!-- <td><input name="tipoAtividade" type="text" id="tipoAtividade" size="70" maxlength="60" /> -->
+                <td>
+                <%  TipoAtividadeDAO t = new TipoAtividadeDAO();
+                    ArrayList<TipoAtividade> listaTipo = t.pesquisarTipo();
+                    
+                    String s = "<select name='tipoAtividade' id='tipoAtividade'>";
+                    for(int i=0; i<listaTipo.size(); i++){
+                        s += "<option value='"+ listaTipo.get(i).getIdTipo()+"'>"+listaTipo.get(i).getDescricaoTipo()+"</option>";
+                    }
+                    
+                    s+= "</select>";
+                    out.print(s);
+                    
+                    %>
+                </td>    
+            </p>
                 </tr>
                 <tr>
                     <p>
                         <td><label for="professor">Professor </label></td>
-                        <td><input type="text" name="professor" id="professor" size="30" /></td>
+                        <td>
+                    <%  ProfessorDAO q = new ProfessorDAO();
+                    ArrayList<Professor> listaProf = q.pesquisarTipo();
+                    
+                    String f = "<select name='professor' id='professor'>";
+                    for(int i=0; i<listaAluno.size(); i++){
+                        f += "<option value='"+ listaProf.get(i).getCodPessoa()+"'>"+listaProf.get(i).getNomePessoa()+"</option>";
+                    }
+                    
+                    f+= "</select>";
+                    out.print(f);
+                    %>
+                        </td>
                     </p>
                  </tr>   
                 <tr>
                     <p>
                         <td><label for="status">Status </label></td>
-                        <td>
-                          <select name="status">
-                                    <option value="E" selected>Espera</option>
-                                    <option value="A">Aprovado</option>
-                                    <option value="R">Reprovado</option>
-                          </select>
-                        </td>
+                        <td><input type="text" name="status" id="status" size="30" /></td>
                     </p>
-                 </tr>                   
+                 </tr>                  
+                
                 <tr>
                     <td colspan="2"><p>
                             <input name="cadastrar" type="submit" id="cadastrar" value="Cadastrar"  />
                             <input name="limpar" type="reset" id="limpar" value="Limpar dados" />
-                            <input type="hidden" name="cmd" value='TrataCadastroAtividade'>
+                            <input type="hidden" name="cmd" value='trataCadastroAtividade'>
                     </td>
                 </tr>
            

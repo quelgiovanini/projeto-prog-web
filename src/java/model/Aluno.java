@@ -38,6 +38,11 @@ public class Aluno extends Pessoa implements Serializable {
      //   this.setCurriculo(curriculo);
     }
     
+    public Aluno(String nome, String matricula){
+        super(nome);
+        this.setNumMatricula(matricula);
+    }    
+    
     public Aluno () {
         
     }

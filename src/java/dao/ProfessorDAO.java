@@ -1,29 +1,30 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package dao;
 
 import database.DBConnection;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.ServletException;
 import model.Aluno;
-import model.Atividade;
-import model.Pessoa;
 import model.Professor;
-import model.Usuario;
 import util.PropertiesManager;
 
 /**
  *
- * @author Prado
+ * @author Quele
  */
-public class AlunoDAO implements InterfaceDAO {
-  
+public class ProfessorDAO implements InterfaceDAO{
+     
   private HashMap dados;
   
-  public AlunoDAO() throws IOException{
+  public ProfessorDAO() throws IOException{
     dados = new PropertiesManager("sql.properties").readPropertiesFile();
   }
 
@@ -73,19 +74,19 @@ public class AlunoDAO implements InterfaceDAO {
   }
 
      public ArrayList pesquisarTipo() throws SQLException {
-      ArrayList alList = new ArrayList();
+      ArrayList profList = new ArrayList();
       Connection conexao = DBConnection.getInstance();
-      String sql = (String) dados.get("SelectUser.Aluno");
+      String sql = (String) dados.get("SelectUser.Professor");
       PreparedStatement pstmt = conexao.prepareStatement(sql) ;
       ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-            Aluno usu = new Aluno();
-            usu.setCodPessoa(rs.getInt(1));
-            usu.setNomePessoa(rs.getString(2));
-            alList.add(usu);
+            Professor pro = new Professor();
+            pro.setCodPessoa(rs.getInt(1));
+            pro.setNomePessoa(rs.getString(2));
+            profList.add(pro);
       }
        pstmt.close();
-       return alList;
+       return profList;
     }  
   
   @Override
@@ -101,6 +102,6 @@ public class AlunoDAO implements InterfaceDAO {
         pstmt.setInt(3, oldAluno.getCodPessoa());        
         pstmt.execute();
         pstmt.close();
-  } 
+  }
   
 }

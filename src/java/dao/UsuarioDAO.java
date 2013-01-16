@@ -9,6 +9,7 @@ import database.DBConnection;
 import java.io.IOException;
 import java.sql.*;
 import java.util.*;
+import model.TipoAtividade;
 import model.Usuario;
 import util.PropertiesManager;
 
@@ -90,7 +91,7 @@ public class UsuarioDAO implements InterfaceDAO {
         pstmt.close();
         return usuario;
     }
-
+    
     @Override
     public void editar(Object obj) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");

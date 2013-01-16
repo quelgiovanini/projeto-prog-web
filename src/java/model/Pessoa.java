@@ -24,6 +24,10 @@ public class Pessoa implements Serializable {
         this.dataNascimento = dataNascimento;
     }
     
+    public Pessoa(String nomePessoa) {        
+        this.nomePessoa = nomePessoa;
+    }
+    
     public Pessoa(int codPessoa, String nomePessoa, String rg, String dataNascimento) {
         this.codPessoa = codPessoa;
         this.nomePessoa = nomePessoa;

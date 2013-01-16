@@ -72,13 +72,13 @@ public class Atividade implements Serializable {
     }
 
     public void setAtividade(Atividade atividades){
-        this.setAluno(atividades.getAluno());
         this.setIdAtividade(atividades.getIdAtividade());
-        this.setDataRequisicao(atividades.getDataRequisicao());
+        this.setAluno(atividades.getAluno());
+     //   this.setDataRequisicao(atividades.getDataRequisicao());
         this.setTipoAtividade(atividades.getTipoAtividade());
-        this.setHorasRequisitadas(atividades.getHorasRequisitadas());
-        this.setFuncionarioResponsavel(atividades.getFuncionarioResponsavel());
-        this.setObservacao(atividades.getObservacao());        
+   //     this.setHorasRequisitadas(atividades.getHorasRequisitadas());
+        this.setProfessorResponsavel(atividades.getProfessorResponsavel());
+  //      this.setObservacao(atividades.getObservacao());        
         this.setStatus(atividades.getStatus());        
     }    
 

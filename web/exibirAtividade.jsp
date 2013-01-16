@@ -42,12 +42,12 @@
             <td ><%=atividade.getStatus()%></td>
             <form action="analisarAtividade.jsp" method="POST">
                     <td align="center"><input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
-                    <font face="Verdana" size="2"><input type="submit" value="Analisar Atividade"/></font>
+                        <input type="submit" value="Analisar Atividade">
             </form>
             <form action="FrontController" method="POST">
-                    <input type="hidden" name="cmd" value="TrataExcluirAtividade">
+                    <input type="hidden" name="cmd" value="trataExcluirAtividade" />
                     <input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
-                    <font face="Verdana" size="2"><input type="submit" value="Excluir  Atividade"/></font></td>
+                    <input type="submit" value="Excluir  Atividade"/></td>
             </form>
         </tr>
         <% } %>

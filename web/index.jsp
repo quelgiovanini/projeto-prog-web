@@ -25,7 +25,7 @@
         <h1> Controle de Atividades Complementares </h1>
         <div id="nav">
         <ul>
-            <li><a href="FrontController?cmd=TrataExibirAtividade"> Analisar atividades </a></li>
+            <li><a href="FrontController?cmd=trataExibirAtividade"> Verificar atividades </a></li>
         </ul>  
         </div>    
 
