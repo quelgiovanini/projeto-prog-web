@@ -14,7 +14,7 @@
 <!--<script scr="arquivo.js" type="text/javascript"></script>       -->
 <script type="text/javascript">
    function displayResult(){
-		var option=document.getElementById("forms");
+		var option=document.getElementById("tipoPessoa");
 		var x = option.options[option.selectedIndex].value;
 		switch(x){
 			case  '0': //nenhum
@@ -42,7 +42,7 @@
 </script>
       </head>
       <body onLoad ="displayResult();">
-          <form action="FrontController" method="POST" onload="displayResult()">    
+          <form action="FrontController" method="POST"  >    
 
         <fieldset><legend>  Controle de Atividades Complementares - Cadastro de Pessoas </legend>      
 <tr>
@@ -61,8 +61,8 @@
                       <p>
                         <td><label for="tipoPessoa">Tipo Pessoa </label></td>
                         <td>
-                          <select name="tipoPessoa">
-                              <option value="0">Selecionar</option>
+                          <select name="tipoPessoa" id="tipoPessoa" onchange="displayResult(this)">
+                              <option value="0" selected="selected">Selecionar</option>
                             <option value="1">Funcionario</option>
                             <option value="2">Aluno</option>
                             <option value="3">Professor </option>
@@ -106,7 +106,7 @@
                     <td colspan="2"><p>
                             <input name="cadastrar" type="submit" id="cadastrar" value="Cadastrar"  />
                             <input name="limpar" type="reset" id="limpar" value="Limpar dados" />
-                            <input type="hidden" name="cmd" value='trataCadastroPessoas'>
+                            <input type="hidden" name="cmd" value='trataCadastroPessoa'>
                     </td>
                 </tr>
            

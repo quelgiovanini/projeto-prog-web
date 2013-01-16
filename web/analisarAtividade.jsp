@@ -19,9 +19,9 @@
         
         <%
             // codigo por parametro
-            String codAtiv = request.getParameter("codati");
+            String ativ = request.getParameter("codati");
             AtividadeDAO dao = new AtividadeDAO();
-            Atividade atividade = dao.pesquisarCod(codAtiv);
+            Atividade atividade = dao.pesquisarCod(ativ);
             
         %>
         <form action='FrontController' method='POST'>

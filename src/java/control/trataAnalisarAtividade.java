@@ -24,7 +24,7 @@ import model.Usuario;
 public class trataAnalisarAtividade extends Comando {
     
     @Override
-    public void execute() throws ServletException, IOException, SQLException {
+    public void execute() throws ServletException, IOException, SQLException, ClassNotFoundException {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
         

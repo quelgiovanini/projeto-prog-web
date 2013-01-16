@@ -67,8 +67,8 @@ public class ProfessorDAO implements InterfaceDAO{
       ResultSet rs = pstmt.executeQuery();
       if(rs.next()){
           aluno.setCodPessoa(rs.getInt(1));
-          aluno.setIngresso(rs.getString(2));
-          aluno.setNumMatricula(rs.getString(3));
+      //    aluno.setIngresso(rs.getString(2));
+      //    aluno.setNumMatricula(rs.getString(3));
       }
       return aluno;
   }
@@ -97,8 +97,8 @@ public class ProfessorDAO implements InterfaceDAO{
         Connection conexao = DBConnection.getInstance();
         String sql = (String) dados.get("Aluno.Editar");
         PreparedStatement pstmt = conexao.prepareStatement(sql);
-        pstmt.setString(1, newAluno.getIngresso());
-        pstmt.setString(2, newAluno.getNumMatricula());
+  //      pstmt.setString(1, newAluno.getIngresso());
+  //      pstmt.setString(2, newAluno.getNumMatricula());
         pstmt.setInt(3, oldAluno.getCodPessoa());        
         pstmt.execute();
         pstmt.close();

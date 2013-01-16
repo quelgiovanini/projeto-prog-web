@@ -196,7 +196,7 @@ public class Atividade implements Serializable {
     }
 
     public String toString(){
-        return ("Aluno: " + getAluno().getNomePessoa() + 
+        return ("Aluno: " + getAluno().getNome() + 
                 "\nHoras Requisitadas: " + getHorasRequisitadas() +
                 "\nHoras Aceitas: " + getHorasAceitas() +
                 "\nData de Requisição: " + getDataRequisicao() +

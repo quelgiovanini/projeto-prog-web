@@ -101,7 +101,7 @@ public class TipoAtividadeDAO implements InterfaceDAO {
         if (rs.next()) {
             ativ = new Atividade(); 
             ativ.setIdAtividade(rs.getInt(1));
-            ativ.getAluno().setNomePessoa(rs.getString(2));
+            ativ.getAluno().setNome(rs.getString(2));
             ativ.getTipoAtividade().setDescricaoTipo(rs.getString(3));
             ativ.getProfessorResponsavel().setNomePessoa(rs.getString(4));
             ativ.setStatus(rs.getString(5));
@@ -129,7 +129,7 @@ public class TipoAtividadeDAO implements InterfaceDAO {
             PreparedStatement pstmt = conexao.prepareStatement(sql);
             
             pstmt.setInt(1, atividade.getIdAtividade());
-            pstmt.setString(2, atividade.getAluno().getNomePessoa());
+            pstmt.setString(2, atividade.getAluno().getNome());
             pstmt.setString(3, atividade.getTipoAtividade().getDescricaoTipo());
             pstmt.setString(4, atividade.getProfessorResponsavel().getNomePessoa());
             pstmt.setString(5, atividade.getStatus());

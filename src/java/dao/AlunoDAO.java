@@ -36,9 +36,11 @@ public class AlunoDAO implements InterfaceDAO {
     String sql = (String) dados.get("Aluno.Inserir");
     stmt = conexao.prepareStatement(sql);
     stmt.setInt(1,aluno.getCodPessoa());
-    //stmt.setString(1, pessoa.getNomePessoa());
-    //stmt.setString(2, pessoa.getRg());
-    //stmt.setString(3, pessoa.getDataNascimento()); // a data está hard coded por enquanto até usarmos alguma maneira de validar antes se a data foi digitada corretamente
+    stmt.setString(2, aluno.getNome());
+    stmt.setString(3, aluno.getRg());
+    stmt.setInt(4, aluno.getTipoPessoa());
+    stmt.setString(5, aluno.getNumeroMatricula());
+//    stmt.setDate(6, aluno.getDataIngresso());// a data está hard coded por enquanto até usarmos alguma maneira de validar antes se a data foi digitada corretamente
    
     stmt.execute();
     //conexao.close();
@@ -66,8 +68,8 @@ public class AlunoDAO implements InterfaceDAO {
       ResultSet rs = pstmt.executeQuery();
       if(rs.next()){
           aluno.setCodPessoa(rs.getInt(1));
-          aluno.setIngresso(rs.getString(2));
-          aluno.setNumMatricula(rs.getString(3));
+    //      aluno.setIngresso(rs.getString(2));
+     //     aluno.setNumMatricula(rs.getString(3));
       }
       return aluno;
   }
@@ -81,7 +83,7 @@ public class AlunoDAO implements InterfaceDAO {
             while (rs.next()) {
             Aluno usu = new Aluno();
             usu.setCodPessoa(rs.getInt(1));
-            usu.setNomePessoa(rs.getString(2));
+            usu.setNome(rs.getString(2));
             alList.add(usu);
       }
        pstmt.close();
@@ -96,8 +98,8 @@ public class AlunoDAO implements InterfaceDAO {
         Connection conexao = DBConnection.getInstance();
         String sql = (String) dados.get("Aluno.Editar");
         PreparedStatement pstmt = conexao.prepareStatement(sql);
-        pstmt.setString(1, newAluno.getIngresso());
-        pstmt.setString(2, newAluno.getNumMatricula());
+    //    pstmt.setString(1, newAluno.getIngresso());
+//        pstmt.setString(2, newAluno.getNumMatricula());
         pstmt.setInt(3, oldAluno.getCodPessoa());        
         pstmt.execute();
         pstmt.close();
