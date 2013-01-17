@@ -5,69 +5,119 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  *
  * @author Quele
  */
-public class Funcionario extends Pessoa implements Serializable {
-    private int codCargo;
-    private int codSetor;
-    private int codTipoFuncionario;
-    private Curso curso;
+public class Funcionario implements Serializable {
+     private int codPessoa;
+     private String nome;
+     private String rg;
+     private int tipoPessoa;
+     private int codSetor;
+     private Curso curso = new Curso();
 
-    public Funcionario(int codPessoa, String nome, String email, String matricula, int tipoFuncionario, int cargo, int setor){
-        super(codPessoa, nome, email, matricula);
-        this.setCargo(cargo);
-        this.setSetor(setor);
-        this.setTipoFuncionario(tipoFuncionario);
-    }
-  
-   public Funcionario getFuncionario() {
-        return this;
-    }
+     public Funcionario () {}
 
-   public Funcionario() {
-       
-   }
-   
-    public void setNoticia(Funcionario funcionarios){
-        this.setPessoa(this);
-        this.setCargo(funcionarios.getCargo());
-        this.setSetor(funcionarios.getSetor());
+     public Funcionario(int codPessoa, String nome, String rg, int tipoPessoa, int codSetor) {
+        this.setCodPessoa(codPessoa);
+        this.setNome(nome);
+        this.setRg(rg);
+        this.setTipoPessoa(tipoPessoa);
+        this.setCodSetor(codSetor);
     }    
-    
-    public int getCargo() {
-        return codCargo;
-    }
-    
-    public void setTipoFuncionario(int tipoFuncionario){
-      this.codTipoFuncionario = tipoFuncionario;
-    }
-    
-    public int getCodTipoFuncionario(){
-      return codTipoFuncionario;
+
+     public Funcionario(int codPessoa, String nome, String rg, int tipoPessoa) {
+        this.setCodPessoa(codPessoa);
+        this.setNome(nome);
+        this.setRg(rg);
+        this.setTipoPessoa(tipoPessoa);
+     //   this.setCodSetor(codSetor);
+    }             
+     
+     public Funcionario(String nome, String rg, int tipoPessoa, int codSetor) {
+     //   this.setCodPessoa(codPessoa);
+        this.setNome(nome);
+        this.setRg(rg);
+        this.setTipoPessoa(tipoPessoa);
+        this.setCodSetor(codSetor);
+    }       
+     
+     public Funcionario(String nome, String rg, int tipoPessoa) {
+     //   this.setCodPessoa(codPessoa);
+        this.setNome(nome);
+        this.setRg(rg);
+        this.setTipoPessoa(tipoPessoa);
+       // this.setCodSetor(codSetor);
+    }           
+     
+     public Funcionario (int codPessoa) {
+         this.setCodPessoa(codPessoa);
+     }
+     
+     public Funcionario getFuncionario() {
+         return this;
+     }
+     
+    public void setFuncionario(Funcionario funcionarios) {
+        this.setCodPessoa(funcionarios.getCodPessoa());
+        this.setNome(funcionarios.getNome());
+        this.setRg(funcionarios.getRg());
+        this.setTipoPessoa(funcionarios.getTipoPessoa());
+        this.setCodSetor(funcionarios.getCodSetor());
+    }     
+          
+     
+    public int getCodPessoa() {
+        return codPessoa;
     }
 
-    public void setCargo(int cargo) {
-        this.codCargo = cargo;
+    public void setCodPessoa(int codPessoa) {
+        this.codPessoa = codPessoa;
     }
 
-    public int getSetor() {
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public int getTipoPessoa() {
+        return tipoPessoa;
+    }
+
+    public void setTipoPessoa(int tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
+    }
+
+    public int getCodSetor() {
         return codSetor;
     }
 
-    public void setSetor(int setor) {
-        this.codSetor = setor;
+    public void setCodSetor(int codSetor) {
+        this.codSetor = codSetor;
     }
-        
-    public void setCurso(Curso curso){
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
         this.curso = curso;
     }
 
-    public Curso getCurso(){
-        return this.curso;
-    }
     public boolean testeSenha(String senha){
        // if(senha == getSenha()){
       if (senha != ""){
@@ -79,8 +129,7 @@ public class Funcionario extends Pessoa implements Serializable {
     @Override
     public String toString() {
         return (super.toString() + 
-                "\nCargo: " + getCargo() +
-                "\nSetor: " + getSetor());
+                "\nFuncionario: " + getNome());
     }  
     
 }

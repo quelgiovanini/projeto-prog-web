@@ -10,11 +10,12 @@ import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import model.Aluno;
 import model.Funcionario;
+import model.Setor;
 import util.PropertiesManager;
 
 /**
  *
- * @author Prado
+ * @author Quele
  */
 public class FuncionarioDAO implements InterfaceDAO {
   
@@ -32,11 +33,12 @@ public class FuncionarioDAO implements InterfaceDAO {
     Connection conexao = DBConnection.getInstance();    
     String sql = (String) dados.get("Funcionario.Inserir");
     stmt = conexao.prepareStatement(sql);
-    stmt.setInt(1,func.getCodPessoa());
-    stmt.setInt(2,func.getSetor());
-    stmt.setInt(3,func.getCodTipoFuncionario());
-    stmt.setInt(4,1);
-    
+  //  stmt.setInt(1,func.getCodPessoa());
+    stmt.setString(1, func.getNome());
+    stmt.setString(2, func.getRg());
+    stmt.setInt(3, func.getTipoPessoa());
+    stmt.setInt(4, func.getCodSetor());
+   
     stmt.execute();
     //conexao.close();
         
@@ -47,6 +49,24 @@ public class FuncionarioDAO implements InterfaceDAO {
     throw new UnsupportedOperationException("Not supported yet.");
   }  
  
+    public String remover(String codf) throws SQLException {
+        String retorno = "erro";                 
+
+        Connection conexao = DBConnection.getInstance();
+        try{
+            String sql = (String) dados.get("Delete.Funcionario");
+            PreparedStatement pstmt = conexao.prepareStatement(sql);
+            pstmt.setString(1, codf);
+            pstmt.execute();
+            retorno = "sucesso";
+            pstmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return retorno;
+        
+    }     
+  
   @Override
   public ArrayList pesquisarTudo() throws SQLException {
     throw new UnsupportedOperationException("Not supported yet.");
@@ -63,8 +83,7 @@ public class FuncionarioDAO implements InterfaceDAO {
     ResultSet rs = pstmt.executeQuery();
     if(rs.next()){
         funcionario.setCodPessoa(rs.getInt(1));
-        funcionario.setSetor(rs.getInt(2));
-        funcionario.setTipoFuncionario(rs.getInt(3));
+
     }
     return funcionario;
   }
@@ -77,13 +96,28 @@ public class FuncionarioDAO implements InterfaceDAO {
     Connection conexao = DBConnection.getInstance();
     String sql = (String) dados.get("Aluno.Update");
     PreparedStatement pstmt = conexao.prepareStatement(sql);
-    pstmt.setInt(1, newFunc.getSetor());
-    pstmt.setInt(2, newFunc.getCodTipoFuncionario());
+
     pstmt.setInt(3, newFunc.getCurso().getCodCurso());
     pstmt.setInt(4, oldFunc.getCodPessoa());
     
     pstmt.execute();
     pstmt.close();
   }
+  
+       public ArrayList pesquisarSetor() throws SQLException {
+      ArrayList setList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("SelectSetor.Funcionario");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+            Setor f = new Setor();
+            f.setCodSetor(rs.getInt(1));
+            f.getNomeSetor(rs.getString(2));
+            setList.add(f);
+      }
+       pstmt.close();
+       return setList;
+    }
   
 }

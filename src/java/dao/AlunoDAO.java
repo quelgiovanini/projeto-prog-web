@@ -35,11 +35,11 @@ public class AlunoDAO implements InterfaceDAO {
     Connection conexao = DBConnection.getInstance();    
     String sql = (String) dados.get("Aluno.Inserir");
     stmt = conexao.prepareStatement(sql);
-    stmt.setInt(1,aluno.getCodPessoa());
-    stmt.setString(2, aluno.getNome());
-    stmt.setString(3, aluno.getRg());
-    stmt.setInt(4, aluno.getTipoPessoa());
-    stmt.setString(5, aluno.getNumeroMatricula());
+  //  stmt.setInt(1,aluno.getCodPessoa());
+    stmt.setString(1, aluno.getNome());
+    stmt.setString(2, aluno.getRg());
+    stmt.setInt(3, aluno.getTipoPessoa());
+    stmt.setString(4, aluno.getNumeroMatricula());
 //    stmt.setDate(6, aluno.getDataIngresso());// a data está hard coded por enquanto até usarmos alguma maneira de validar antes se a data foi digitada corretamente
    
     stmt.execute();
@@ -52,6 +52,24 @@ public class AlunoDAO implements InterfaceDAO {
     throw new UnsupportedOperationException("Not supported yet.");
   }  
  
+      public String remover(String codal) throws SQLException {
+        String retorno = "erro";                 
+
+        Connection conexao = DBConnection.getInstance();
+        try{
+            String sql = (String) dados.get("Delete.Aluno");
+            PreparedStatement pstmt = conexao.prepareStatement(sql);
+            pstmt.setString(1, codal);
+            pstmt.execute();
+            retorno = "sucesso";
+            pstmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return retorno;
+        
+    }   
+  
   @Override
   public ArrayList pesquisarTudo() throws SQLException {
     throw new UnsupportedOperationException("Not supported yet.");

@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import model.Aluno;
+import model.Funcionario;
 import model.Professor;
 import util.PropertiesManager;
 
@@ -30,16 +31,17 @@ public class ProfessorDAO implements InterfaceDAO{
 
   @Override
   public void inserir(Object obj) throws SQLException {
-    Aluno aluno = (Aluno) obj;
+    Professor prof = (Professor) obj;
     PreparedStatement stmt;
     
     Connection conexao = DBConnection.getInstance();    
-    String sql = (String) dados.get("Aluno.Inserir");
+    String sql = (String) dados.get("Professor.Inserir");
     stmt = conexao.prepareStatement(sql);
-    stmt.setInt(1,aluno.getCodPessoa());
-    //stmt.setString(1, pessoa.getNomePessoa());
-    //stmt.setString(2, pessoa.getRg());
-    //stmt.setString(3, pessoa.getDataNascimento()); // a data está hard coded por enquanto até usarmos alguma maneira de validar antes se a data foi digitada corretamente
+  //  stmt.setInt(1,func.getCodPessoa());
+    stmt.setString(1, prof.getNome());
+    stmt.setString(2, prof.getRg());
+    stmt.setInt(3, prof.getTipoPessoa());
+    stmt.setInt(4, prof.getArea());
    
     stmt.execute();
     //conexao.close();
@@ -51,6 +53,24 @@ public class ProfessorDAO implements InterfaceDAO{
     throw new UnsupportedOperationException("Not supported yet.");
   }  
  
+        public String remover(String codpr) throws SQLException {
+        String retorno = "erro";                 
+
+        Connection conexao = DBConnection.getInstance();
+        try{
+            String sql = (String) dados.get("Delete.Professor");
+            PreparedStatement pstmt = conexao.prepareStatement(sql);
+            pstmt.setString(1, codpr);
+            pstmt.execute();
+            retorno = "sucesso";
+            pstmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return retorno;
+        
+    }  
+  
   @Override
   public ArrayList pesquisarTudo() throws SQLException {
     throw new UnsupportedOperationException("Not supported yet.");
@@ -82,7 +102,7 @@ public class ProfessorDAO implements InterfaceDAO{
             while (rs.next()) {
             Professor pro = new Professor();
             pro.setCodPessoa(rs.getInt(1));
-            pro.setNomePessoa(rs.getString(2));
+            pro.setNome(rs.getString(2));
             profList.add(pro);
       }
        pstmt.close();
