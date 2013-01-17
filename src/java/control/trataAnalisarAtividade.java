@@ -25,6 +25,7 @@ public class trataAnalisarAtividade extends Comando {
     
     @Override
     public void execute() throws ServletException, IOException, SQLException, ClassNotFoundException {
+        try {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
         
@@ -37,5 +38,10 @@ public class trataAnalisarAtividade extends Comando {
         Atividade atividades = new Atividade(codati, aluno, tipoAtividade, professor, status);
         new AtividadeDAO().editar(atividades);
         getResponse().sendRedirect("FrontController?cmd=trataExibirAtividade");       
+    } catch (SQLException ex) {
+            throw new ServletException(ex);
+        } catch (NullPointerException npe){
+            getResponse().sendRedirect("erroNpe.jsp");      
+        }
     }
 }

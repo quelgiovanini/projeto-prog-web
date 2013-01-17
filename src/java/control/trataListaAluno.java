@@ -4,7 +4,8 @@
  */
 package control;
 
-import dao.CursoDAO;
+import dao.AlunoDAO;
+import dao.FuncionarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -18,8 +19,9 @@ import model.Usuario;
  *
  * @author Quele
  */
-
-public class trataListaCurso extends Comando {
+public class trataListaAluno extends Comando {
+    
+            
     @Override
     public void execute() throws ServletException, IOException, SQLException, ClassNotFoundException {
         getResponse().setContentType("text/html;charset=UTF-8");
@@ -28,13 +30,15 @@ public class trataListaCurso extends Comando {
             HttpSession session = getRequest().getSession(false);        
             Usuario value = (Usuario) session.getAttribute("usuario");
             
-            ArrayList tipos = new CursoDAO().pesquisarTudo();
+            ArrayList alunos = new AlunoDAO().pesquisarTudo();
             
-            getRequest().setAttribute("dados", tipos);
-            RequestDispatcher dispatcher = getRequest().getRequestDispatcher("listaCurso.jsp");
+            getRequest().setAttribute("dados", alunos);
+            
+            RequestDispatcher dispatcher = getRequest().getRequestDispatcher("listaAluno.jsp");
             if (dispatcher != null){
+                
                 dispatcher.forward(getRequest(), getResponse());
-            } 
+            }
 
         }catch(SQLException ex){
             throw new ServletException(ex);
@@ -44,4 +48,3 @@ public class trataListaCurso extends Comando {
     }
 
 }
-

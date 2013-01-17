@@ -43,6 +43,8 @@ public class trataExibirAtividade  extends Comando {
 
         }catch(SQLException ex){
             throw new ServletException(ex);
+        } catch (NullPointerException npe){
+            getResponse().sendRedirect("erroNpe.jsp");      
         }
     }
 

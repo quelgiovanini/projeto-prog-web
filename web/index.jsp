@@ -57,22 +57,22 @@
             <li><a href="FrontController?cmd=trataExibirAtividade"> Verificar atividades </a></li>
         </ul>  
         </div>    
-
+        <br />
         <div id="divFuncionario">
           <ul>
-              <li><a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/></li>
-              <li><a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/></li>
+              <li><a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/></li><br />
+              <li><a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/></li>            
               <li><a href="cadastraTipoAtividade.jsp"> Cadastrar Tipo Atividade </a><br/></li>
-              <li><a href="listaTipoAtividade.jsp"> Listar Tipos de Atividade </a><br/></li>
               <li><a href="cadastraCurso.jsp"> Cadastrar Cursos </a><br/></li>
+              <br />
+              <li><a href="listaTipoAtividade.jsp"> Listar Tipos de Atividade </a><br/></li>
               <li><a href="listaCurso.jsp"> Listar Cursos </a><br/></li>              
+              <li><a href="listaAluno.jsp"> Listar Alunos </a><br/></li>   
+              <li><a href="listaProfessor.jsp"> Listar Professores </a><br/></li>   
+              <li><a href="listaFuncionario.jsp"> Listar Funcionários </a><br/></li>   
               
           </ul>
           
-          <form action="FrontController" method="POST">
-              <input type="hidden" name="cmd" value="listaPessoas" />
-              <input type="submit" value="Listar pessoas" />
-          </form>
         </div>
     </body>
 </html>

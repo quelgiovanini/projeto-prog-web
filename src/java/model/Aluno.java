@@ -71,15 +71,17 @@ public class Aluno implements Serializable {
         this.setNumeroMatricula(numeroMatricula);
       //  this.setDataIngresso(dataIngresso);
     //    this.setHorasAcumuladas(horasAcumuladas);
-    }       
+    }   
      
-    public Aluno (int cod, String nome, String rg, String mat, Date data) {
-         this.codPessoa = cod;
-         this.nome = nome;
-         this.rg = rg;
-         this.numeroMatricula = mat;
-         this.dataIngresso = data;
-     }     
+     public Aluno(int codPessoa, String nome, String rg, int tipoPessoa, String numeroMatricula) {
+        this.setCodPessoa(codPessoa);
+        this.setNome(nome);
+        this.setRg(rg);
+        this.setTipoPessoa(tipoPessoa);
+        this.setNumeroMatricula(numeroMatricula);
+      //  this.setDataIngresso(dataIngresso);
+    //    this.setHorasAcumuladas(horasAcumuladas);
+    }     
      
      public Aluno (int codPessoa) {
          this.setCodPessoa(codPessoa);

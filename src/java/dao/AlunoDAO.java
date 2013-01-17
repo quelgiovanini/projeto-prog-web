@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import model.Aluno;
 import model.Atividade;
+import model.Funcionario;
 import model.Pessoa;
 import model.Professor;
 import model.Usuario;
@@ -70,10 +71,28 @@ public class AlunoDAO implements InterfaceDAO {
         
     }   
   
-  @Override
-  public ArrayList pesquisarTudo() throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
-  }
+    @Override
+    public ArrayList pesquisarTudo() throws SQLException {
+      ArrayList alunoList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("SelectAll.Aluno");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      ResultSet rs = pstmt.executeQuery();
+      
+      while (rs.next()) {
+
+          Aluno aluno = new Aluno(); 
+          aluno.setNome(rs.getString(1));
+          aluno.setRg(rs.getString(2));
+          aluno.setTipoPessoa(rs.getInt(3));
+          aluno.setNumeroMatricula(rs.getString(4));
+          aluno.setCodPessoa(rs.getInt(5));
+
+          alunoList.add(aluno);
+      }
+       pstmt.close();
+       return alunoList;
+    } 
 
   @Override
   public Object pesquisarChave(int chave) throws SQLException {
@@ -107,20 +126,56 @@ public class AlunoDAO implements InterfaceDAO {
        pstmt.close();
        return alList;
     }  
+
+    public Aluno pesquisarCod(String codAlu) throws SQLException {
+      //ArrayList ativList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+        Aluno alu = null;
+        String sql = (String) dados.get("SelectById.Aluno");
+        PreparedStatement pstmt = conexao.prepareStatement(sql);
+        pstmt.setString(1, codAlu);
+        ResultSet rs = pstmt.executeQuery();
+        if (rs.next()) {
+            alu = new Aluno(); 
+            alu.setCodPessoa(rs.getInt(1));
+            alu.setNome(rs.getString(2));
+            alu.setRg(rs.getString(3));
+            alu.setTipoPessoa(rs.getInt(4));
+            alu.setNumeroMatricula(rs.getString(5));
+        }
+        pstmt.close();
+        return alu;
+    }
   
+    public String editar(Aluno aluno) throws SQLException {
+        String retorno = "erro";                 
+        
+        Connection conexao = DBConnection.getInstance();
+        try{
+            String sql = (String) dados.get("Update.Aluno");
+            PreparedStatement pstmt = conexao.prepareStatement(sql);
+            
+            pstmt.setString(1, aluno.getNome());
+            pstmt.setString(2, aluno.getRg());
+            pstmt.setInt(3, aluno.getTipoPessoa());
+            pstmt.setString(4, aluno.getNumeroMatricula());
+            pstmt.setInt(5, aluno.getCodPessoa());            
+
+            pstmt.execute();
+            retorno = "sucesso";
+
+            pstmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            
+        }
+        return retorno;
+
+    }
+    
   @Override
   public void editar(Object obj) throws SQLException {
-        Aluno newAluno = (Aluno) obj;   
-        Aluno oldAluno = (Aluno) pesquisarChave(newAluno.getCodPessoa()); 
-                     
-        Connection conexao = DBConnection.getInstance();
-        String sql = (String) dados.get("Aluno.Editar");
-        PreparedStatement pstmt = conexao.prepareStatement(sql);
-    //    pstmt.setString(1, newAluno.getIngresso());
-//        pstmt.setString(2, newAluno.getNumMatricula());
-        pstmt.setInt(3, oldAluno.getCodPessoa());        
-        pstmt.execute();
-        pstmt.close();
+    throw new UnsupportedOperationException("Not supported yet.");
   } 
   
 }

@@ -40,14 +40,22 @@
             30
         </session-timeout>
     </session-config>
-    <!--<error-page>
+    <error-page>
         <exception-type>java.lang.Exception</exception-type>
         <location>/erro.html</location>
-    </error-page>-->
+    </error-page>
     <error-page>
         <error-code>404</error-code>
         <location>/erro404.html</location>
     </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/erro500.html</location>
+    </error-page>    
+    <error-page>
+        <error-code>501</error-code>
+        <location>/erro501.html</location>
+    </error-page>  
     <!-- Pagina inicial -->
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>

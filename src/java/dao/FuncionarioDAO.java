@@ -67,10 +67,28 @@ public class FuncionarioDAO implements InterfaceDAO {
         
     }     
   
-  @Override
-  public ArrayList pesquisarTudo() throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
-  }
+    @Override
+    public ArrayList pesquisarTudo() throws SQLException {
+      ArrayList funcList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("SelectAll.Funcionario");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      ResultSet rs = pstmt.executeQuery();
+      
+      while (rs.next()) {
+
+          Funcionario funcionario = new Funcionario(); 
+          funcionario.setNome(rs.getString(1));
+          funcionario.setRg(rs.getString(2));
+          funcionario.setTipoPessoa(rs.getInt(3));
+          funcionario.setCodSetor(rs.getInt(4));
+          funcionario.setCodPessoa(rs.getInt(5));
+
+          funcList.add(funcionario);
+      }
+       pstmt.close();
+       return funcList;
+    } 
 
   @Override
   public Object pesquisarChave(int chave) throws SQLException {

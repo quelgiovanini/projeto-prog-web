@@ -72,9 +72,27 @@ public class ProfessorDAO implements InterfaceDAO{
     }  
   
   @Override
-  public ArrayList pesquisarTudo() throws SQLException {
-    throw new UnsupportedOperationException("Not supported yet.");
-  }
+    public ArrayList pesquisarTudo() throws SQLException {
+      ArrayList profList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("SelectAll.Professor");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      ResultSet rs = pstmt.executeQuery();
+      
+      while (rs.next()) {
+
+          Professor professor = new Professor(); 
+          professor.setNome(rs.getString(1));
+          professor.setRg(rs.getString(2));
+          professor.setTipoPessoa(rs.getInt(3));
+          professor.setArea(rs.getInt(4));
+          professor.setCodPessoa(rs.getInt(5));
+
+          profList.add(professor);
+      }
+       pstmt.close();
+       return profList;
+    } 
 
   @Override
   public Object pesquisarChave(int chave) throws SQLException {
@@ -108,20 +126,56 @@ public class ProfessorDAO implements InterfaceDAO{
        pstmt.close();
        return profList;
     }  
+     
+     public Professor pesquisarCod(String codPro) throws SQLException {
+      //ArrayList ativList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+        Professor pro = null;
+        String sql = (String) dados.get("SelectById.Professor");
+        PreparedStatement pstmt = conexao.prepareStatement(sql);
+        pstmt.setString(1, codPro);
+        ResultSet rs = pstmt.executeQuery();
+        if (rs.next()) {
+            pro = new Professor(); 
+            pro.setCodPessoa(rs.getInt(1));
+            pro.setNome(rs.getString(2));
+            pro.setRg(rs.getString(3));
+            pro.setTipoPessoa(rs.getInt(4));
+            pro.setArea(rs.getInt(5));   
+        }
+        pstmt.close();
+        return pro;
+    }
+     
+   public String editar(Professor professor) throws SQLException {
+        String retorno = "erro";                 
+        
+        Connection conexao = DBConnection.getInstance();
+        try{
+            String sql = (String) dados.get("Update.Professor");
+            PreparedStatement pstmt = conexao.prepareStatement(sql);
+            
+            pstmt.setString(1, professor.getNome());
+            pstmt.setString(2, professor.getRg());
+            pstmt.setInt(3, professor.getTipoPessoa());
+            pstmt.setInt(4, professor.getArea());
+            pstmt.setInt(5, professor.getCodPessoa());            
+
+            pstmt.execute();
+            retorno = "sucesso";
+
+            pstmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            
+        }
+        return retorno;
+
+    }     
   
   @Override
   public void editar(Object obj) throws SQLException {
-        Aluno newAluno = (Aluno) obj;   
-        Aluno oldAluno = (Aluno) pesquisarChave(newAluno.getCodPessoa()); 
-                     
-        Connection conexao = DBConnection.getInstance();
-        String sql = (String) dados.get("Aluno.Editar");
-        PreparedStatement pstmt = conexao.prepareStatement(sql);
-  //      pstmt.setString(1, newAluno.getIngresso());
-  //      pstmt.setString(2, newAluno.getNumMatricula());
-        pstmt.setInt(3, oldAluno.getCodPessoa());        
-        pstmt.execute();
-        pstmt.close();
+       throw new UnsupportedOperationException("Not supported yet.");
   }
   
 }
