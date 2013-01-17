@@ -34,7 +34,9 @@
               <li><a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/></li>
               <li><a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/></li>
               <li><a href="cadastraTipoAtividade.jsp"> Cadastrar Tipo Atividade </a><br/></li>
-              <li><a href="listaTipoAtividade.jsp"> Tipos de Atividade </a><br/></li>
+              <li><a href="listaTipoAtividade.jsp"> Listar Tipos de Atividade </a><br/></li>
+              <li><a href="cadastraCurso.jsp"> Cadastrar Cursos </a><br/></li>
+              <li><a href="listaCurso.jsp"> Listar Cursos </a><br/></li>              
               
           </ul>
         </div>

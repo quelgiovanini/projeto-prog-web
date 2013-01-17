@@ -38,9 +38,8 @@ public class CursoDAO implements InterfaceDAO {
         String sql = (String) dados.get("Curso.Inserir");
         PreparedStatement pstmt = conexao.prepareStatement(sql);
         pstmt.setString(1, curso.getNome());
-        pstmt.setInt(2, curso.getOrientador().getCodPessoa());
-        pstmt.setString(3, curso.getSigla());
-        pstmt.setInt(4, curso.getArea().ordinal());
+        pstmt.setInt(2, curso.getCodProfessor());
+        pstmt.setInt(3, curso.getArea());
         pstmt.execute();
         pstmt.close();
     }
@@ -49,10 +48,44 @@ public class CursoDAO implements InterfaceDAO {
     public void excluir(Object obj) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+    public String remover(String codCurso) throws SQLException {
+        String retorno = "erro";                 
+        Connection conexao = DBConnection.getInstance();
+        try{
+            String sql = (String) dados.get("Delete.Curso");
+            PreparedStatement pstmt = conexao.prepareStatement(sql);
+            pstmt.setString(1, codCurso);
+            pstmt.execute();
+            retorno = "sucesso";
+            pstmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return retorno;
+        
+    }       
 
     @Override
     public ArrayList pesquisarTudo() throws SQLException {
- throw new UnsupportedOperationException("Not supported yet.");
+      ArrayList curList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("SelectAll.Curso");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      ResultSet rs = pstmt.executeQuery();
+      
+      while (rs.next()) {
+
+          Curso curso = new Curso(); 
+          curso.setNome(rs.getString(1));
+          curso.setCodProfessor(rs.getInt(2));
+          curso.setArea(rs.getInt(3));
+          curso.setCodCurso(rs.getInt(4));
+
+          curList.add(curso);
+      }
+       pstmt.close();
+       return curList;
     }
     
     public Object pesquisarCod(String cod) throws SQLException {

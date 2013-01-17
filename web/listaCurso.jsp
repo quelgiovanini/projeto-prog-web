@@ -4,6 +4,9 @@
     Author     : Quele
 --%>
 
+<%@page import="model.Curso"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Iterator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,10 +20,9 @@
         <table>
             <thead>
                 <tr>
-                    <th>Aluno</th>
-                    <th>Tipo de Atividade</th>
-                    <th>Professor</th>
-                    <th>Status</th>
+                    <th>Nome do Curso</th>
+                    <th>Professor Coordenador</th>
+                    <th>Área</th>
                     <th></th>
                 </tr>
             </thead>
@@ -29,21 +31,17 @@
         <%Iterator it; %>
         <%List dados = (List) request.getAttribute("dados");
             for (it = dados.iterator(); it.hasNext();){
-            Atividade atividade = (Atividade) it.next();
+            Curso curso = (Curso) it.next();
         %>     
         <tr>
-            <td ><%=atividade.getAluno().getCodPessoa() %></td>
-            <td ><%=atividade.getTipoAtividade().getIdTipo() %></td>
-            <td ><%=atividade.getProfessorResponsavel().getCodPessoa() %></td>
-            <td ><%=atividade.getStatus()%></td>
-            <form action="analisarAtividade.jsp" method="POST">
-                    <td align="center"><input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
-                        <input type="submit" value="Analisar Atividade">
-            </form>
+            <td ><%=curso.getNome() %></td>
+            <td ><%=curso.getCodProfessor() %></td>
+            <td ><%=curso.getArea() %></td>
+            
             <form action="FrontController" method="POST">
-                    <input type="hidden" name="cmd" value="trataExcluirAtividade" />
-                    <input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
-                    <input type="submit" value="Excluir  Atividade"/></td>
+                    <input type="hidden" name="cmd" value="trataExcluirCurso" />
+                    <input type="hidden" name="codCurso" value="<%= curso.getCodCurso() %>"/>
+                    <input type="submit" value="Excluir  Curso"/></td>
             </form>
         </tr>
         <% } %>
