@@ -20,16 +20,45 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATICO ::. </title>
+        <script type="text/javascript">
+            function displayResult(){
+		//var option=document.getElementById("tipoPessoa");
+                <% int tipo = usuario.getTipoPessoa();%>
+		var x = <%=tipo%>;
+		switch(x){
+			case 0: //nenhum
+			 document.getElementById('divFuncionario').style.display="none";
+			 document.getElementById('divAluno').style.display="none";
+			 document.getElementById('divProfessor').style.display="none";
+			 break;
+			case 1: //Funcionario
+			 document.getElementById('divFuncionario').style.display="block";
+			 document.getElementById('divAluno').style.display="none";
+			 document.getElementById('divProfessor').style.display="none";
+			 break;
+			case 2: //Aluno
+			 document.getElementById('divFuncionario').style.display="none";
+			 document.getElementById('divAluno').style.display="block";
+			 document.getElementById('divProfessor').style.display="none";
+			 break;
+			case 3: //Professor
+			 document.getElementById('divFuncionario').style.display="none";
+			 document.getElementById('divAluno').style.display="none";
+			 document.getElementById('divProfessor').style.display="block";
+			break;
+			}
+	}
+        </script>
     </head>
-    <body>
+    <body onLoad="displayResult();">
         <h1> Controle de Atividades Complementares </h1>
-        <div id="nav">
+        <div id="divProfessor">
         <ul>
             <li><a href="FrontController?cmd=trataExibirAtividade"> Verificar atividades </a></li>
         </ul>  
         </div>    
 
-        <div id="nav1">
+        <div id="divFuncionario">
           <ul>
               <li><a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/></li>
               <li><a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/></li>
@@ -39,10 +68,11 @@
               <li><a href="listaCurso.jsp"> Listar Cursos </a><br/></li>              
               
           </ul>
-        </div>
+          
           <form action="FrontController" method="POST">
               <input type="hidden" name="cmd" value="listaPessoas" />
               <input type="submit" value="Listar pessoas" />
-          </form>          
+          </form>
+        </div>
     </body>
 </html>

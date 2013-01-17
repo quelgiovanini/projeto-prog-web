@@ -87,6 +87,7 @@ public class UsuarioDAO implements InterfaceDAO {
             usuario.setId(rs.getInt(1));
             usuario.setLogin(rs.getString(2));
             usuario.setSenha(rs.getString(3));
+            usuario.setTipoPessoa(rs.getInt(4));
         }
         pstmt.close();
         return usuario;
