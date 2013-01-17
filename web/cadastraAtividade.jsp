@@ -73,7 +73,7 @@
                     
                     String f = "<select name='professor' id='professor'>";
                     for(int i=0; i<listaAluno.size(); i++){
-                        f += "<option value='"+ listaProf.get(i).getCodPessoa()+"'>"+listaProf.get(i).getNomePessoa()+"</option>";
+                        f += "<option value='"+ listaProf.get(i).getCodPessoa()+"'>"+listaProf.get(i).getNome()+"</option>";
                     }
                     
                     f+= "</select>";

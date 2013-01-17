@@ -15,7 +15,6 @@
      <jsp:forward page="/login.jsp" />
 <%
     }
-    out.write("Olá " + usuario.getNome());
 %>
 
 <html>
