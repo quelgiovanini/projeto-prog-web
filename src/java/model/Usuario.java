@@ -17,7 +17,7 @@ public class Usuario implements Serializable {
     private String nome;
     private String senha;
     private String dataCriacao;
-    
+    private int tipoPessoa;
     
     public Usuario() { }
 
@@ -76,4 +76,14 @@ public class Usuario implements Serializable {
     public String toString(){
         return ("Id = " + id + "\nNome = " + nome + "\n Login = " + login + "\n Senha = " + senha);
     }
+
+    public int getTipoPessoa() {
+        return tipoPessoa;
+    }
+
+    public void setTipoPessoa(int tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
+    }
+    
+    
 }
