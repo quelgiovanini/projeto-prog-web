@@ -149,18 +149,4 @@ public class AtividadeDAO implements InterfaceDAO {
         return retorno;
     }
     
-    class atividadeDouble {
-        public ArrayList getListAtividades() {
-            ArrayList atividades = new ArrayList();
-            Atividade atividade;
-         //   atividade = new Atividade(new Aluno("Johnny","teste","0120","2012"), new TipoAtividade("Estagio"), new Professor("Karen","teste","0012",Area.INFORMATICA), "P");
-       //     atividades.add(atividade);
-         //   atividade = new Atividade(new Aluno("Sheldon","teste","0120","2012"), new TipoAtividade("Pesquisa"), new Professor("Marcia","teste","0012",Area.INFORMATICA), "P");
-       //     atividades.add(atividade);
-           // atividade = new Atividade(new Aluno("Leonard","teste","0120","2012"), new TipoAtividade("Congresso"), new Professor("Cesar","teste","0012",Area.INFORMATICA), "P");
-     //       atividades.add(atividade);
-            return atividades;
-        }
-    }
-    
 }
