@@ -15,20 +15,20 @@ import javax.servlet.http.HttpSession;
  *
  * @author Quele
  */
-public class trataExcluirAtividade extends Comando {
+public class trataExcluirTipoAtividade extends Comando{
     
     @Override
     public void execute() throws ServletException, IOException, SQLException, ClassNotFoundException {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
   //      try {
-            String codati = getRequest().getParameter("codati");
+            String codtip = getRequest().getParameter("codtip");
             
             HttpSession session = getRequest().getSession(false);        
         
-            new AtividadeDAO().remover(codati);
+            new AtividadeDAO().remover(codtip);
             
-            getResponse().sendRedirect("FrontController?cmd=trataExibirAtividade");
+            getResponse().sendRedirect("FrontController?cmd=trataListaTipoAtividade");
         
  //       } catch(SQLException ex){
  //           throw new ServletException(ex);

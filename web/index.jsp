@@ -33,6 +33,9 @@
           <ul>
               <li><a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/></li>
               <li><a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/></li>
+              <li><a href="cadastraTipoAtividade.jsp"> Cadastrar Tipo Atividade </a><br/></li>
+              <li><a href="listaTipoAtividade.jsp"> Tipos de Atividade </a><br/></li>
+              
           </ul>
         </div>
           <form action="FrontController" method="POST">

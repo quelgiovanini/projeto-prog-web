@@ -1,7 +1,7 @@
 <%-- 
     Document   : cadastraTipoAtividade
-    Created on : Nov 20, 2012, 12:27:57 AM
-    Author     : paddock
+    Created on : 19/11/2012, 11:52:42
+    Author     : Quele
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,32 +9,43 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SIATCO - Cadastrar tipo de atividade</title>
+        <title>  ..:: SIATICO ::.. </title>
     </head>
-    <body>
-        <form action="FrontController" method="POST">
-             <table width="625" border="0">
+   <body>
+       <form action="FrontController" method="POST">    
+         
+        <fieldset><legend>  Controle de Atividades Complementares - Cadastro de Tipo de Atividades </legend>
+            <table>
                 <tr>
-                    <td width="120">Descrição Tipo Atividade: </td>
-                    <td width="546"><input name="descTipo" type="text" id="descTipo" size="70" maxlength="60" />
-                        <span class="style1">*</span></td>
-                </tr>                        
-                <tr>
-                    <td width="120">Proporcao:</td>
-                    <td width="546"><input name="proporcao" type="text" id="proporcao" size="70" maxlength="60" />
-                        <span class="style1">*</span></td>
+                <p class="first">
+                    <td><label for="descricaoTipo">Tipo de Atividade </label></td>
+                    <td><input type="text" name="descricaoTipo" id="descricaoTipo" size="30" /></td>
+                </p>
                 </tr>
                 <tr>
-                    <td width="120">Curso:</td>
-                    <td><input name="curso" type="text" id="curso" size="70" maxlength="60" />
-                        <span class="style1"> * </span></td>
+                <p class="first">
+                    <td><label for="proporcao">Proporção </label></td>
+                   <td><input name="proporcao" type="text" id="proporcao" size="70" maxlength="60" />    
+                </p>
                 </tr>
                 <tr>
-                    <td width="120">Máximo de horas:</td>
-                    <td><input name="maximoHoras" type="text" id="maximoHoras" size="70" maxlength="60" />
-                        <span class="style1"> * </span></td>
+                    <p>
+                        <td><label for="maximoPermitido">Máximo Permitido </label></td>
+                        <td><input type="text" name="maximoPermitido" id="maximoPermitido" size="30" /></td>
+                    </p>
+                 </tr>                  
+                
+                <tr>
+                    <td colspan="2"><p>
+                            <input name="cadastrar" type="submit" id="cadastrar" value="Cadastrar"  />
+                            <input name="limpar" type="reset" id="limpar" value="Limpar dados" />
+                            <input type="hidden" name="cmd" value='trataCadastraTipoAtividade'>
+                    </td>
                 </tr>
-             </table>
+           
+            </table>
+            </fieldset>            
         </form>
     </body>
 </html>
+

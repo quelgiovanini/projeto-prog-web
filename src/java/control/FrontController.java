@@ -26,7 +26,9 @@ public class FrontController extends HttpServlet {
 
         comandos = new Hashtable();
         comandos.put("TrataLogin", "control.trataLogin");
-        comandos.put("rataCadastroPessoa", "control.trataCadastroPessoa");
+        comandos.put("trataCadastroPessoa", "control.trataCadastroPessoa");
+        comandos.put("trataCadastraTipoAtividade", "control.trataCadastraTipoAtividade");
+        comandos.put("trataListaTipoAtividade", "control.trataListaTipoAtividade");
         comandos.put("trataCadastroAtividade", "control.trataCadastroAtividade");
         comandos.put("trataAnalisarAtividade", "control.trataAnalisarAtividade");
         comandos.put("trataExibirAtividade", "control.trataExibirAtividade");
@@ -34,6 +36,7 @@ public class FrontController extends HttpServlet {
         comandos.put("listaPessoas", "control.ListaPessoas");
         comandos.put("EditarPessoa", "control.EditarPessoa");
         comandos.put("trataEditaPessoa", "control.TrataEditaPessoa");
+        
 
         //Recupera o contexto da aplicação para inicializar o banco de dados
         try {

@@ -34,7 +34,7 @@
                     
                     String p = "<select name='aluno' id='aluno'>";
                     for(int i=0; i<listaAluno.size(); i++){
-                        p += "<option value='"+ listaAluno.get(i).getCodPessoa()+"'>"+listaAluno.get(i).getNomePessoa()+"</option>";
+                        p += "<option value='"+ listaAluno.get(i).getCodPessoa()+"'>"+listaAluno.get(i).getNome()+"</option>";
                     }
                     
                     p+= "</select>";

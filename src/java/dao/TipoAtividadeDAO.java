@@ -40,10 +40,10 @@ public class TipoAtividadeDAO implements InterfaceDAO {
         String sql = (String) dados.get("Insert.Tipo");
         PreparedStatement pstmt = conexao.prepareStatement(sql);
    //     pstmt.setString(1, atividades.getIdAtividade());
-        pstmt.setInt(1, tipos.getIdTipo());
-        pstmt.setString(2, tipos.getDescricaoTipo());
-        pstmt.setDouble(3, tipos.getProporcao());
-        pstmt.setInt(4, tipos.getMaximoPermitido());
+       // pstmt.setInt(1, tipos.getIdTipo());
+        pstmt.setString(1, tipos.getDescricaoTipo());
+        pstmt.setDouble(2, tipos.getProporcao());
+        pstmt.setInt(3, tipos.getMaximoPermitido());
         pstmt.execute();
         pstmt.close();
     }
@@ -53,14 +53,15 @@ public class TipoAtividadeDAO implements InterfaceDAO {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
-    public String remover(String codati) throws SQLException {
+    public String remover(String codtp) throws SQLException {
         String retorno = "erro";                 
-        
+
         Connection conexao = DBConnection.getInstance();
         try{
-            String sql = (String) dados.get("Delete.Atividade");
+            String sql = (String) dados.get("Delete.Tipo");
             PreparedStatement pstmt = conexao.prepareStatement(sql);
-            pstmt.executeQuery(codati);
+            pstmt.setString(1, codtp);
+            pstmt.execute();
             retorno = "sucesso";
             pstmt.close();
         }catch(Exception ex){
@@ -80,34 +81,34 @@ public class TipoAtividadeDAO implements InterfaceDAO {
             while (rs.next()) {
 
           TipoAtividade tipos = new TipoAtividade(); 
-          tipos.setIdTipo(rs.getInt(1));
-          tipos.setDescricaoTipo(rs.getString(2));
-          tipos.setProporcao(rs.getDouble(3));
-          tipos.setMaximoPermitido(rs.getInt(4));
+
+          tipos.setDescricaoTipo(rs.getString(1));
+          tipos.setProporcao(rs.getDouble(2));
+          tipos.setMaximoPermitido(rs.getInt(3));
+          tipos.setIdTipo(rs.getInt(4));
           tipoList.add(tipos);
       }
        pstmt.close();
        return tipoList;
     } 
     
-    public Atividade pesquisarCod(String cod) throws SQLException {
+    public TipoAtividade pesquisarCod(int codTp) throws SQLException {
       //ArrayList ativList = new ArrayList();
       Connection conexao = DBConnection.getInstance();
-        Atividade ativ = null;
-        String sql = (String) dados.get("SelectById.Atividade");
+        TipoAtividade tpAtiv = null;
+        String sql = (String) dados.get("SelectById.Tipo");
         PreparedStatement pstmt = conexao.prepareStatement(sql);
-        pstmt.setString(1, cod);
+        pstmt.setInt(1, codTp);
         ResultSet rs = pstmt.executeQuery();
         if (rs.next()) {
-            ativ = new Atividade(); 
-            ativ.setIdAtividade(rs.getInt(1));
-            ativ.getAluno().setNome(rs.getString(2));
-            ativ.getTipoAtividade().setDescricaoTipo(rs.getString(3));
-            ativ.getProfessorResponsavel().setNomePessoa(rs.getString(4));
-            ativ.setStatus(rs.getString(5));
+            tpAtiv = new TipoAtividade(); 
+            tpAtiv.setIdTipo(rs.getInt(1));
+            tpAtiv.setDescricaoTipo(rs.getString(2));
+            tpAtiv.setProporcao(rs.getDouble(3));
+            tpAtiv.setMaximoPermitido(rs.getInt(4));
         }
         pstmt.close();
-        return ativ;
+        return tpAtiv;
     }    
 
     @Override
@@ -120,19 +121,18 @@ public class TipoAtividadeDAO implements InterfaceDAO {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
-    public String editar(Atividade atividade) throws SQLException {
+    public String editar(TipoAtividade tpAtiv) throws SQLException {
         String retorno = "erro";                 
         
         Connection conexao = DBConnection.getInstance();
         try{
-            String sql = (String) dados.get("Update.Atividade");
+            String sql = (String) dados.get("Update.Tipo");
             PreparedStatement pstmt = conexao.prepareStatement(sql);
-            
-            pstmt.setInt(1, atividade.getIdAtividade());
-            pstmt.setString(2, atividade.getAluno().getNome());
-            pstmt.setString(3, atividade.getTipoAtividade().getDescricaoTipo());
-            pstmt.setString(4, atividade.getProfessorResponsavel().getNomePessoa());
-            pstmt.setString(5, atividade.getStatus());
+             
+            pstmt.setString(1, tpAtiv.getDescricaoTipo());
+            pstmt.setDouble(2, tpAtiv.getProporcao());
+            pstmt.setInt(3, tpAtiv.getMaximoPermitido());
+            pstmt.setInt(4, tpAtiv.getIdTipo());
             pstmt.execute();
             retorno = "sucesso";
             pstmt.close();
@@ -156,20 +156,7 @@ public class TipoAtividadeDAO implements InterfaceDAO {
       }
        pstmt.close();
        return tipoList;
-    } 
     
-    class atividadeDouble {
-        public ArrayList getListAtividades() {
-            ArrayList atividades = new ArrayList();
-            Atividade atividade;
-         //   atividade = new Atividade(new Aluno("Johnny","teste","0120","2012"), new TipoAtividade("Estagio"), new Professor("Karen","teste","0012",Area.INFORMATICA), "P");
-       //     atividades.add(atividade);
-         //   atividade = new Atividade(new Aluno("Sheldon","teste","0120","2012"), new TipoAtividade("Pesquisa"), new Professor("Marcia","teste","0012",Area.INFORMATICA), "P");
-       //     atividades.add(atividade);
-           // atividade = new Atividade(new Aluno("Leonard","teste","0120","2012"), new TipoAtividade("Congresso"), new Professor("Cesar","teste","0012",Area.INFORMATICA), "P");
-     //       atividades.add(atividade);
-            return atividades;
-        }
     }
     
 }
