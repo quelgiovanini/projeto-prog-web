@@ -63,9 +63,9 @@
                         <td>
                           <select name="tipoPessoa" id="tipoPessoa" onchange="displayResult(this)">
                               <option value="0" selected="selected">Selecionar</option>
-                            <option value=1>Funcionario</option>
-                            <option value=2>Aluno</option>
-                            <option value=3>Professor </option>
+                            <option value="1">Funcionario</option>
+                            <option value="2">Aluno</option>
+                            <option value="3">Professor </option>
                           </select>
                         </td>
                      </p>
