@@ -1,5 +1,5 @@
 <%-- 
-    Document   : cadastraPessoas
+    Document   : cadastraPessoa
     Created on : 10/01/2013, 01:19:18
     Author     : Quele
 --%>

@@ -36,23 +36,24 @@ public class trataCadastroPessoa extends Comando {
             String nome    = getRequest().getParameter("nome");
             String rg      = getRequest().getParameter("rg");       
             int tipoPessoa = Integer.parseInt(getRequest().getParameter("tipoPessoa")); 
-            int setor  = Integer.parseInt(getRequest().getParameter("setor"));
-            String matricula      = getRequest().getParameter("matricula");
-            int area   = Integer.parseInt(getRequest().getParameter("area"));
-          //  Date dataIngresso =  getRequest().getParameter("");
 
             if (tipoPessoa == 1) {//funcionario
+                int setor  = Integer.parseInt(getRequest().getParameter("setor"));
                 Funcionario fun = new Funcionario (nome, rg, tipoPessoa, setor);
                 new FuncionarioDAO().inserir(fun);
             }
             if (tipoPessoa == 2) {//aluno
-                 Aluno al = new Aluno(nome, rg, tipoPessoa, matricula);
+                String matricula      = getRequest().getParameter("matricula");
+            //  Date dataIngresso =  getRequest().getParameter("");                
+                Aluno al = new Aluno(nome, rg, tipoPessoa, matricula);
                 new AlunoDAO().inserir(al);   
             }            
             if (tipoPessoa == 3) {//professor
+                int area   = Integer.parseInt(getRequest().getParameter("area"));
                 Professor pro = new Professor(nome, rg, tipoPessoa, area);
                 new ProfessorDAO().inserir(pro);
             } 
+            
             HttpSession session = getRequest().getSession(false);        
             Usuario value = (Usuario) session.getAttribute("usuario");
             

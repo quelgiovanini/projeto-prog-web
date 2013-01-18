@@ -31,22 +31,23 @@ public class AlunoDAO implements InterfaceDAO {
   @Override
   public void inserir(Object obj) throws SQLException {
     Aluno aluno = (Aluno) obj;
-    PreparedStatement stmt;
     
     Connection conexao = DBConnection.getInstance();    
     String sql = (String) dados.get("Aluno.Inserir");
-    stmt = conexao.prepareStatement(sql);
-  //  stmt.setInt(1,aluno.getCodPessoa());
-    stmt.setString(1, aluno.getNome());
-    stmt.setString(2, aluno.getRg());
-    stmt.setInt(3, aluno.getTipoPessoa());
-    stmt.setString(4, aluno.getNumeroMatricula());
-//    stmt.setDate(6, aluno.getDataIngresso());// a data está hard coded por enquanto até usarmos alguma maneira de validar antes se a data foi digitada corretamente
+    PreparedStatement pstmt = conexao.prepareStatement(sql);
+  //  pstmt.setInt(1,aluno.getCodPessoa());
+    pstmt.setString(1, aluno.getNome());
+    pstmt.setString(2, aluno.getRg());
+    pstmt.setInt(3, aluno.getTipoPessoa());
+    pstmt.setString(4, aluno.getNumeroMatricula());
    
-    stmt.execute();
-    //conexao.close();
-        
-  }
+    try {
+            pstmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        pstmt.close();
+    }
 
   @Override
   public void excluir(Object obj) throws SQLException {

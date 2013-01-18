@@ -32,21 +32,23 @@ public class ProfessorDAO implements InterfaceDAO{
   @Override
   public void inserir(Object obj) throws SQLException {
     Professor prof = (Professor) obj;
-    PreparedStatement stmt;
     
     Connection conexao = DBConnection.getInstance();    
     String sql = (String) dados.get("Professor.Inserir");
-    stmt = conexao.prepareStatement(sql);
-  //  stmt.setInt(1,func.getCodPessoa());
-    stmt.setString(1, prof.getNome());
-    stmt.setString(2, prof.getRg());
-    stmt.setInt(3, prof.getTipoPessoa());
-    stmt.setInt(4, prof.getArea());
+    PreparedStatement pstmt = conexao.prepareStatement(sql);
+  //  pstmt.setInt(1,func.getCodPessoa());
+    pstmt.setString(1, prof.getNome());
+    pstmt.setString(2, prof.getRg());
+    pstmt.setInt(3, prof.getTipoPessoa());
+    pstmt.setInt(4, prof.getArea());
    
-    stmt.execute();
-    //conexao.close();
-        
-  }
+    try {
+            pstmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        pstmt.close();
+    }
 
   @Override
   public void excluir(Object obj) throws SQLException {
