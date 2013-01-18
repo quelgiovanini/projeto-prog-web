@@ -20,25 +20,26 @@ public class Curso implements Serializable {
     
     public Curso() { }
 
-    public Curso (int codCurso, String nome, int area, Professor orientador) {
+    public Curso (int codCurso, String nome, Professor orientador, int area) {
         this.setCodCurso(codCurso);
         this.setNome(nome);
-        this.setArea(area);
         this.setOrientador(orientador);
+        this.setArea(area);        
     }
     
-    public Curso (int codCurso, String nome, int area, int professor) {
+    public Curso (int codCurso, String nome, int professor, int area) {
         this.setCodCurso(codCurso);
         this.setNome(nome);
-        this.setArea(area);
         this.setCodProfessor(professor);
+        this.setArea(area);
     }  
     
-    public Curso (String nome, int area, int professor) {
+    public Curso (String nome, int professor, int area) {
       //  this.setCodCurso(codCurso);
         this.setNome(nome);
-        this.setArea(area);
         this.setCodProfessor(professor);
+        this.setArea(area);
+        
     }     
     
     public Curso(Integer codCurso) {
@@ -52,8 +53,9 @@ public class Curso implements Serializable {
     public void setCurso(Curso cursos) {
         this.setCodCurso(cursos.getCodCurso());
         this.setNome(cursos.getNome());
-        this.setArea(cursos.getArea());
         this.setOrientador(cursos.getOrientador());
+        this.setArea(cursos.getArea());
+        
     }
     
     public int getArea() {

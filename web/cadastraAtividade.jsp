@@ -84,11 +84,12 @@
                  </tr>   
                 <tr>
                     <p>
-                        <td><label for="status">Status </label></td>
-                        <td><input type="text" name="status" id="status" size="30" /></td>
+                        <td><label for="horasRequisitadas">Horas Requisitadas </label></td>
+                        <td>
+                            <td><input type="text" name="horasRequisitadas" id="horasRequisitadas" size="30" /></td>
+                        </td>
                     </p>
                  </tr>                  
-                
                 <tr>
                     <td colspan="2"><p>
                             <input name="cadastrar" type="submit" id="cadastrar" value="Cadastrar"  />

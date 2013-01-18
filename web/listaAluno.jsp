@@ -45,7 +45,7 @@
             </form>
             <form action="FrontController" method="POST">
                     <input type="hidden" name="cmd" value="trataExcluirAluno" />
-                    <input type="hidden" name="codati" value="<%= aluno.getCodPessoa() %>"/>
+                    <input type="hidden" name="codPessoa" value="<%= aluno.getCodPessoa() %>"/>
                     <input type="submit" value="Excluir Aluno"/></td>
             </form>
         </tr>

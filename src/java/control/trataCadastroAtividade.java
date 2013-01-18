@@ -14,6 +14,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 import model.Atividade;
 import model.TipoAtividade;
 import model.Usuario;
@@ -30,25 +31,31 @@ public class trataCadastroAtividade extends Comando {
     public void execute() throws ServletException, IOException, SQLException, ClassNotFoundException {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
+    
         try {
             getResponse().setContentType("text/html");
-                        
+
+            HttpSession session = getRequest().getSession(false);        
+            Usuario value = (Usuario) session.getAttribute("usuario");
+            
+
+            
         //    Integer codAtiv    = Integer.parseInt(getRequest().getParameter("codAtiv"));            
             int aluno  = Integer.parseInt(getRequest().getParameter("aluno"));
             int tipoAtividade     = Integer.parseInt(getRequest().getParameter("tipoAtividade"));
             int professor   = Integer.parseInt(getRequest().getParameter("professor"));
-            String status = getRequest().getParameter("status");
+            int user = value.getId();
+            int horasRequisitadas = Integer.parseInt(getRequest().getParameter("horasRequisitadas"));
+            String status = "E";
+
         
-            HttpSession session = getRequest().getSession(false);        
-            Usuario value = (Usuario) session.getAttribute("usuario");
-        
-            Atividade ativ = new Atividade(aluno, tipoAtividade, professor, status);
+            Atividade ativ = new Atividade(aluno, tipoAtividade, professor, user, horasRequisitadas, status);
             new AtividadeDAO().inserir(ativ);
             
             getResponse().sendRedirect("index.jsp");
-        
-        } catch(SQLException ex){
-            throw new ServletException(ex);
-        }
-    }
+
+        } catch (NullPointerException npe){
+            getResponse().sendRedirect("erroNpe.jsp"); 
+        } 
+  }
 }

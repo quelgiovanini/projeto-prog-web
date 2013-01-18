@@ -39,6 +39,8 @@ public class Atividade implements Serializable {
         this.setStatus("E");
       //this.professorResponsavel = tipoAtividade.getCurso().getProfessor();
     }
+
+    
     
     public Atividade(Integer aluno, Integer tipoAtividade, Integer professorResponsavel, String status){
        // this.setIdAtividade(idAtividade);
@@ -53,7 +55,19 @@ public class Atividade implements Serializable {
       //this.professorResponsavel = tipoAtividade.getCurso().getProfessor();
     }    
 
-        
+    public Atividade(Integer aluno, Integer tipoAtividade, Integer professorResponsavel, Integer funcionarioResponsavel, int horasRequisitadas, String status){
+       // this.setIdAtividade(idAtividade);
+        this.setCodAluno(aluno);
+     //   this.setDataRequisicao(dataRequisicao);
+        this.setCodTipoAtividade(tipoAtividade);
+        this.setCodProfessor(professorResponsavel);
+        this.setCodFuncionario(funcionarioResponsavel);
+        this.setHorasRequisitadas(horasRequisitadas);        
+     //   this.setObservacao(obs);
+        this.setStatus(status);
+      //this.professorResponsavel = tipoAtividade.getCurso().getProfessor();
+    }   
+    
     public Atividade(Integer idAtividade, Integer aluno, Integer tipoAtividade, Integer professorResponsavel, String status){
         this.setIdAtividade(idAtividade);
         this.setCodAluno(aluno);
@@ -177,7 +191,14 @@ public class Atividade implements Serializable {
     public void setCodProfessor(Integer codProfessor) {
         this.professorResponsavel.setCodPessoa(codProfessor);
     }
+   
+   public Integer getCodFuncionario() throws SQLException {
+        return funcionarioResponsavel.getCodPessoa();
+    }
     
+    public void setCodFuncionario(Integer codFuncionario) {
+        this.funcionarioResponsavel.setCodPessoa(codFuncionario);
+    }    
     
     public java.lang.String getStatus() {
         return status;

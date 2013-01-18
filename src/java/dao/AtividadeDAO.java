@@ -41,7 +41,9 @@ public class AtividadeDAO implements InterfaceDAO {
         pstmt.setInt(1, atividades.getCodAluno());
         pstmt.setInt(2, atividades.getCodTipoAtividade());
         pstmt.setInt(3, atividades.getCodProfessor());
-        pstmt.setString(4, atividades.getStatus());
+        pstmt.setInt(4, atividades.getCodFuncionario());
+        pstmt.setInt(5, atividades.getHorasRequisitadas());
+        pstmt.setString(6, atividades.getStatus());
         
         try {
             pstmt.executeQuery();
