@@ -4,6 +4,9 @@
     Author     : Quele
 --%>
 
+<%@page import="model.Setor"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.SetorDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -74,7 +77,20 @@
                         <tr>
                     <p>
                         <td><label for="setor">Setor </label></td>
-                        <td><input type="text" name="setor" id="setor" size="30" /></td>
+                        <td>
+                    <%  SetorDAO a = new SetorDAO();
+                    ArrayList<Setor> listaSetor = a.pesquisarTipo();
+                    
+                    String p = "<select name='setor' id='setor'>";
+                    for(int i=0; i<listaSetor.size(); i++){
+                        p += "<option value='"+ listaSetor.get(i).getCodSetor()+"'>"+listaSetor.get(i).getNomeSetor()+"</option>";
+                    }
+                    
+                    p+= "</select>";
+                    out.print(p);
+                    
+                    %>
+                        </td>
                     </p>
                     </tr>
                     </div>
