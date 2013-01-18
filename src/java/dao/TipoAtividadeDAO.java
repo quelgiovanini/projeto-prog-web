@@ -92,8 +92,9 @@ public class TipoAtividadeDAO implements InterfaceDAO {
        return tipoList;
     } 
     
-    public TipoAtividade pesquisarCod(int codTp) throws SQLException {
+    public TipoAtividade pesquisarCod(String cod) throws SQLException {
       //ArrayList ativList = new ArrayList();
+        int codTp = Integer.valueOf(cod);
       Connection conexao = DBConnection.getInstance();
         TipoAtividade tpAtiv = null;
         String sql = (String) dados.get("SelectById.Tipo");
@@ -133,8 +134,10 @@ public class TipoAtividadeDAO implements InterfaceDAO {
             pstmt.setDouble(2, tpAtiv.getProporcao());
             pstmt.setInt(3, tpAtiv.getMaximoPermitido());
             pstmt.setInt(4, tpAtiv.getIdTipo());
+            
             pstmt.execute();
             retorno = "sucesso";
+            
             pstmt.close();
         }catch(Exception ex){
             ex.printStackTrace();

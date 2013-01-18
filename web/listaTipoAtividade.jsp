@@ -38,7 +38,8 @@
             <td ><%=tipo.getProporcao() %></td>
             <td ><%=tipo.getMaximoPermitido() %></td>
             <form action="editarTipoAtividade.jsp" method="POST">
-                    <td align="center"><input type="hidden" name="codtip" value="<%= tipo.getIdTipo() %>"/>
+                    <td align="center">
+                        <input type="hidden" name="codtip" value="<%= tipo.getIdTipo() %>"/>
                         <input type="submit" value="Editar Tipo"></td>
             </form>
             <form action="FrontController" method="POST">

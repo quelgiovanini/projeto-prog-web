@@ -5,6 +5,7 @@
 package control;
 
 import dao.AtividadeDAO;
+import dao.TipoAtividadeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -26,7 +27,7 @@ public class trataExcluirTipoAtividade extends Comando{
             
             HttpSession session = getRequest().getSession(false);        
         
-            new AtividadeDAO().remover(codtip);
+            new TipoAtividadeDAO().remover(codtip);
             
             getResponse().sendRedirect("FrontController?cmd=trataListaTipoAtividade");
         

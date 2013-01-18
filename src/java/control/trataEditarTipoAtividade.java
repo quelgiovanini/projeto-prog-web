@@ -24,10 +24,10 @@ public class trataEditarTipoAtividade extends Comando {
         PrintWriter out = getResponse().getWriter();
         try {
             
-            Integer codtip = Integer.parseInt(getRequest().getParameter("codtip"));
+            int codtip = Integer.parseInt(getRequest().getParameter("codtip"));
             String descricaoTipo = getRequest().getParameter("descricaoTipo");
-            Double proporcao         = Double.parseDouble(getRequest().getParameter("proporcao"));
-            Integer maximoPermitido = Integer.parseInt(getRequest().getParameter("maximoPermitido"));
+            double proporcao         = Double.parseDouble(getRequest().getParameter("proporcao"));
+            int maximoPermitido = Integer.parseInt(getRequest().getParameter("maximoPermitido"));
         
             HttpSession session = getRequest().getSession(false);        
             Usuario value = (Usuario) session.getAttribute("usuario");

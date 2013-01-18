@@ -23,7 +23,7 @@ public class trataExcluirProfessor extends Comando {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
   //      try {
-            String codpro = getRequest().getParameter("codpro");
+            String codpro = getRequest().getParameter("codPessoa");
             
             HttpSession session = getRequest().getSession(false);        
         

@@ -55,9 +55,10 @@ public class ProfessorDAO implements InterfaceDAO{
     throw new UnsupportedOperationException("Not supported yet.");
   }  
  
-        public String remover(String codpr) throws SQLException {
+    public String remover(String codpr) throws SQLException {
         String retorno = "erro";                 
 
+        
         Connection conexao = DBConnection.getInstance();
         try{
             String sql = (String) dados.get("Delete.Professor");

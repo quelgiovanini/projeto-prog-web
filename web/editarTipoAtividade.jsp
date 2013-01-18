@@ -18,14 +18,15 @@
         
         <%
             // codigo por parametro
-            Integer tp = Integer.parseInt(request.getParameter("codtip"));
+            //Integer tp = Integer.parseInt(request.getParameter("codtip"));
+            String tp = request.getParameter("codtip");
             TipoAtividadeDAO dao = new TipoAtividadeDAO();
             TipoAtividade tipo = dao.pesquisarCod(tp);
             
         %>
         
         <form action='FrontController' method='POST'>
-                <input type="hidden" name="cmd" value="trataEditarLancamento">
+                <input type="hidden" name="cmd" value="trataEditarTipoAtividade">
 
                <table>
                <tr>
