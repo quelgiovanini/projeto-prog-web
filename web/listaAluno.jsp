@@ -7,6 +7,7 @@
 <%@page import="model.Aluno"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Iterator"%>
+<%@page import="dao.AlunoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -40,18 +41,21 @@
             <td ><%=aluno.getTipoPessoa() %></td>
             <td ><%=aluno.getNumeroMatricula() %></td>
             <form action="editarAluno.jsp" method="POST">
-                    <td align="center"><input type="hidden" name="codPessoa" value="<%= aluno.getCodPessoa() %>"/>
-                        <input type="submit" value="Editar Aluno">
+                    <td align="center">
+                        <input type="hidden" name="codPessoa" value="<%= aluno.getCodPessoa() %>"/>
+                        <input type="submit" value="Editar Aluno"></td>
             </form>
             <form action="FrontController" method="POST">
+                
+                    <td align="center">
                     <input type="hidden" name="cmd" value="trataExcluirAluno" />
                     <input type="hidden" name="codPessoa" value="<%= aluno.getCodPessoa() %>"/>
                     <input type="submit" value="Excluir Aluno"/></td>
             </form>
         </tr>
         <% } %>
-        <a href="index.jsp">Voltar</a>
         </tbody>
     </table>
+        <a href="index.jsp">Voltar</a>
     </body>
 </html>

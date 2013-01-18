@@ -83,11 +83,11 @@ public class AlunoDAO implements InterfaceDAO {
       while (rs.next()) {
 
           Aluno aluno = new Aluno(); 
-          aluno.setNome(rs.getString(1));
-          aluno.setRg(rs.getString(2));
-          aluno.setTipoPessoa(rs.getInt(3));
-          aluno.setNumeroMatricula(rs.getString(4));
-          aluno.setCodPessoa(rs.getInt(5));
+          aluno.setCodPessoa(rs.getInt(1));
+          aluno.setNome(rs.getString(2));
+          aluno.setRg(rs.getString(3));
+          aluno.setTipoPessoa(rs.getInt(4));
+          aluno.setNumeroMatricula(rs.getString(5));
 
           alunoList.add(aluno);
       }

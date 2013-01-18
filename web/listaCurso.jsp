@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title> .:: SIATICO ::. </title>
+        <title> .:: SIATCO ::. </title>
     </head>
     <body>
         <h1> Atividades Complementares </h1>
@@ -39,14 +39,16 @@
             <td ><%=curso.getArea() %></td>
             
             <form action="FrontController" method="POST">
+                    <td align="center">
                     <input type="hidden" name="cmd" value="trataExcluirCurso" />
                     <input type="hidden" name="codCurso" value="<%= curso.getCodCurso() %>"/>
                     <input type="submit" value="Excluir  Curso"/></td>
             </form>
         </tr>
         <% } %>
-        <a href="index.jsp">Voltar</a>
         </tbody>
     </table>
+        
+        <a href="index.jsp">Voltar</a>
     </body>
 </html>

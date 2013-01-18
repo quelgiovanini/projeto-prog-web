@@ -65,11 +65,11 @@
               <li><a href="cadastraTipoAtividade.jsp"> Cadastrar Tipo Atividade </a><br/></li>
               <li><a href="cadastraCurso.jsp"> Cadastrar Cursos </a><br/></li>
               <br />
-              <li><a href="listaTipoAtividade.jsp"> Listar Tipos de Atividade </a><br/></li>
-              <li><a href="listaCurso.jsp"> Listar Cursos </a><br/></li>              
-              <li><a href="listaAluno.jsp"> Listar Alunos </a><br/></li>   
-              <li><a href="listaProfessor.jsp"> Listar Professores </a><br/></li>   
-              <li><a href="listaFuncionario.jsp"> Listar Funcionários </a><br/></li>   
+              <li><a href="FrontController?cmd=trataListaTipoAtividade"> Listar Tipos de Atividade </a><br/></li>
+              <li><a href="FrontController?cmd=trataListaCurso"> Listar Cursos </a><br/></li>              
+              <li><a href="FrontController?cmd=trataListaAluno">Listar Alunos</a></li>
+              <li><a href="FrontController?cmd=trataListaProfessor">Listar Professores</a></li>
+              <li><a href="FrontController?cmd=trataListaFuncionario"> Listar Funcionários </a><br/></li>   
               
           </ul>
           

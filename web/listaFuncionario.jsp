@@ -40,15 +40,16 @@
             <td ><%=func.getTipoPessoa() %></td>            
             <td ><%=func.getCodSetor() %></td>
             <form action="FrontController" method="POST">
+                <td align="center">
                     <input type="hidden" name="cmd" value="trataExcluirFuncionario" />
                     <input type="hidden" name="codPessoa" value="<%= func.getCodPessoa() %>"/>
                     <input type="submit" value="Excluir  Funcionário"/></td>
             </form>
         </tr>
         <% } %>
-        <a href="index.jsp">Voltar</a>
         </tbody>
     </table>
+        <a href="index.jsp">Voltar</a>
     </body>
 </html>
 

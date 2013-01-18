@@ -78,11 +78,11 @@ public class FuncionarioDAO implements InterfaceDAO {
       while (rs.next()) {
 
           Funcionario funcionario = new Funcionario(); 
-          funcionario.setNome(rs.getString(1));
-          funcionario.setRg(rs.getString(2));
-          funcionario.setTipoPessoa(rs.getInt(3));
-          funcionario.setCodSetor(rs.getInt(4));
-          funcionario.setCodPessoa(rs.getInt(5));
+          funcionario.setCodPessoa(rs.getInt(1));
+          funcionario.setNome(rs.getString(2));
+          funcionario.setRg(rs.getString(3));
+          funcionario.setTipoPessoa(rs.getInt(4));
+          funcionario.setCodSetor(rs.getInt(5));
 
           funcList.add(funcionario);
       }

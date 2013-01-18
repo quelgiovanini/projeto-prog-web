@@ -23,13 +23,13 @@ public class trataExcluirAluno extends Comando {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
   //      try {
-            String codalu = getRequest().getParameter("codalu");
+            String codalu = getRequest().getParameter("codPessoa");
             
             HttpSession session = getRequest().getSession(false);        
         
             new AlunoDAO().remover(codalu);
             
-            getResponse().sendRedirect("FrontController?cmd=trataListarAluno");
+            getResponse().sendRedirect("FrontController?cmd=trataListaAluno");
         
  //       } catch(SQLException ex){
  //           throw new ServletException(ex);

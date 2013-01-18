@@ -41,17 +41,19 @@
             <td ><%=prof.getArea() %></td>
             <form action="editarProfessor.jsp" method="POST">
                     <td align="center"><input type="hidden" name="codPessoa" value="<%= prof.getCodPessoa() %>"/>
-                        <input type="submit" value="Editar Professor">
+                        <input type="submit" value="Editar Professor"></td>
             </form>
             <form action="FrontController" method="POST">
+                
+                    <td align="center">
                     <input type="hidden" name="cmd" value="trataExcluirProfessor" />
                     <input type="hidden" name="codPessoa" value="<%= prof.getCodPessoa() %>"/>
                     <input type="submit" value="Excluir Professor"/></td>
             </form>
         </tr>
         <% } %>
-        <a href="index.jsp">Voltar</a>
         </tbody>
     </table>
+        <a href="index.jsp">Voltar</a>
     </body>
 </html>
