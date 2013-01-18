@@ -4,6 +4,8 @@
     Author     : Quele
 --%>
 
+<%@page import="model.Area"%>
+<%@page import="dao.AreaDAO"%>
 <%@page import="model.Setor"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.SetorDAO"%>
@@ -114,7 +116,20 @@
                     <tr>
                       <p>
                         <td><label for="area">Área </label></td>
-                        <td><input type="text" name="area" id="area" size="30" /></td>
+                        <td>
+                    <%  AreaDAO r = new AreaDAO();
+                    ArrayList<Area> listaArea = r.pesquisarTipo();
+                    
+                    String l = "<select name='area' id='area'>";
+                    for(int i=0; i<listaArea.size(); i++){
+                        l += "<option value='"+ listaArea.get(i).getCodArea()+"'>"+listaArea.get(i).getNomeArea()+"</option>";
+                    }
+                    
+                    l+= "</select>";
+                    out.print(l);
+                    
+                    %>
+                        </td>
                       </p>
                     </tr>    
                     </div>

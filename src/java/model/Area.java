@@ -9,6 +9,27 @@ package model;
  * @author Quele
  */
 
-public enum Area {
-    CIENCIAS_NATURAIS, INFORMATICA, ADMINISTRACAO;
+    public class Area {
+        private int codArea;
+        private String nomeArea;
+
+    public int getCodArea() {
+        return codArea;
+    }
+
+    public void setCodArea(int codArea) {
+        this.codArea = codArea;
+    }
+
+    public String getNomeArea() {
+        return nomeArea;
+    }
+
+    public void setNomeArea(String nomeArea) {
+        this.nomeArea = nomeArea;
+    }
+
+    public void getArea(String nome) {
+        this.nomeArea = nome;
+    }
 }
