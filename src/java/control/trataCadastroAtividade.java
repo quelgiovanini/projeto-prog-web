@@ -32,21 +32,8 @@ public class trataCadastroAtividade extends Comando {
         PrintWriter out = getResponse().getWriter();
         try {
             getResponse().setContentType("text/html");
-            
-            try {
-            List tipoAtividades = new TipoAtividadeDAO().pesquisarTipo();
-           // TipoAtividade tipoAtiv;
-        //    tipoAtiv = new TipoAtividade(1,"Teste");
-            getRequest().setAttribute("tipos", tipoAtividades);
-            RequestDispatcher dispatcher = getRequest().getRequestDispatcher("cadastraAtividade.jsp");
-            if (dispatcher != null){
-                dispatcher.forward(getRequest(), getResponse());
-            }
-            }catch(SQLException ex1){
-            throw new ServletException(ex1);
-            }
-            
-            Integer codAtiv    = Integer.parseInt(getRequest().getParameter("codAtiv"));            
+                        
+        //    Integer codAtiv    = Integer.parseInt(getRequest().getParameter("codAtiv"));            
             int aluno  = Integer.parseInt(getRequest().getParameter("aluno"));
             int tipoAtividade     = Integer.parseInt(getRequest().getParameter("tipoAtividade"));
             int professor   = Integer.parseInt(getRequest().getParameter("professor"));
@@ -57,6 +44,7 @@ public class trataCadastroAtividade extends Comando {
         
             Atividade ativ = new Atividade(aluno, tipoAtividade, professor, status);
             new AtividadeDAO().inserir(ativ);
+            
             getResponse().sendRedirect("index.jsp");
         
         } catch(SQLException ex){

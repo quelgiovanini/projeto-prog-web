@@ -72,7 +72,7 @@
                     ArrayList<Professor> listaProf = q.pesquisarTipo();
                     
                     String f = "<select name='professor' id='professor'>";
-                    for(int i=0; i<listaAluno.size(); i++){
+                    for(int i=0; i<listaProf.size(); i++){
                         f += "<option value='"+ listaProf.get(i).getCodPessoa()+"'>"+listaProf.get(i).getNome()+"</option>";
                     }
                     
