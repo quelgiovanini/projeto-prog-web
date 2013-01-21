@@ -21,12 +21,12 @@ public class Professor implements Serializable {
 
      public Professor () {}
 
-     public Professor(int codPessoa, String nome, String rg, int tipoPessoa, int codArea) {
-        this.setCodPessoa(codPessoa);
-        this.setNome(nome);
-        this.setRg(rg);
-        this.setTipoPessoa(tipoPessoa);
-        this.setArea(codArea);
+     public Professor(int _codPessoa, String _nome, String _rg, int _tipoPessoa, int _codArea) {
+        this.setCodPessoa(_codPessoa);
+        this.setNome(_nome);
+        this.setRg(_rg);
+        this.setTipoPessoa(_tipoPessoa);
+        this.setArea(_codArea);
     }    
 
      public Professor(int codPessoa, String nome, String rg, int tipoPessoa) {

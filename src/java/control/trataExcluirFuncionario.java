@@ -23,7 +23,7 @@ public class trataExcluirFuncionario extends Comando {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
   //      try {
-            String codfun = getRequest().getParameter("codfun");
+            String codfun = getRequest().getParameter("codPessoa");
             
             HttpSession session = getRequest().getSession(false);        
         
