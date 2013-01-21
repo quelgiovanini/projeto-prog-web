@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>  ..:: Controle de Contas ::.. </title>
+        <title>  ..:: SIATICO ::.. </title>
     </head>
     <body>
         <h1><font face="Verdana" color="#000000"> Edição de Lançamento </font></h1>

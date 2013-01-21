@@ -25,7 +25,7 @@
                 <tr>
                 <p class="first">
                     <td><label for="proporcao">Proporção </label></td>
-                   <td><input name="proporcao" type="text" id="proporcao" size="70" maxlength="60" />    
+                   <td><input type="text" name="proporcao" id="proporcao" size="70" maxlength="60" />    
                 </p>
                 </tr>
                 <tr>

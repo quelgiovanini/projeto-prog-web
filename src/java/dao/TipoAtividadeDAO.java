@@ -44,8 +44,17 @@ public class TipoAtividadeDAO implements InterfaceDAO {
         pstmt.setString(1, tipos.getDescricaoTipo());
         pstmt.setDouble(2, tipos.getProporcao());
         pstmt.setInt(3, tipos.getMaximoPermitido());
-        pstmt.execute();
+        
+        //pstmt.execute();
+        //pstmt.close();
+        
+        try {
+            pstmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         pstmt.close();
+    
     }
 
     @Override
@@ -82,10 +91,11 @@ public class TipoAtividadeDAO implements InterfaceDAO {
 
           TipoAtividade tipos = new TipoAtividade(); 
 
-          tipos.setDescricaoTipo(rs.getString(1));
-          tipos.setProporcao(rs.getDouble(2));
-          tipos.setMaximoPermitido(rs.getInt(3));
-          tipos.setIdTipo(rs.getInt(4));
+          tipos.setIdTipo(rs.getInt(1));
+          tipos.setDescricaoTipo(rs.getString(2));
+          tipos.setProporcao(rs.getDouble(3));
+          tipos.setMaximoPermitido(rs.getInt(4));
+          
           tipoList.add(tipos);
       }
        pstmt.close();

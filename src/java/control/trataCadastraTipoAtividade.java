@@ -24,7 +24,7 @@ public class trataCadastraTipoAtividade extends Comando{
             getResponse().setContentType("text/html");
          
             String descricaoTipo     = getRequest().getParameter("descricaoTipo");
-            Double proporcao         = Double.parseDouble(getRequest().getParameter("proporcao"));
+            double proporcao         = Double.parseDouble(getRequest().getParameter("proporcao"));
             int maximoPermitido      = Integer.parseInt(getRequest().getParameter("maximoPermitido"));
 
             TipoAtividade tipo = new TipoAtividade(descricaoTipo, proporcao, maximoPermitido);   

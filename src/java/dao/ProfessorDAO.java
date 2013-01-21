@@ -85,11 +85,11 @@ public class ProfessorDAO implements InterfaceDAO{
       while (rs.next()) {
 
           Professor professor = new Professor(); 
-          professor.setNome(rs.getString(1));
-          professor.setRg(rs.getString(2));
-          professor.setTipoPessoa(rs.getInt(3));
-          professor.setArea(rs.getInt(4));
-          professor.setCodPessoa(rs.getInt(5));
+          professor.setCodPessoa(rs.getInt(1));
+          professor.setNome(rs.getString(2));
+          professor.setRg(rs.getString(3));
+          professor.setTipoPessoa(rs.getInt(4));
+          professor.setArea(rs.getInt(5));
 
           profList.add(professor);
       }

@@ -29,21 +29,21 @@ public class TipoAtividade implements Serializable {
     }
     
     public TipoAtividade(String descricao, double proporcao, int maximoPermido){
-        this.setDescricaoTipo(descricaoTipo);
+        this.setDescricaoTipo(descricao);
         this.setProporcao(proporcao);
-        this.setMaximoPermitido(maximoPermitido);
+        this.setMaximoPermitido(maximoPermido);
     }
     
     public TipoAtividade(int idTipo, String descricao){
         this.setIdTipo(idTipo);
-        this.setDescricaoTipo(descricaoTipo);
+        this.setDescricaoTipo(descricao);
     }    
     
     public TipoAtividade(int idTipo, String descricao, double proporcao, int maximoPermido){
         this.setIdTipo(idTipo);
-        this.setDescricaoTipo(descricaoTipo);
+        this.setDescricaoTipo(descricao);
         this.setProporcao(proporcao);
-        this.setMaximoPermitido(maximoPermitido);
+        this.setMaximoPermitido(maximoPermido);
     }    
     
     public TipoAtividade(String descricaoTipo){
