@@ -22,7 +22,7 @@
                 <tr>
                     <th>Nome</th>
                     <th>RG</th>
-                    <th>Tipo Pessoa</th>
+                    <!--<th>Tipo Pessoa</th> -->
                     <th>Área</th>
                     <th></th>
                 </tr>
@@ -37,7 +37,7 @@
         <tr>
             <td ><%=prof.getNome() %></td>
             <td ><%=prof.getRg() %></td>
-            <td ><%=prof.getTipoPessoa() %></td>
+            <%--<td ><%=prof.getTipoPessoa() %></td>--%>
             <td ><%=prof.getArea() %></td>
             <form action="editarProfessor.jsp" method="POST">
                     <td align="center"><input type="hidden" name="codPessoa" value="<%= prof.getCodPessoa() %>"/>

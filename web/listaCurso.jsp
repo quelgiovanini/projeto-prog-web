@@ -15,7 +15,7 @@
         <title> .:: SIATCO ::. </title>
     </head>
     <body>
-        <h1> Atividades Complementares </h1>
+        <h1> Cursos </h1>
 
         <table>
             <thead>
@@ -42,7 +42,7 @@
                     <td align="center">
                     <input type="hidden" name="cmd" value="trataExcluirCurso" />
                     <input type="hidden" name="codCurso" value="<%= curso.getCodCurso() %>"/>
-                    <input type="submit" value="Excluir  Curso"/></td>
+                    <input type="submit" value="Excluir Curso"/></td>
             </form>
         </tr>
         <% } %>

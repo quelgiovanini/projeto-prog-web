@@ -10,8 +10,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpSession;
 import model.Curso;
 import model.TipoAtividade;
+import model.Usuario;
 
 /**
  *
@@ -26,12 +28,12 @@ public class trataCadastraCurso extends Comando {
          
             String nomeCurso     = getRequest().getParameter("nomeCurso");
             int coordenador         = Integer.parseInt(getRequest().getParameter("coordenador"));
-            int codArea      = Integer.parseInt(getRequest().getParameter("codArea"));
+            int codArea      = Integer.parseInt(getRequest().getParameter("area"));
 
             Curso curso = new Curso(nomeCurso, coordenador, codArea);   
             
             new CursoDAO().inserir(curso);
-            
+                        
             getResponse().sendRedirect("index.jsp");
         } catch (SQLException ex) {
             throw new ServletException(ex);

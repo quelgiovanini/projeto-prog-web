@@ -17,6 +17,7 @@ public class Curso implements Serializable {
     private int area;
     private Professor orientador = new Professor();
     private String sigla;
+    private int codProfessor;
     
     public Curso() { }
 
@@ -34,12 +35,14 @@ public class Curso implements Serializable {
         this.setArea(area);
     }  
     
-    public Curso (String nome, int professor, int area) {
+    public Curso (String _nome, int _professor, int _area) {
       //  this.setCodCurso(codCurso);
-        this.setNome(nome);
-        this.setCodProfessor(professor);
-        this.setArea(area);
-        
+        //this.setNome(nome);
+        //this.setCodProfessor(professor);
+        //this.setArea(area);
+        this.nome = _nome;
+        this.codProfessor = _professor;
+        this.area = _area;
     }     
     
     public Curso(Integer codCurso) {
@@ -73,7 +76,7 @@ public class Curso implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
+/*
     public Integer getCodProfessor() throws SQLException {
         return  this.orientador.getCodPessoa();
     }
@@ -81,7 +84,7 @@ public class Curso implements Serializable {
     public void setCodProfessor(Integer codProfessor) {
         this.orientador.setCodPessoa(codProfessor);
     }    
-    
+    */
     public Professor getOrientador() {
         return orientador;
     }
@@ -111,5 +114,15 @@ public class Curso implements Serializable {
     public String toString(){
         return ("Curso: " + getNome()+"\n");
     }
+
+    public int getCodProfessor() {
+        return codProfessor;
+    }
+
+    public void setCodProfessor(int codProfessor) {
+        this.codProfessor = codProfessor;
+    }
+    
+    
     
 }

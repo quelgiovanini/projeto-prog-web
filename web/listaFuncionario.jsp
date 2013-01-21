@@ -15,14 +15,14 @@
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
-        <h1> Atividades Complementares </h1>
+        <h1> Funcionarios </h1>
 
         <table>
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>RG</th>
-                    <th>Tipo Pessoa</th>
+                    <!--<th>Tipo Pessoa</th>-->
                     <th>Setor</th>
                     <th></th>
                 </tr>
@@ -37,7 +37,7 @@
         <tr>
             <td ><%=func.getNome() %></td>
             <td ><%=func.getRg() %></td>
-            <td ><%=func.getTipoPessoa() %></td>            
+           <%-- <td ><%=func.getTipoPessoa() %></td>            --%>
             <td ><%=func.getCodSetor() %></td>
             <form action="FrontController" method="POST">
                 <td align="center">

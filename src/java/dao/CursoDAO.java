@@ -40,8 +40,16 @@ public class CursoDAO implements InterfaceDAO {
         pstmt.setString(1, curso.getNome());
         pstmt.setInt(2, curso.getCodProfessor());
         pstmt.setInt(3, curso.getArea());
-        pstmt.execute();
+        //pstmt.execute();
+        //pstmt.close();
+        
+        try {
+            pstmt.executeQuery();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         pstmt.close();
+    
     }
 
     @Override

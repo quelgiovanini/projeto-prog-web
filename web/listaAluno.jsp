@@ -23,7 +23,7 @@
                 <tr>
                     <th>Aluno</th>
                     <th>RG</th>
-                    <th>Tipo Pessoa</th>
+                    <!--<th>Tipo Pessoa</th>-->
                     <th>Matricula</th>
                     <th></th>
                 </tr>
@@ -38,7 +38,7 @@
         <tr>
             <td ><%=aluno.getNome() %></td>
             <td ><%=aluno.getRg() %></td>
-            <td ><%=aluno.getTipoPessoa() %></td>
+            <%--<td ><%=aluno.getTipoPessoa() %></td>--%>
             <td ><%=aluno.getNumeroMatricula() %></td>
             <form action="editarAluno.jsp" method="POST">
                     <td align="center">
