@@ -5,6 +5,9 @@
 --%>
 
 
+<%@page import="model.Area"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="dao.AreaDAO"%>
 <%@page import="model.Professor"%>
 <%@page import="dao.ProfessorDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -45,9 +48,27 @@
                     </td>
                 </tr>  
                 <tr>
-                    <td > Área </font></td>
+                    <!--<td > Área </font></td>
                     <td align="center" ><input type="text" name="area" id="area" value="<%=professor.getArea() %>" size="70" maxlength="60" />
-                    </td>
+                    </td>-->
+                    
+                    <p>
+                        <td><label for="area">Área </label></td>
+                        <td>
+                    <%  AreaDAO r = new AreaDAO();
+                    ArrayList<Area> listaArea = r.pesquisarTipo();
+                    
+                    String l = "<select name='area' id='area'>";
+                    for(int i=0; i<listaArea.size(); i++){
+                        l += "<option value='"+ listaArea.get(i).getCodArea()+"'>"+listaArea.get(i).getNomeArea()+"</option>";
+                    }
+                    
+                    l+= "</select>";
+                    out.print(l);
+                    
+                    %>
+                        </td>
+                      </p>
                 </tr>  
                </table>                   
                     <input type="hidden" name="codPessoa" id="codPessoa" value="<%=professor.getCodPessoa() %>" />
