@@ -112,7 +112,7 @@ public class AlunoDAO implements InterfaceDAO {
       return aluno;
   }
 
-     public ArrayList pesquisarTipo() throws SQLException {
+public ArrayList pesquisarTipo() throws SQLException {
       ArrayList alList = new ArrayList();
       Connection conexao = DBConnection.getInstance();
       String sql = (String) dados.get("SelectUser.Aluno");
@@ -122,11 +122,14 @@ public class AlunoDAO implements InterfaceDAO {
             Aluno usu = new Aluno();
             usu.setCodPessoa(rs.getInt(1));
             usu.setNome(rs.getString(2));
-            alList.add(usu);
+            usu.setHorasAcumuladas(rs.getInt(3));
+            
+            if (usu.getHorasAcumuladas() < 72)
+                alList.add(usu);
       }
        pstmt.close();
        return alList;
-    }  
+    } 
 
     public Aluno pesquisarCod(String codAlu) throws SQLException {
       //ArrayList ativList = new ArrayList();
@@ -174,7 +177,7 @@ public class AlunoDAO implements InterfaceDAO {
 
     }
     
-   public String editarhora(Aluno aluno) throws SQLException {
+    public String editarhora(Aluno aluno) throws SQLException {
         String retorno = "erro";                 
         
         Connection conexao = DBConnection.getInstance();
