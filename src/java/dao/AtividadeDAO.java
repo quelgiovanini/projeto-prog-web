@@ -177,11 +177,12 @@ public class AtividadeDAO implements InterfaceDAO {
        return ativList;
     } 
     
-    public ArrayList listaAllAtividade() throws SQLException {
+    public ArrayList listaAllAtividade(Integer cod) throws SQLException {
       ArrayList ativList = new ArrayList();
       Connection conexao = DBConnection.getInstance();
       String sql = (String) dados.get("ListaAllAtividade.Atividade");
       PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      pstmt.setInt(1, cod);
       ResultSet rs = pstmt.executeQuery();
       
       while (rs.next()) {
@@ -192,7 +193,7 @@ public class AtividadeDAO implements InterfaceDAO {
           atividade.getProfessorResponsavel().setNome(rs.getString(3));
           atividade.setStatus(rs.getString(4));
           atividade.setIdAtividade(rs.getInt(5));
-
+          atividade.getProfessorResponsavel().setCodPessoa(rs.getInt(6));
           ativList.add(atividade);
       }
        pstmt.close();
