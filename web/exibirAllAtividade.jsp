@@ -25,6 +25,7 @@
                     <th>Tipo de Atividade</th>
                     <th>Professor</th>
                     <th>Status</th>
+                    <th>Horas Aprovadas</th>
                     <th></th>
                 </tr>
             </thead>
@@ -40,6 +41,7 @@
             <td ><%=atividade.getTipoAtividade().getDescricaoTipo() %></td>
             <td ><%=atividade.getProfessorResponsavel().getNome() %></td>
             <td ><%=atividade.getStatus()%></td>
+            <td ><%=atividade.getHorasAceitas() %></td>
         </tr>
         <% } %>
         <a href="index.jsp">Voltar</a>

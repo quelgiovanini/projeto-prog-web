@@ -193,8 +193,9 @@ public class AtividadeDAO implements InterfaceDAO {
           atividade.getTipoAtividade().setDescricaoTipo(rs.getString(2));
           atividade.getProfessorResponsavel().setNome(rs.getString(3));
           atividade.setStatus(rs.getString(4));
-          atividade.setIdAtividade(rs.getInt(5));
-          atividade.getProfessorResponsavel().setCodPessoa(rs.getInt(6));
+          atividade.setHorasAceitas(rs.getInt(5));
+          atividade.setIdAtividade(rs.getInt(6));
+          atividade.getProfessorResponsavel().setCodPessoa(rs.getInt(7));
           ativList.add(atividade);
       }
        pstmt.close();
