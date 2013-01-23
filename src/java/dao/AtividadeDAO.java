@@ -217,4 +217,27 @@ public class AtividadeDAO implements InterfaceDAO {
        return ativList;
     }       
     
+    public String analisar(Atividade atividade) throws SQLException {
+        String retorno = "erro";                 
+        
+        Connection conexao = DBConnection.getInstance();
+        try{
+            String sql = (String) dados.get("Analisar.Atividade");
+            PreparedStatement pstmt = conexao.prepareStatement(sql);
+            
+            pstmt.setString(1, atividade.getStatus());
+            pstmt.setInt(2, atividade.getCodAluno());
+            pstmt.setInt(3, atividade.getIdAtividade());
+            pstmt.setInt(4, atividade.getCodProfessor());
+            pstmt.setInt(5, atividade.getHorasAceitas());
+            pstmt.setInt(6, atividade.getIdAtividade());
+            pstmt.execute();
+            retorno = "sucesso";
+            pstmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        return retorno;
+    }     
+    
 }

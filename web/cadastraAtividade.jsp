@@ -86,7 +86,7 @@
                     <p>
                         <td><label for="horasRequisitadas">Horas Requisitadas </label></td>
                         <td>
-                            <td><input type="text" name="horasRequisitadas" id="horasRequisitadas" size="30" /></td>
+                            <input type="text" name="horasRequisitadas" id="horasRequisitadas" size="20" />
                         </td>
                     </p>
                  </tr>                  

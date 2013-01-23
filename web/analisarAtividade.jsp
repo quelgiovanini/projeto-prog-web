@@ -30,25 +30,31 @@
                <tr>
                <p class="first">
                     <td><label for="aluno">Aluno </label></td>                   
-                    <td ><input type="text" name="aluno" id="aluno" value="<%=atividade.getAluno().getCodPessoa() %>" size="70" maxlength="60" /></td>
+                    <td ><input type="text" name="aluno" id="aluno" value="<%=atividade.getAluno().getCodPessoa() %>" size="70"/></td>
                 </p>    
                 </tr>
                 <tr>
                  <p>
                     <td><label for="tipoAtividade">Tipo de Atividade </label></td>
-                    <td><input type="text" name="tipoAtividade" id="tipoAtividade" value="<%=atividade.getTipoAtividade().getIdTipo() %>" size="70" maxlength="60" /></td>
+                    <td><input type="text" name="tipoAtividade" id="tipoAtividade" value="<%=atividade.getTipoAtividade().getIdTipo() %>" size="70"/></td>
                 </p>
                 </tr>
                 <tr>
                 <p>
                     <td><label for="professor">Professor </label></td>                    
-                    <td><input type="text" name="professor" id="professor" value="<%=atividade.getProfessorResponsavel().getCodPessoa() %>" size="70" maxlength="60" /></td>
+                    <td><input type="text" name="professor" id="professor" value="<%=atividade.getProfessorResponsavel().getCodPessoa() %>" size="70"/></td>
                 </p>
                 </tr>  
                 <tr>
                 <p>
                     <td><label for="status">Status </label></td>                    
-                    <td><input type="text" name="status" id="status" value="<%=atividade.getStatus() %>" size="70" maxlength="60" /></td>
+                    <td><input type="text" name="status" id="status" value="<%=atividade.getStatus() %>" size="10" /></td>
+                </p>
+                </tr>
+                <tr>
+                <p>
+                    <td><label for="horas">Horas Aprovadas </label></td>                    
+                    <td><input type="text" name="horas" id="horas" value="<%=atividade.getHorasAceitas() %>" size="10" /></td>
                 </p>
                 </tr> 
                     <input type="hidden" name="codati" id="codati" value="<%=atividade.getIdAtividade() %>" >

@@ -29,14 +29,16 @@ public class trataAnalisarAtividade extends Comando {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
         
-        Integer codati   = Integer.parseInt(getRequest().getParameter("codati"));
+                Integer codati   = Integer.parseInt(getRequest().getParameter("codati"));
         Integer aluno    = Integer.parseInt(getRequest().getParameter("aluno"));
         Integer tipoAtividade     = Integer.parseInt(getRequest().getParameter("tipoAtividade"));
         Integer professor     = Integer.parseInt(getRequest().getParameter("professor"));
+        Integer horas    = Integer.parseInt(getRequest().getParameter("horas"));
         String status   = getRequest().getParameter("status");
         
-        Atividade atividades = new Atividade(codati, aluno, tipoAtividade, professor, status);
-        new AtividadeDAO().editar(atividades);
+        Atividade atividades = new Atividade(codati, aluno, tipoAtividade, professor, horas, status);
+        new AtividadeDAO().analisar(atividades);
+        
         getResponse().sendRedirect("FrontController?cmd=trataExibirAtividade");       
     } catch (SQLException ex) {
             throw new ServletException(ex);
