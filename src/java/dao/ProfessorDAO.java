@@ -40,7 +40,7 @@ public class ProfessorDAO implements InterfaceDAO{
     pstmt.setString(1, prof.getNome());
     pstmt.setString(2, prof.getRg());
     pstmt.setInt(3, prof.getTipoPessoa());
-    pstmt.setInt(4, prof.getArea());
+    pstmt.setInt(4, prof.getCodArea());
    
     try {
             pstmt.executeQuery();
@@ -88,8 +88,8 @@ public class ProfessorDAO implements InterfaceDAO{
           professor.setCodPessoa(rs.getInt(1));
           professor.setNome(rs.getString(2));
           professor.setRg(rs.getString(3));
-          professor.setTipoPessoa(rs.getInt(4));
-          professor.setArea(rs.getInt(5));
+     //     professor.setTipoPessoa(rs.getInt(4));
+          professor.getArea().setNomeArea(rs.getString(4));
 
           profList.add(professor);
       }
@@ -144,7 +144,7 @@ public class ProfessorDAO implements InterfaceDAO{
             pro.setNome(rs.getString(2));
             pro.setRg(rs.getString(3));
             pro.setTipoPessoa(rs.getInt(4));
-            pro.setArea(rs.getInt(5));   
+            pro.setCodArea(rs.getInt(5));   
         }
         pstmt.close();
         return pro;
@@ -161,7 +161,7 @@ public class ProfessorDAO implements InterfaceDAO{
             pstmt.setString(1, professor.getNome());
             pstmt.setString(2, professor.getRg());
             pstmt.setInt(3, professor.getTipoPessoa());
-            pstmt.setInt(4, professor.getArea());
+            pstmt.setInt(4, professor.getCodArea());
             pstmt.setInt(5, professor.getCodPessoa());            
 
             pstmt.execute();

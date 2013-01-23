@@ -35,8 +35,8 @@
         %>     
         <tr>
             <td ><%=curso.getNome() %></td>
-            <td ><%=curso.getCodProfessor() %></td>
-            <td ><%=curso.getArea() %></td>
+            <td ><%=curso.getOrientador().getNome() %></td>
+            <td ><%=curso.getArea().getNomeArea() %></td>
             
             <form action="FrontController" method="POST">
                     <td align="center">

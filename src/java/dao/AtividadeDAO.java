@@ -151,4 +151,48 @@ public class AtividadeDAO implements InterfaceDAO {
         return retorno;
     }
     
+    public ArrayList listaTudo() throws SQLException {
+      ArrayList ativList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("Lista.Atividade");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      ResultSet rs = pstmt.executeQuery();
+      
+      while (rs.next()) {
+
+          Atividade atividade = new Atividade(); 
+          atividade.getAluno().setNome(rs.getString(1));
+          atividade.getTipoAtividade().setDescricaoTipo(rs.getString(2));
+          atividade.getProfessorResponsavel().setNome(rs.getString(3));
+          atividade.setStatus(rs.getString(4));
+          atividade.setIdAtividade(rs.getInt(5));
+
+          ativList.add(atividade);
+      }
+       pstmt.close();
+       return ativList;
+    } 
+    
+    public ArrayList listaAll() throws SQLException {
+      ArrayList ativList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("ListaAll.Atividade");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      ResultSet rs = pstmt.executeQuery();
+      
+      while (rs.next()) {
+
+          Atividade atividade = new Atividade(); 
+          atividade.getAluno().setNome(rs.getString(1));
+          atividade.getTipoAtividade().setDescricaoTipo(rs.getString(2));
+          atividade.getProfessorResponsavel().setNome(rs.getString(3));
+          atividade.setStatus(rs.getString(4));
+          atividade.setIdAtividade(rs.getInt(5));
+
+          ativList.add(atividade);
+      }
+       pstmt.close();
+       return ativList;
+    }     
+    
 }

@@ -20,7 +20,7 @@ import model.Usuario;
  * @author Quele
  */
 
-public class trataExibirAtividade  extends Comando {
+public class trataExibirAllAtividade  extends Comando {
     
     
     @Override
@@ -31,11 +31,11 @@ public class trataExibirAtividade  extends Comando {
             HttpSession session = getRequest().getSession(false);        
             Usuario value = (Usuario) session.getAttribute("usuario");
             
-            ArrayList atividades = new AtividadeDAO().listaTudo();
+            ArrayList atividades = new AtividadeDAO().listaAll();
             
             getRequest().setAttribute("dados", atividades);
             
-            RequestDispatcher dispatcher = getRequest().getRequestDispatcher("exibirAtividade.jsp");
+            RequestDispatcher dispatcher = getRequest().getRequestDispatcher("exibirAllAtividade.jsp");
             if (dispatcher != null){
                 
                 dispatcher.forward(getRequest(), getResponse());

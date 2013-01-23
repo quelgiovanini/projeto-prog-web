@@ -39,12 +39,13 @@ public class FrontController extends HttpServlet {
         comandos.put("trataListaTipoAtividade", "control.trataListaTipoAtividade");
         comandos.put("trataEditarTipoAtividade", "control.trataEditarTipoAtividade");        
         comandos.put("trataExcluirTipoAtividade", "control.trataExcluirTipoAtividade");
-        comandos.put("trataCadastraCurso", "control.trataCadastraCurso");
+        comandos.put("trataCadastroCurso", "control.trataCadastroCurso");
         comandos.put("trataListaCurso", "control.trataListaCurso");
         comandos.put("trataExcluirCurso", "control.trataExcluirCurso");        
         comandos.put("trataCadastroAtividade", "control.trataCadastroAtividade");
         comandos.put("trataAnalisarAtividade", "control.trataAnalisarAtividade");
         comandos.put("trataExibirAtividade", "control.trataExibirAtividade");
+        comandos.put("trataExibirAllAtividade", "control.trataExibirAllAtividade");
         comandos.put("trataExcluirAtividade", "control.trataExcluirAtividade");
         comandos.put("listaPessoas", "control.ListaPessoas");
         comandos.put("EditarPessoa", "control.EditarPessoa");

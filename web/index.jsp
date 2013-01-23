@@ -71,6 +71,8 @@
               <li><a href="FrontController?cmd=trataListaProfessor">Listar Professores</a></li>
               <li><a href="FrontController?cmd=trataListaFuncionario"> Listar Funcionários </a><br/></li>   
               
+              <li><a href="FrontController?cmd=trataExibirAllAtividade"> Relatório Atividades </a></li>
+              
           </ul>
           
         </div>

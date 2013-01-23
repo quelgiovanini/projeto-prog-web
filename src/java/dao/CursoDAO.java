@@ -39,7 +39,7 @@ public class CursoDAO implements InterfaceDAO {
         PreparedStatement pstmt = conexao.prepareStatement(sql);
         pstmt.setString(1, curso.getNome());
         pstmt.setInt(2, curso.getCodProfessor());
-        pstmt.setInt(3, curso.getArea());
+        pstmt.setInt(3, curso.getCodArea());
         //pstmt.execute();
         //pstmt.close();
         
@@ -86,8 +86,8 @@ public class CursoDAO implements InterfaceDAO {
 
           Curso curso = new Curso(); 
           curso.setNome(rs.getString(1));
-          curso.setCodProfessor(rs.getInt(2));
-          curso.setArea(rs.getInt(3));
+          curso.getOrientador().setNome(rs.getString(2));
+          curso.getArea().setNomeArea(rs.getString(3));
           curso.setCodCurso(rs.getInt(4));
 
           curList.add(curso);

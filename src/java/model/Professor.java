@@ -16,7 +16,8 @@ public class Professor implements Serializable {
      private String nome;
      private String rg;
      private int tipoPessoa;
-     private int area;
+     private int codArea;
+     private Area area = new Area();
 
 
      public Professor () {}
@@ -26,14 +27,15 @@ public class Professor implements Serializable {
         this.setNome(_nome);
         this.setRg(_rg);
         this.setTipoPessoa(_tipoPessoa);
-        this.setArea(_codArea);
+        this.setCodArea(_codArea);
     }    
 
-     public Professor(int codPessoa, String nome, String rg, int tipoPessoa) {
+     public Professor(int codPessoa, String nome, String rg, int tipoPessoa, Area area) {
         this.setCodPessoa(codPessoa);
         this.setNome(nome);
         this.setRg(rg);
         this.setTipoPessoa(tipoPessoa);
+        this.setArea(area);
     }             
      
      public Professor(String nome, String rg, int tipoPessoa, int codArea) {
@@ -41,7 +43,7 @@ public class Professor implements Serializable {
         this.setNome(nome);
         this.setRg(rg);
         this.setTipoPessoa(tipoPessoa);
-        this.setArea(codArea);
+        this.setCodArea(codArea);
     }       
      
      public Professor(String nome, String rg, int tipoPessoa) {
@@ -66,6 +68,14 @@ public class Professor implements Serializable {
         this.setRg(professores.getRg());
         this.setTipoPessoa(professores.getTipoPessoa());
         this.setArea(professores.getArea());
+    }  
+    
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
     }     
 
     public int getCodPessoa() {
@@ -100,12 +110,12 @@ public class Professor implements Serializable {
         this.tipoPessoa = tipoPessoa;
     }
 
-    public int getArea() {
-        return area;
+    public int getCodArea() {
+        return codArea;
     }
 
-    public void setArea(int area) {
-        this.area = area;
+    public void setCodArea(int area) {
+        this.codArea = area;
     }
   
     public boolean testeSenha(String senha){

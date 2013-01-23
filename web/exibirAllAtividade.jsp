@@ -1,5 +1,5 @@
 <%-- 
-    Document   : exibirAtividade
+    Document   : exibirAllAtividade
     Created on : 20/11/2012, 20:00:15
     Author     : Quele
 --%>
@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title> .:: SIATCO ::. </title>
+        <title> .:: SIATICO ::. </title>
     </head>
     <body>
         <h1> Atividades Complementares </h1>
@@ -40,19 +40,10 @@
             <td ><%=atividade.getTipoAtividade().getDescricaoTipo() %></td>
             <td ><%=atividade.getProfessorResponsavel().getNome() %></td>
             <td ><%=atividade.getStatus()%></td>
-            <form action="analisarAtividade.jsp" method="POST">
-                    <td align="center"><input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
-                        <input type="submit" value="Analisar Atividade">
-            </form>
-            <form action="FrontController" method="POST">
-                    <input type="hidden" name="cmd" value="trataExcluirAtividade" />
-                    <input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
-                    <input type="submit" value="Excluir  Atividade"/></td>
-            </form>
         </tr>
         <% } %>
+        <a href="index.jsp">Voltar</a>
         </tbody>
     </table>
-        <a href="index.jsp">Voltar</a>
     </body>
 </html>

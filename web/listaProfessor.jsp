@@ -38,7 +38,7 @@
             <td ><%=prof.getNome() %></td>
             <td ><%=prof.getRg() %></td>
             <%--<td ><%=prof.getTipoPessoa() %></td>--%>
-            <td ><%=prof.getArea() %></td>
+            <td ><%=prof.getArea().getNomeArea() %></td>
             <form action="editarProfessor.jsp" method="POST">
                     <td align="center"><input type="hidden" name="codPessoa" value="<%= prof.getCodPessoa() %>"/>
                         <input type="submit" value="Editar Professor"></td>

@@ -14,14 +14,15 @@ import java.sql.SQLException;
 public class Curso implements Serializable {
     private int codCurso;
     private String nome;
-    private int area;
+    private Area area = new Area();
     private Professor orientador = new Professor();
     private String sigla;
+    private int codArea;
     private int codProfessor;
     
     public Curso() { }
 
-    public Curso (int codCurso, String nome, Professor orientador, int area) {
+    public Curso (int codCurso, String nome, Professor orientador, Area area) {
         this.setCodCurso(codCurso);
         this.setNome(nome);
         this.setOrientador(orientador);
@@ -32,7 +33,7 @@ public class Curso implements Serializable {
         this.setCodCurso(codCurso);
         this.setNome(nome);
         this.setCodProfessor(professor);
-        this.setArea(area);
+        this.setCodArea(area);
     }  
     
     public Curso (String _nome, int _professor, int _area) {
@@ -42,7 +43,7 @@ public class Curso implements Serializable {
         //this.setArea(area);
         this.nome = _nome;
         this.codProfessor = _professor;
-        this.area = _area;
+        this.codArea = _area;
     }     
     
     public Curso(Integer codCurso) {
@@ -60,13 +61,29 @@ public class Curso implements Serializable {
         this.setArea(cursos.getArea());
         
     }
-    
-    public int getArea() {
+
+    public Area getArea() {
         return area;
     }
 
-    public void setArea(int area) {
+    public void setArea(Area area) {
         this.area = area;
+    }    
+    
+    public int getCodProfessor() {
+        return codProfessor;
+    }
+
+    public void setCodProfessor(int codProfessor) {
+        this.codProfessor = codProfessor;
+    }
+    
+    public int getCodArea() {
+        return codArea;
+    }
+
+    public void setCodArea(int area) {
+        this.codArea = area;
     }
 
     public String getNome() {
@@ -113,16 +130,6 @@ public class Curso implements Serializable {
     @Override
     public String toString(){
         return ("Curso: " + getNome()+"\n");
-    }
-
-    public int getCodProfessor() {
-        return codProfessor;
-    }
-
-    public void setCodProfessor(int codProfessor) {
-        this.codProfessor = codProfessor;
-    }
-    
-    
+    }  
     
 }
