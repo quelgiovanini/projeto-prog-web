@@ -18,6 +18,7 @@
 %>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="../css/ciatico.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATICO ::. </title>
         <script type="text/javascript">
@@ -51,16 +52,19 @@
         </script>
     </head>
     <body onLoad="displayResult();">
-        <h1> Controle de Atividades Complementares </h1>
+        <div id="main">
+            <h1> Controle de Atividades Complementares </h1>
+            <p> Esse sistema auxilia no controle de atividades complementares. </p>
+	</div>
         <div id="divProfessor">
-        <ul>
+        <ul class="container">
             <li><a href="FrontController?cmd=trataExibirAtividade"> Verificar atividades </a></li>
             <li><a href="FrontController?cmd=trataExibirAllAtividade"> Relatório Atividades </a></li>
         </ul>  
         </div>    
         <br />
         <div id="divFuncionario">
-          <ul>
+          <ul class="container">
               <li><a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/></li><br />
               <li><a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/></li>            
               <li><a href="cadastraTipoAtividade.jsp"> Cadastrar Tipo Atividade </a><br/></li>
@@ -76,7 +80,7 @@
           </ul>
         </div>
         <div id="divAluno">
-          <ul>
+          <ul class="container">
               <li><a href="FrontController?cmd=trataExibirAtividadeAluno"> Status de Atividades </a></li>
 
           </ul>

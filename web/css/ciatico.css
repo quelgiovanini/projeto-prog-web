@@ -1,0 +1,127 @@
+/*=======================================*/
+/* CSS
+/* Created on : 12/01/2013, 13:54:48
+/* Author     : Quele
+/*=======================================*/
+
+/* Zerar navegadores */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    font-size:100%;
+    font-family:inherit;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;   
+}
+
+body {
+    padding-left: 11em; /*verificar */
+    font-family: Georgia, Verdana, Helvetica, sans-serif;
+    font-size: small;
+    color:#333;
+	background-color:#FFF;
+   /* background: #fff url("../fundo.jpg") no-repeat top center; */
+}
+
+h1 {
+    font-size: 130%;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 280%;
+    font-weight: bold;
+    color: #bc6440;
+    line-height: 1.1em;
+}
+
+h3 {
+    font-size: 120%;
+    font-weight: bold;
+    color: #69746c;
+}
+
+ul li {
+    list-style-type: none; 
+}
+
+ul.navbar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 2em;
+  left: 1em;
+  width: 15em }
+
+ul.navbar li {
+  background: white;
+  margin: 0.5em 0;
+  padding: 0.3em;
+  border-right: 1em solid black }
+	
+a:link, a:visited {
+    color: #699;
+    text-decoration:none;
+}
+
+div.container {
+    width: 1020px;
+    margin: 0 auto;
+}
+
+div.content {
+    width: 80%;
+    min-height: 700px;
+    padding-bottom: 40px;  
+    position: relative;
+    top: 45px;
+    float: right;
+ }
+ 
+ nav ul.menu {
+    width: 160px;
+    font-weight: bold;
+    font-size: 140%;
+    color: #630;
+    text-align: right;
+    position: absolute;
+    right: 870px;
+    top: 245px;    
+}
+
+
+header.topo h1 {
+    width: 1000px;
+    height: 200px;
+    margin: 0px auto;
+    background: url("/logo.jpg") no-repeat center center;
+    text-indent: -9000px;
+}
+
+header.topo h1 a {
+    width: 1000px;
+    height: 200px;
+    line-height: 5em;
+    display: block;    
+}
+
+div.container {
+    width: 800px;
+    min-height: 600px;
+    line-height: 1.5em;
+    font-size: 13pt;  
+    padding: 10px 15px;
+    margin: 0 auto;
+    margin-top: -130px;   
+    float: left;	
+}

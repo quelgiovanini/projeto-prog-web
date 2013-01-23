@@ -29,7 +29,7 @@ public class trataAnalisarAtividade extends Comando {
         getResponse().setContentType("text/html;charset=UTF-8");
         PrintWriter out = getResponse().getWriter();
         
-                Integer codati   = Integer.parseInt(getRequest().getParameter("codati"));
+        Integer codati   = Integer.parseInt(getRequest().getParameter("codati"));
         Integer aluno    = Integer.parseInt(getRequest().getParameter("aluno"));
         Integer tipoAtividade     = Integer.parseInt(getRequest().getParameter("tipoAtividade"));
         Integer professor     = Integer.parseInt(getRequest().getParameter("professor"));
