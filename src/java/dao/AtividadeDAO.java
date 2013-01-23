@@ -194,5 +194,27 @@ public class AtividadeDAO implements InterfaceDAO {
        pstmt.close();
        return ativList;
     }     
+
+    public ArrayList listaAluno() throws SQLException {
+      ArrayList ativList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("Relat.AtividadeAluno");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      ResultSet rs = pstmt.executeQuery();
+      
+      while (rs.next()) {
+
+          Atividade atividade = new Atividade(); 
+          atividade.getAluno().setNome(rs.getString(1));
+          atividade.getTipoAtividade().setDescricaoTipo(rs.getString(2));
+          atividade.getProfessorResponsavel().setNome(rs.getString(3));
+          atividade.setStatus(rs.getString(4));
+          atividade.setHorasAceitas(rs.getInt(5));
+          atividade.setIdAtividade(rs.getInt(6));
+          ativList.add(atividade);
+      }
+       pstmt.close();
+       return ativList;
+    }       
     
 }

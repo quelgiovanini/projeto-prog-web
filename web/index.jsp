@@ -72,9 +72,14 @@
               <li><a href="FrontController?cmd=trataListaFuncionario"> Listar Funcionários </a><br/></li>   
               
               <li><a href="FrontController?cmd=trataExibirAllAtividade"> Relatório Atividades </a></li>
+          </ul>
+        </div>
+        <div id="divAluno">
+          <ul>
+              <li><a href="FrontController?cmd=trataExibirAtividadeAluno"> Status de Atividades </a></li>
               
           </ul>
           
-        </div>
+        </div>        
     </body>
 </html>
