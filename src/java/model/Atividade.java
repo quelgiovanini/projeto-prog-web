@@ -81,6 +81,24 @@ public class Atividade implements Serializable {
       //this.professorResponsavel = tipoAtividade.getCurso().getProfessor();
     } 
     
+    public Atividade (Integer codati, Integer aluno, Integer tipo, Integer professor, Integer horas, String status) {
+        this.idAtividade = codati;
+        this.setCodAluno(aluno);
+        this.setCodTipoAtividade(tipo);
+        this.setCodProfessor(professor);
+        this.setHorasAceitas(horas);
+        this.status = status;
+    }
+    
+    public Atividade(int aluno, int tipo, int professor, int user, int horas, String status) {
+        this.setCodAluno(aluno);
+        this.setCodTipoAtividade(tipo);
+        this.setCodProfessor(professor);
+        this.setCodFuncionario(user);
+        this.setHorasRequisitadas(horas);
+        this.status = status;
+    }
+    
     public Atividade getAtividade() {
         return this;
     }

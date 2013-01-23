@@ -33,6 +33,7 @@ public class TrataAnalisarAtividade extends Comando {
         Integer aluno    = Integer.parseInt(getRequest().getParameter("aluno"));
         Integer tipo     = Integer.parseInt(getRequest().getParameter("tipo"));
         Integer professor     = Integer.parseInt(getRequest().getParameter("professor"));
+        Integer horas = Integer.parseInt(getRequest().getParameter("horas"));
         String status   = getRequest().getParameter("status");
         
         Atividade atividade = new Atividade();
@@ -40,9 +41,10 @@ public class TrataAnalisarAtividade extends Comando {
         atividade.getAluno().setCodPessoa(aluno);
         atividade.getTipoAtividade().setIdTipo(tipo);
         atividade.getProfessorResponsavel().setCodPessoa(professor);
+        atividade.setHorasAceitas(horas);
         atividade.setStatus(status);
         
-        Atividade atividades = new Atividade(aluno, tipo, professor, status);
+        Atividade atividades = new Atividade(codigo, aluno, tipo, professor, horas, status);
         new AtividadeDAO().editar(atividades);
         getResponse().sendRedirect("FrontController?cmd=TrataExibirAtividade");       
     }

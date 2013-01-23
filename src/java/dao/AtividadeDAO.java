@@ -261,7 +261,7 @@ public class AtividadeDAO implements InterfaceDAO {
             PreparedStatement pstmt = conexao.prepareStatement(sql);
             
             pstmt.setInt(1, atividade.getCodAluno());
-            pstmt.setInt(2, atividade.getIdAtividade());
+            pstmt.setInt(2, atividade.getCodTipoAtividade());
             pstmt.setInt(3, atividade.getCodProfessor());
             pstmt.setString(4, atividade.getStatus());
             pstmt.setInt(5, atividade.getHorasAceitas());
