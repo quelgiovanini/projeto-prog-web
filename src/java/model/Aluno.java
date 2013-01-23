@@ -21,7 +21,7 @@ public class Aluno implements Serializable {
      private String numeroMatricula;
      private Date dataIngresso;
      private int horasAcumuladas;
-     private Curriculo curriculo = new Curriculo();
+     private TipoAtividade tipo = new TipoAtividade();
 
      public Aluno () {}
      
@@ -156,21 +156,21 @@ public class Aluno implements Serializable {
         this.horasAcumuladas = horasAcumuladas;
     }
 
-    public Curriculo getCurriculo() {
-        return curriculo;
+    public TipoAtividade getTipoAtividade() {
+        return tipo;
     }
 
-    public void setCurriculo(Curriculo curriculo) {
-        this.curriculo = curriculo;
+    public void setTipoAtividade(TipoAtividade tipo) {
+        this.tipo = tipo;
     }
      
     public int addHoras(int valor){
-        if (curriculo.getTotalHoras() > valor)
+        if (tipo.getMaximoPermitido() > valor)
             horasAcumuladas+=valor;
         else{
             System.out.println("Horas acima do limite permitido.");
         }
-        if (horasAcumuladas > curriculo.getTotalHoras())
+        if (horasAcumuladas > tipo.getMaximoPermitido())
             System.out.println("Total de horas ultrapassaram o limite");
         
         return horasAcumuladas;
