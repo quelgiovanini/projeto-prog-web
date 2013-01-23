@@ -29,9 +29,10 @@ public class trataExibirAtividadeAluno  extends Comando {
         PrintWriter out = getResponse().getWriter();
         try{
             HttpSession session = getRequest().getSession(false);        
-            Usuario value = (Usuario) session.getAttribute("usuario");
+            Usuario user = (Usuario) session.getAttribute("usuario");
+            Integer us = user.getId();
             
-            ArrayList atividades = new AtividadeDAO().listaAluno();
+            ArrayList atividades = new AtividadeDAO().listaAluno(us);
             
             getRequest().setAttribute("dados", atividades);
             
