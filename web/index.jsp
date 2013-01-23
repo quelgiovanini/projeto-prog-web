@@ -55,6 +55,7 @@
         <div id="divProfessor">
         <ul>
             <li><a href="FrontController?cmd=trataExibirAtividade"> Verificar atividades </a></li>
+            <li><a href="FrontController?cmd=trataExibirAllAtividade"> Relatório Atividades </a></li>
         </ul>  
         </div>    
         <br />
@@ -71,13 +72,13 @@
               <li><a href="FrontController?cmd=trataListaProfessor">Listar Professores</a></li>
               <li><a href="FrontController?cmd=trataListaFuncionario"> Listar Funcionários </a><br/></li>   
               
-              <li><a href="FrontController?cmd=trataExibirAllAtividade"> Relatório Atividades </a></li>
+              
           </ul>
         </div>
         <div id="divAluno">
           <ul>
               <li><a href="FrontController?cmd=trataExibirAtividadeAluno"> Status de Atividades </a></li>
-              
+
           </ul>
           
         </div>        
