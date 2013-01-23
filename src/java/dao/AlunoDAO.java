@@ -174,6 +174,29 @@ public class AlunoDAO implements InterfaceDAO {
 
     }
     
+   public String editarhora(Aluno aluno) throws SQLException {
+        String retorno = "erro";                 
+        
+        Connection conexao = DBConnection.getInstance();
+        try{
+            String sql = (String) dados.get("UpdateHora.Aluno");
+            PreparedStatement pstmt = conexao.prepareStatement(sql);
+            
+            pstmt.setInt(1, aluno.getHorasAcumuladas());
+            pstmt.setInt(2, aluno.getCodPessoa());            
+
+            pstmt.execute();
+            retorno = "sucesso";
+
+            pstmt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+            
+        }
+        return retorno;
+
+    }    
+    
   @Override
   public void editar(Object obj) throws SQLException {
     throw new UnsupportedOperationException("Not supported yet.");

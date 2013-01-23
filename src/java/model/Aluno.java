@@ -81,7 +81,13 @@ public class Aluno implements Serializable {
         this.setNumeroMatricula(numeroMatricula);
       //  this.setDataIngresso(dataIngresso);
     //    this.setHorasAcumuladas(horasAcumuladas);
-    }     
+    } 
+     
+     public Aluno(int codPessoa, int horasAcumuladas) {
+        this.setCodPessoa(codPessoa);
+      //  this.setDataIngresso(dataIngresso);
+        this.setHorasAcumuladas(horasAcumuladas);
+    }      
      
      public Aluno (int codPessoa) {
          this.setCodPessoa(codPessoa);
@@ -148,11 +154,11 @@ public class Aluno implements Serializable {
         this.dataIngresso = dataIngresso;
     }
 
-    public int getHorasAcumuladas() {
+    public Integer getHorasAcumuladas() {
         return horasAcumuladas;
     }
 
-    public void setHorasAcumuladas(int horasAcumuladas) {
+    public void setHorasAcumuladas(Integer horasAcumuladas) {
         this.horasAcumuladas = horasAcumuladas;
     }
 
@@ -164,7 +170,7 @@ public class Aluno implements Serializable {
         this.tipo = tipo;
     }
      
-    public int addHoras(int valor){
+    public Integer addHoras(Integer valor){
         if (tipo.getMaximoPermitido() > valor)
             horasAcumuladas+=valor;
         else{
