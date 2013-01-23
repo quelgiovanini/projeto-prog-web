@@ -111,11 +111,14 @@ public class AtividadeDAO implements InterfaceDAO {
             ativ = new Atividade(); 
             ativ.setIdAtividade(rs.getInt(1));
             ativ.getAluno().setCodPessoa(rs.getInt(2));
-            ativ.getTipoAtividade().setIdTipo(rs.getInt(3));
-            ativ.getProfessorResponsavel().setCodPessoa(rs.getInt(4));
-            ativ.setStatus(rs.getString(5));
+            ativ.getAluno().setNome(rs.getString(3));
+            ativ.getTipoAtividade().setIdTipo(rs.getInt(4));
+            ativ.getTipoAtividade().setDescricaoTipo(rs.getString(5));
+            ativ.getProfessorResponsavel().setCodPessoa(rs.getInt(6));
+            ativ.getProfessorResponsavel().setNome(rs.getString(7));
+            ativ.setStatus(rs.getString(8));
+            ativ.setHorasAceitas(rs.getInt(9));
         }
-        pstmt.close();
         return ativ;
     }    
 
@@ -183,11 +186,15 @@ public class AtividadeDAO implements InterfaceDAO {
       while (rs.next()) {
 
           Atividade atividade = new Atividade(); 
-          atividade.getAluno().setNome(rs.getString(1));
-          atividade.getTipoAtividade().setDescricaoTipo(rs.getString(2));
-          atividade.getProfessorResponsavel().setNome(rs.getString(3));
-          atividade.setStatus(rs.getString(4));
-          atividade.setIdAtividade(rs.getInt(5));
+          atividade.getAluno().setCodPessoa(rs.getInt(1));
+          atividade.getAluno().setNome(rs.getString(2));
+          atividade.getTipoAtividade().setIdTipo(rs.getInt(3));
+          atividade.getTipoAtividade().setDescricaoTipo(rs.getString(4));
+          atividade.getProfessorResponsavel().setCodPessoa(rs.getInt(5));
+          atividade.getProfessorResponsavel().setNome(rs.getString(6));
+          atividade.setStatus(rs.getString(7));
+          atividade.setHorasAceitas(rs.getInt(8));
+          atividade.setIdAtividade(rs.getInt(9));
 
           ativList.add(atividade);
       }

@@ -8,6 +8,8 @@ import dao.AtividadeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 import model.Aluno;
@@ -27,7 +29,7 @@ public class trataAnalisarAtividade extends Comando {
     public void execute() throws ServletException, IOException, SQLException, ClassNotFoundException {
         try {
         getResponse().setContentType("text/html;charset=UTF-8");
-        PrintWriter out = getResponse().getWriter();
+        PrintWriter out = getResponse().getWriter();     
         
         Integer codati   = Integer.parseInt(getRequest().getParameter("codati"));
         Integer aluno    = Integer.parseInt(getRequest().getParameter("aluno"));
