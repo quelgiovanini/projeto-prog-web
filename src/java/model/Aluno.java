@@ -155,7 +155,10 @@ public class Aluno implements Serializable {
     }
 
     public Integer getHorasAcumuladas() {
-        return horasAcumuladas;
+        if (horasAcumuladas < 72)
+            return horasAcumuladas;
+        else
+            return 72;
     }
 
     public void setHorasAcumuladas(Integer horasAcumuladas) {
