@@ -25,6 +25,7 @@
                     <th>RG</th>
                     <!--<th>Tipo Pessoa</th>-->
                     <th>Matricula</th>
+                    <th>Horas Acumuladas</th>
                     <th></th>
                 </tr>
             </thead>
@@ -40,6 +41,7 @@
             <td ><%=aluno.getRg() %></td>
             <%--<td ><%=aluno.getTipoPessoa() %></td>--%>
             <td ><%=aluno.getNumeroMatricula() %></td>
+            <td ><%=aluno.getHorasAcumuladas() %></td>
             <form action="editarAluno.jsp" method="POST">
                     <td align="center">
                         <input type="hidden" name="codPessoa" value="<%= aluno.getCodPessoa() %>"/>

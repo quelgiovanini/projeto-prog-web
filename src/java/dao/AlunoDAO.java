@@ -88,7 +88,7 @@ public class AlunoDAO implements InterfaceDAO {
           aluno.setRg(rs.getString(3));
           aluno.setTipoPessoa(rs.getInt(4));
           aluno.setNumeroMatricula(rs.getString(5));
-
+          aluno.setHorasAcumuladas(rs.getInt(6));
           alunoList.add(aluno);
       }
        pstmt.close();
