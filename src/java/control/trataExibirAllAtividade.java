@@ -31,7 +31,7 @@ public class trataExibirAllAtividade  extends Comando {
             HttpSession session = getRequest().getSession(false);        
             Usuario value = (Usuario) session.getAttribute("usuario");
             
-            ArrayList atividades = new AtividadeDAO().listaAll();
+            ArrayList atividades = new AtividadeDAO().listaAllAtividade();
             
             getRequest().setAttribute("dados", atividades);
             

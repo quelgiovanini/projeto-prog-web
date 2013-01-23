@@ -29,20 +29,23 @@
                <table>
                <tr>
                <p class="first">
-                    <td><label for="aluno">Aluno </label></td>                   
-                    <td ><input type="text" name="aluno" id="<%=atividade.getAluno().getCodPessoa() %>" value="<%=atividade.getAluno().getNome() %>" size="70"/></td>
+                    <td><label for="aluno">Aluno </label></td>  
+                    <input type="hidden" name="aluno" id="aluno" value="<%=atividade.getAluno().getCodPessoa() %>" >
+                    <td ><input type="text" name="nomeAluno" id="nomeAluno" value="<%=atividade.getAluno().getNome() %>" size="70"/></td>
                 </p>    
                 </tr>
                 <tr>
                  <p>
                     <td><label for="tipoAtividade">Tipo de Atividade </label></td>
-                    <td><input type="text" name="tipoAtividade" id="<%=atividade.getTipoAtividade().getIdTipo() %>" value="<%=atividade.getTipoAtividade().getDescricaoTipo() %>" size="70"/></td>
+                    <input type="hidden" name="tipoAtividade" id="tipoAtividade" value="<%=atividade.getTipoAtividade().getIdTipo() %>" >                    
+                    <td><input type="text" name="tipoDesc" id="tipoDesc" value="<%=atividade.getTipoAtividade().getDescricaoTipo() %>" size="70"/></td>
                 </p>
                 </tr>
                 <tr>
                 <p>
-                    <td><label for="professor">Professor </label></td>                    
-                    <td><input type="text" name="professor" id="<%=atividade.getProfessorResponsavel().getCodPessoa() %>" value="<%=atividade.getProfessorResponsavel().getNome() %>" size="70"/></td>
+                    <td><label for="professor">Professor </label></td> 
+                    <input type="hidden" name="professor" id="professor" value="<%=atividade.getProfessorResponsavel().getCodPessoa() %>" >                      
+                    <td><input type="text" name="prof" id="prof" value="<%=atividade.getProfessorResponsavel().getNome() %>" size="70"/></td>
                 </p>
                 </tr>  
                 <tr>

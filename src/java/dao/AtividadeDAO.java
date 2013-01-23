@@ -176,6 +176,28 @@ public class AtividadeDAO implements InterfaceDAO {
        return ativList;
     } 
     
+    public ArrayList listaAllAtividade() throws SQLException {
+      ArrayList ativList = new ArrayList();
+      Connection conexao = DBConnection.getInstance();
+      String sql = (String) dados.get("ListaAllAtividade.Atividade");
+      PreparedStatement pstmt = conexao.prepareStatement(sql) ;
+      ResultSet rs = pstmt.executeQuery();
+      
+      while (rs.next()) {
+
+          Atividade atividade = new Atividade(); 
+          atividade.getAluno().setNome(rs.getString(1));
+          atividade.getTipoAtividade().setDescricaoTipo(rs.getString(2));
+          atividade.getProfessorResponsavel().setNome(rs.getString(3));
+          atividade.setStatus(rs.getString(4));
+          atividade.setIdAtividade(rs.getInt(5));
+
+          ativList.add(atividade);
+      }
+       pstmt.close();
+       return ativList;
+    }    
+    
     public ArrayList listaAll() throws SQLException {
       ArrayList ativList = new ArrayList();
       Connection conexao = DBConnection.getInstance();
@@ -231,7 +253,6 @@ public class AtividadeDAO implements InterfaceDAO {
         try{
             String sql = (String) dados.get("Analisar.Atividade");
             PreparedStatement pstmt = conexao.prepareStatement(sql);
-            
             
             pstmt.setInt(1, atividade.getCodAluno());
             pstmt.setInt(2, atividade.getIdAtividade());
