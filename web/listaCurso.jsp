@@ -11,18 +11,19 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/listar.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATCO ::. </title>
     </head>
     <body>
         <h1> Cursos </h1>
 
-        <table>
+        <table class="linhasAlternadas">
             <thead>
                 <tr>
-                    <th>Nome do Curso</th>
+                    <th width="250px">Nome do Curso</th>
                     <th>Professor Coordenador</th>
-                    <th>Área</th>
+                    <th width="200px">Área</th>
                     <th></th>
                 </tr>
             </thead>
@@ -34,9 +35,9 @@
             Curso curso = (Curso) it.next();
         %>     
         <tr>
-            <td ><%=curso.getNome() %></td>
-            <td ><%=curso.getOrientador().getNome() %></td>
-            <td ><%=curso.getArea().getNomeArea() %></td>
+            <td align="center"><%=curso.getNome() %></td>
+            <td align="center"><%=curso.getOrientador().getNome() %></td>
+            <td align="center"><%=curso.getArea().getNomeArea() %></td>
             
             <form action="FrontController" method="POST">
                     <td align="center">
@@ -49,6 +50,6 @@
         </tbody>
     </table>
         
-        <a href="index.jsp">Voltar</a>
+        <br/><br/><a href="index.jsp">Voltar</a>
     </body>
 </html>

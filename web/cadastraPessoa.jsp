@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/cadastra.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>  ..:: SIATICO ::.. </title>
         
@@ -49,17 +50,18 @@
       <body onLoad ="displayResult();">
           <form action="FrontController" method="POST"  >    
 
-        <fieldset><legend>  Controle de Atividades Complementares - Cadastro de Pessoas </legend>      
-<tr>
+        <fieldset><legend>  Controle de Atividades Complementares - Cadastro de Pessoas </legend>   
+            
+                    <tr>
                     <p class="first">
                         <td><label for="nome">Nome </label></td>
-                        <td><input type="text" name="nome" id="nome" size="70" maxlength="60" /></td>
+                        <td><input type="text" name="nome" id="nome" size="50" maxlength="60" /></td>
                     </p>
                     </tr>
                     <tr>
-                    <p>
-                        <td><label for="rg">RG </label></td>
-                        <td><input type="text" name="rg" id="rg" size="30" /></td>
+                    <p class="first">
+                    <td><label for="rg">RG </label></td>
+                    <td><input type="text" name="rg" id="rg" size="50" /></td>
                     </p>
                     </tr>
                     <tr>

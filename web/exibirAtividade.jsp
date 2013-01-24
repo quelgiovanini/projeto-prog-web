@@ -12,19 +12,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/listar.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATCO ::. </title>
     </head>
     <body>
-        <h1> Atividades Complementares </h1>
+        <h1> Atividades Pendentes </h1>
 
-        <table>
+        <table class="linhasAlternadas">
             <thead>
                 <tr>
-                    <th>Aluno</th>
-                    <th>Tipo de Atividade</th>
-                    <th>Professor</th>
-                    <th>Status</th>
+                    <th width="180px">Aluno</th>
+                    <th width="180px">Tipo de Atividade</th>
+                    <th width="180px">Professor</th>
+                    <th width="100px">Status</th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -36,10 +38,10 @@
             Atividade atividade = (Atividade) it.next();
         %>     
         <tr>
-            <td ><%=atividade.getAluno().getNome() %></td>
-            <td ><%=atividade.getTipoAtividade().getDescricaoTipo() %></td>
-            <td ><%=atividade.getProfessorResponsavel().getNome() %></td>
-            <td ><%=atividade.getStatus()%></td>
+            <td align="center"><%=atividade.getAluno().getNome() %></td>
+            <td align="center"><%=atividade.getTipoAtividade().getDescricaoTipo() %></td>
+            <td align="center"><%=atividade.getProfessorResponsavel().getNome() %></td>
+            <td align="center"><%=atividade.getStatus()%></td>
             <form action="analisarAtividade.jsp" method="POST">
                     <td align="center"><input type="hidden" name="codati" value="<%= atividade.getIdAtividade() %>"/>
                         <input type="submit" value="Analisar Atividade"></td>
@@ -53,6 +55,6 @@
         <% } %>
         </tbody>
     </table>
-        <a href="index.jsp">Voltar</a>
+        <br/><br/><a href="index.jsp">Voltar</a>
     </body>
 </html>

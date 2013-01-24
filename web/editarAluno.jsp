@@ -10,11 +10,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/cadastra.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>  ..:: Controle de Contas ::.. </title>
+        <title>  ..:: SIATICO ::.. </title>
     </head>
     <body>
-        <h1><font face="Verdana" color="#000000"> Edição de Aluno </font></h1>
         
         <%
             // codigo por parametro
@@ -26,7 +26,7 @@
         
         <form action='FrontController' method='POST'>
                 <input type="hidden" name="cmd" value="trataEditarAluno">
-
+                <fieldset><legend>  Controle de Atividades Complementares - Edicao de Aluno </legend>
                <table>
                <tr>
                     <td > Nome </font></td>
@@ -36,7 +36,7 @@
                 <tr>
                     <td >RG </font></td>
                     <td align="center" ><input type="text" name="rg" id="rg" value="<%=aluno.getRg() %>" size="70" maxlength="60" />
-                        <span class="style1"> * </span></td>
+                        </td>
                 </tr>
                 <tr>
 
@@ -51,7 +51,8 @@
                </table>                   
                     <input type="hidden" name="codPessoa" id="codPessoa" value="<%=aluno.getCodPessoa() %>" />
                       <input type="submit" value="Salvar">
+                </fieldset>
         </form>
-        <font face="Verdana" size="2" color="#000000"><a href="index.jsp">Voltar</a></font>
+        <br/><br/><font face="Verdana" size="2" color="#000000"><a href="index.jsp">Voltar</a></font>
     </body>
 </html>

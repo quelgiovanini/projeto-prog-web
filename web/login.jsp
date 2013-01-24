@@ -19,21 +19,23 @@
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/login.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
         <form method="POST" action=trataLogin>
-           <h1> Atividades Complementares </h1>
+            <div class="campo">
+           <h1> Sistema de Atividades Complementares </h1>
            <p> Para iniciar, insira os dados abaixo </p>
            <table>
                 <tr> 
-                    <td> Login : </td> 
+                    <td> Login</td> 
                     <td> <INPUT TYPE=TEXT SIZE=30 NAME = "Login"> </td> 
                 </tr> 
                 <tr> 
-                    <td> Senha : </td> 
-                    <td> <INPUT TYPE = PASSWORD NAME = "Senha"> </td> 
+                    <td> Senha</td> 
+                    <td> <INPUT TYPE = PASSWORD size =30 NAME = "Senha"> </td> 
                 </tr>
            </table>
            <p>
@@ -41,5 +43,6 @@
                <input type=reset value="Cancelar">
            </p>
         </form>
+        </div>
     </body>
 </html>

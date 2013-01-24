@@ -10,11 +10,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/cadastra.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>  ..:: SIATICO ::.. </title>
     </head>
     <body>
-        <h1><font face="Verdana" color="#000000"> Edição de Lançamento </font></h1>
         
         <%
             // codigo por parametro
@@ -27,7 +27,7 @@
         
         <form action='FrontController' method='POST'>
                 <input type="hidden" name="cmd" value="trataEditarTipoAtividade">
-
+                <fieldset><legend>  Controle de Atividades Complementares - Edicao de Tipo de Atividade </legend>
                <table>
                <tr>
                     <td >Descrição do Tipo</td>
@@ -44,7 +44,8 @@
                </table>                   
                     <input type="hidden" name="codtip" id="codtip" value="<%=tipo.getIdTipo() %>" />
                       <input type="submit" value="Salvar">
+                </fieldset>
         </form>
-        <a href="index.jsp">Voltar</a>
+        <br/><br/><a href="index.jsp">Voltar</a>
     </body>
 </html>

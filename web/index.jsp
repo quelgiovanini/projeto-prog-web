@@ -18,7 +18,7 @@
 %>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="../css/ciatico.css">
+        <link rel="stylesheet" type="text/css" href="css/cadastra.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATICO ::. </title>
         <script type="text/javascript">
@@ -58,30 +58,30 @@
 	</div>
         <div id="divProfessor">
         <ul class="container">
-            <li><a href="FrontController?cmd=trataExibirAtividade"> Verificar atividades </a></li>
-            <li><a href="FrontController?cmd=trataExibirAllAtividade"> Relatório Atividades </a></li>
+            <a href="FrontController?cmd=trataExibirAtividade"> Verificar atividades </a><br/>
+            <a href="FrontController?cmd=trataExibirAllAtividade"> Relatório Atividades </a>
         </ul>  
         </div>    
         <br />
         <div id="divFuncionario">
           <ul class="container">
-              <li><a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/></li><br />
-              <li><a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/></li>            
-              <li><a href="cadastraTipoAtividade.jsp"> Cadastrar Tipo Atividade </a><br/></li>
-              <li><a href="cadastraCurso.jsp"> Cadastrar Cursos </a><br/></li>
+              <a href="cadastraAtividade.jsp"> Cadastrar Atividade </a><br/><br />
+              <a href="cadastraPessoa.jsp"> Cadastrar Pessoas </a><br/>      
+              <a href="cadastraTipoAtividade.jsp"> Cadastrar Tipo Atividade </a><br/>
+              <a href="cadastraCurso.jsp"> Cadastrar Cursos </a><br/>
               <br />
-              <li><a href="FrontController?cmd=trataListaTipoAtividade"> Listar Tipos de Atividade </a><br/></li>
-              <li><a href="FrontController?cmd=trataListaCurso"> Listar Cursos </a><br/></li>              
-              <li><a href="FrontController?cmd=trataListaAluno">Listar Alunos</a></li>
-              <li><a href="FrontController?cmd=trataListaProfessor">Listar Professores</a></li>
-              <li><a href="FrontController?cmd=trataListaFuncionario"> Listar Funcionários </a><br/></li>   
+              <a href="FrontController?cmd=trataListaTipoAtividade"> Listar Tipos de Atividade </a><br/>
+              <a href="FrontController?cmd=trataListaCurso"> Listar Cursos </a><br/>              
+              <a href="FrontController?cmd=trataListaAluno">Listar Alunos</a><br/>
+              <a href="FrontController?cmd=trataListaProfessor">Listar Professores</a><br/>
+              <a href="FrontController?cmd=trataListaFuncionario"> Listar Funcionários </a><br/>   
               
               
           </ul>
         </div>
         <div id="divAluno">
           <ul class="container">
-              <li><a href="FrontController?cmd=trataExibirAtividadeAluno"> Status de Atividades </a></li>
+              <a href="FrontController?cmd=trataExibirAtividadeAluno"> Status de Atividades </a>
 
           </ul>
           

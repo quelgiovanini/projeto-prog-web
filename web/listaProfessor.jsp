@@ -11,19 +11,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/listar.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
         <h1> Professores </h1>
 
-        <table>
+        <table class="linhasAlternadas">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>RG</th>
+                    <th width="180px">Nome</th>
+                    <th width="120px">RG</th>
                     <!--<th>Tipo Pessoa</th> -->
-                    <th>Área</th>
+                    <th width="120">Área</th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,10 +37,10 @@
             Professor prof = (Professor) it.next();
         %>     
         <tr>
-            <td ><%=prof.getNome() %></td>
-            <td ><%=prof.getRg() %></td>
+            <td align="center"><%=prof.getNome() %></td>
+            <td align="center"><%=prof.getRg() %></td>
             <%--<td ><%=prof.getTipoPessoa() %></td>--%>
-            <td ><%=prof.getArea().getNomeArea() %></td>
+            <td align="center"><%=prof.getArea().getNomeArea() %></td>
             <form action="editarProfessor.jsp" method="POST">
                     <td align="center"><input type="hidden" name="codPessoa" value="<%= prof.getCodPessoa() %>"/>
                         <input type="submit" value="Editar Professor"></td>
@@ -54,6 +56,6 @@
         <% } %>
         </tbody>
     </table>
-        <a href="index.jsp">Voltar</a>
+        <br/><br/><a href="index.jsp">Voltar</a>
     </body>
 </html>

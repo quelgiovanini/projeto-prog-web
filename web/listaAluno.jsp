@@ -12,20 +12,22 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/listar.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
         <h1> Alunos </h1>
 
-        <table>
+        <table class="linhasAlternadas">
             <thead>
                 <tr>
-                    <th>Aluno</th>
-                    <th>RG</th>
+                    <th width="150px">Aluno</th>
+                    <th width="100px">RG</th>
                     <!--<th>Tipo Pessoa</th>-->
-                    <th>Matricula</th>
-                    <th>Horas Acumuladas</th>
+                    <th width="100px">Matricula</th>
+                    <th width="200px">Horas Acumuladas</th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -38,10 +40,10 @@
         %>     
         <tr>
             <td ><%=aluno.getNome() %></td>
-            <td ><%=aluno.getRg() %></td>
+            <td align="center"><%=aluno.getRg() %></td>
             <%--<td ><%=aluno.getTipoPessoa() %></td>--%>
-            <td ><%=aluno.getNumeroMatricula() %></td>
-            <td ><%=aluno.getHorasAcumuladas() %></td>
+            <td align="center"><%=aluno.getNumeroMatricula() %></td>
+            <td align="center"><%=aluno.getHorasAcumuladas() %></td>
             <form action="editarAluno.jsp" method="POST">
                     <td align="center">
                         <input type="hidden" name="codPessoa" value="<%= aluno.getCodPessoa() %>"/>
@@ -58,6 +60,6 @@
         <% } %>
         </tbody>
     </table>
-        <a href="index.jsp">Voltar</a>
+        <br/><br/><a href="index.jsp">Voltar</a>
     </body>
 </html>

@@ -11,19 +11,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/listar.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
         <h1> Funcionarios </h1>
 
-        <table>
+        <table class="linhasAlternadas">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>RG</th>
+                    <th width="180px">Nome</th>
+                    <th width="120px">RG</th>
                     <!--<th>Tipo Pessoa</th>-->
-                    <th>Setor</th>
+                    <th width="120px">Setor</th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,10 +36,10 @@
             Funcionario func = (Funcionario) it.next();
         %>     
         <tr>
-            <td ><%=func.getNome() %></td>
-            <td ><%=func.getRg() %></td>
+            <td align="center"><%=func.getNome() %></td>
+            <td align="center"><%=func.getRg() %></td>
            <%-- <td ><%=func.getTipoPessoa() %></td>            --%>
-            <td ><%=func.getCodSetor() %></td>
+            <td align="center"><%=func.getCodSetor() %></td>
             <form action="FrontController" method="POST">
                 <td align="center">
                     <input type="hidden" name="cmd" value="trataExcluirFuncionario" />
@@ -49,7 +50,7 @@
         <% } %>
         </tbody>
     </table>
-        <a href="index.jsp">Voltar</a>
+        <br/><br/><a href="index.jsp">Voltar</a>
     </body>
 </html>
 

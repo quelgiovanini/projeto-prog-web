@@ -12,21 +12,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/listar.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
         <h1> Atividades Complementares </h1>
 
-        <table>
+        <table class="linhasAlternadas">
             <thead>
                 <tr>
-                    <th>Aluno</th>
-                    <th>Tipo de Atividade</th>
-                    <th>Professor</th>
-                    <th>Status</th>
-                    <th>Horas Aprovadas</th>
-                    <th></th>
+                    <th width="180px">Aluno</th>
+                    <th width="180px">Tipo de Atividade</th>
+                    <th width="180px">Professor</th>
+                    <th width="100px">Status</th>
+                    <th width="160px">Horas Aprovadas</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,15 +37,15 @@
             Atividade atividade = (Atividade) it.next();
         %>     
         <tr>
-            <td ><%=atividade.getAluno().getNome() %></td>
-            <td ><%=atividade.getTipoAtividade().getDescricaoTipo() %></td>
-            <td ><%=atividade.getProfessorResponsavel().getNome() %></td>
-            <td ><%=atividade.getStatus()%></td>
-            <td ><%=atividade.getHorasAceitas() %></td>
+            <td align="center"><%=atividade.getAluno().getNome() %></td>
+            <td align="center"><%=atividade.getTipoAtividade().getDescricaoTipo() %></td>
+            <td align="center"><%=atividade.getProfessorResponsavel().getNome() %></td>
+            <td align="center"><%=atividade.getStatus()%></td>
+            <td align="center"><%=atividade.getHorasAceitas() %></td>
         </tr>
         <% } %>
-        <a href="index.jsp">Voltar</a>
         </tbody>
     </table>
+        <br/><br/><a href="index.jsp">Voltar</a>        
     </body>
 </html>

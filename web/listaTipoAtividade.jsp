@@ -11,18 +11,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/listar.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title> .:: SIATICO ::. </title>
     </head>
     <body>
         <h1> Tipos de Atividades Complementares </h1>
 
-        <table>
+        <table class="linhasAlternadas">
             <thead>
                 <tr>
-                    <th>Descricao do Tipo</th>
-                    <th>Proporção</th>
-                    <th>Máximo Permitido</th>
+                    <th width="180px">Descricao do Tipo</th>
+                    <th width="150px">Proporção</th>
+                    <th width="150px">Máximo Permitido</th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -34,9 +36,9 @@
             TipoAtividade tipo = (TipoAtividade) it.next();
         %>     
         <tr>
-            <td ><%=tipo.getDescricaoTipo() %></td>
-            <td ><%=tipo.getProporcao() %></td>
-            <td ><%=tipo.getMaximoPermitido() %></td>
+            <td align="center"><%=tipo.getDescricaoTipo() %></td>
+            <td align="center"><%=tipo.getProporcao() %></td>
+            <td align="center"><%=tipo.getMaximoPermitido() %></td>
             <form action="editarTipoAtividade.jsp" method="POST">
                     <td align="center">
                         <input type="hidden" name="codtip" value="<%= tipo.getIdTipo() %>"/>
@@ -52,6 +54,6 @@
         <% } %>
         </tbody>
     </table>
-        <a href="index.jsp">Voltar</a>
+        <br/><br/><a href="index.jsp">Voltar</a>
     </body>
 </html>

@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/cadastra.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>  ..:: SIATICO ::.. </title>
     </head>
@@ -25,7 +26,7 @@
                 <tr>
                 <p class="first">
                     <td><label for="proporcao">Proporção </label></td>
-                   <td><input type="text" name="proporcao" id="proporcao" size="70" maxlength="60" />    
+                   <td><input type="text" name="proporcao" id="proporcao" size="30" maxlength="60" />    
                 </p>
                 </tr>
                 <tr>

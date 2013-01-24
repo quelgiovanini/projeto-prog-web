@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="css/erro.css">
         <title>.: SIATICO :.</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
