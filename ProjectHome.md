@@ -1,0 +1,1 @@
+Assim que definido, a descrição será atualizada de acordo.
